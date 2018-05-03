@@ -11,7 +11,7 @@ const App = () => (
       <div>
         <h1>hello world!</h1>
         <img className="container__image" alt="react logo" src={reactLogo} />
-        <p>If you see this everything is working!</p>
+        <p>If you see this everything is working properly!</p>
       </div>
       <ul className="left">
         <li>
