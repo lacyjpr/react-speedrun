@@ -66,7 +66,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   output: {
-    filename: 'index.js',
+    filename: '/react-speedrun/index.js',
     path: path.join(__dirname, '/build'),
   },
   plugins: dev
