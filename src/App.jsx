@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { HashRouter, Link } from 'react-router-dom';
 
 import Routes from './Routes';
 
 import reactLogo from './assets/React-icon.png';
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <main className="container">
       <div>
         <h1>hello world!</h1>
@@ -23,7 +23,7 @@ const App = () => (
       </ul>
       <Routes />
     </main>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
