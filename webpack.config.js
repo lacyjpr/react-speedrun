@@ -8,7 +8,7 @@ const dev =
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: path.join(__dirname, '/src/index.html'),
-  filename: 'index.html',
+  filename: '/react-speedrun/index.html',
   inject: 'body',
 });
 
