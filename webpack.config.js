@@ -68,7 +68,6 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.join(__dirname, '/build'),
-    publicPath: '/react-speedrun/',
   },
   plugins: dev
     ? [
