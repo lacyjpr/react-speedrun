@@ -8,7 +8,7 @@ const dev =
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: path.join(__dirname, '/src/index.html'),
-  favicon: 'favicon.png',
+  favicon: 'favicon16.png',
   filename: 'index.html',
   inject: 'body',
 });
