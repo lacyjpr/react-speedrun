@@ -7,8 +7,8 @@
 
 ---
 
-Start date:  
-End Date:  
+Start date: May 11, 2018
+End Date:
 Projects Completed: 0
 
 ---
