@@ -3,6 +3,7 @@
 # Uses a list of projects and generates a folder for
 # each, along with jsx, tests, scss and exports
 # necessary for a barebones functional component
+# Credit: @P1xt https://github.com/P1xt
 ########################################################
 
 ########################################
