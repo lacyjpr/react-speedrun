@@ -26,13 +26,13 @@ cat << EOT >> ${folder}/${project}/${project}.scss
 EOT
 
 # Initialize the JSX for the project
-cat << EOT >> ${folder}/${project}/${project}.js
-import React from "react";
-import "./${project}.css";
+cat << EOT >> ${folder}/${project}/${project}.jsx
+import React from 'react';
+import './${project}.css';
 
 const ${project} = () => {
   return (
-    <div className="${project}">
+    <div className='${project}'>
       <h1>${project}</h1>
     </div>
   );
@@ -43,18 +43,18 @@ EOT
 
 # Initialize the exports for the project
 cat << EOT >> ${folder}/${project}/index.js
-export { default as ${project} } from "./${project}";
+export { default as ${project} } from './${project}';
 EOT
 
 # Initialize the tests for the project
 cat << EOT >> ${folder}/${project}/${project}.test.js
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import ${project} from "./${project}";
+import ${project} from './${project}';
 
-describe("<${project} />", () => {
-  it("renders without crashing", () => {
+describe('<${project} />', () => {
+  it('renders without crashing', () => {
     shallow(<${project} />);
   });
 });
@@ -63,59 +63,59 @@ EOT
 
 # Frontend project list
 declare -a Frontend_projects=(
-  "TributePage"
-  "PersonalPortfolioWebpage"
-  "RandomQuoteMachine"
-  "LocalWeather"
-  "WikipediaViewer"
-  "Twitchtv"
-  "Calculator"
-  "PomodoroClock"
-  "TicTacToeGame"
-  "SimonGame"
+  'TributePage'
+  'PersonalPortfolioWebpage'
+  'RandomQuoteMachine'
+  'LocalWeather'
+  'WikipediaViewer'
+  'Twitchtv'
+  'Calculator'
+  'PomodoroClock'
+  'TicTacToeGame'
+  'SimonGame'
 );
 mkdir ./Frontend
 for project in ${Frontend_projects[@]}
 do
-  createProject "Frontend" ${project}
+  createProject 'Frontend' ${project}
 done
 
 # Datavis project list
 declare -a Datavis_projects=(
-  "MarkdownPreviewer"
-  "CamperLeaderboard"
-  "RecipeBox"
-  "GameofLive"
-  "RoguelikeGame"
-  "BarChart"
-  "ScatterplotGraph"
-  "HeatMap"
-  "ForceDirectedGraph"
-  "DataAcrosstheGlobe"
+  'MarkdownPreviewer'
+  'CamperLeaderboard'
+  'RecipeBox'
+  'GameofLive'
+  'RoguelikeGame'
+  'BarChart'
+  'ScatterplotGraph'
+  'HeatMap'
+  'ForceDirectedGraph'
+  'DataAcrosstheGlobe'
 );
 
 mkdir ./Datavis
 for project in ${Datavis_projects[@]}
 do
-  createProject "Datavis" ${project}
+  createProject 'Datavis' ${project}
 done
 
 # Backend project list
 declare -a Backend_projects=(
-  "TimestampMicroservice"
-  "RequestHeaderParser"
-  "URLShortener"
-  "ImageSearch"
-  "FileMetadata"
-  "VotingApp"
-  "NightlifeCoordination"
-  "StockMarket"
-  "BookTradingClub"
-  "PinterestClone"
+  'TimestampMicroservice'
+  'RequestHeaderParser'
+  'URLShortener'
+  'ImageSearch'
+  'FileMetadata'
+  'VotingApp'
+  'NightlifeCoordination'
+  'StockMarket'
+  'BookTradingClub'
+  'PinterestClone'
 );
 
 mkdir ./Backend
 for project in ${Backend_projects[@]}
 do
-  createProject "Backend" ${project}
+  createProject 'Backend' ${project}
 done
