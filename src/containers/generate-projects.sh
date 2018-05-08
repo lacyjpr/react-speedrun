@@ -29,7 +29,7 @@ EOT
 # Initialize the JSX for the project
 cat << EOT >> ${folder}/${project}/${project}.jsx
 import React from 'react';
-import './${project}.css';
+import './${project}.scss';
 
 const ${project} = () => {
   return (
