@@ -26,7 +26,9 @@ const App = () => (
           <Link to="/BookTradingClub">BookTradingClub</Link>
         </li>
       </ul>
-      <Routes />
+      <div>
+        <Routes />
+      </div>
     </main>
   </HashRouter>
 );
