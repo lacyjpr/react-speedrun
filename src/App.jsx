@@ -22,6 +22,9 @@ const App = () => (
         <li>
           <Link to="/about">About</Link>
         </li>
+        <li>
+          <Link to="/BookTradingClub">BookTradingClub</Link>
+        </li>
       </ul>
       <Routes />
     </main>

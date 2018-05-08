@@ -31,13 +31,12 @@ cat << EOT >> ${folder}/${project}/${project}.jsx
 import React from 'react';
 import './${project}.scss';
 
-const ${project} = () => {
-  return (
+const ${project} = () => (
     <div className='${project}'>
       <h1>${project}</h1>
     </div>
-  );
-};
+);
+
 
 export default ${project};
 EOT
