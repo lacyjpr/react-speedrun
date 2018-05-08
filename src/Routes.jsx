@@ -39,41 +39,51 @@ const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/about" component={About} />
-    {/* Backend */}
-    <Route path="/BookTradingClub" component={BookTradingClub} />
-    <Route path="/FileMetadata" component={FileMetadata} />
-    <Route path="/ImageSearch" component={ImageSearch}/>
-    <Route path="/NightlifeCoordination" component={NightlifeCoordination}/>
-    <Route path="/PinterestClone" component={PinterestClone}/>
-    <Route path="/RequestHeaderParser" component={RequestHeaderParser}/>
-    <Route path="/StockMarket" component={StockMarket}/>
-    <Route path="/TimestampMicroservice" component={TimestampMicroservice}/>
-    <Route path="/URLShortener" component={URLShortener}/>
-    <Route path="/VotingApp" component={VotingApp}/>
+    {/* BackEnd */}
+    <Route path="/BackEnd/BookTradingClub" component={BookTradingClub} />
+    <Route path="/BackEnd/FileMetadata" component={FileMetadata} />
+    <Route path="/BackEnd/ImageSearch" component={ImageSearch} />
+    <Route
+      path="/BackEnd/NightlifeCoordination"
+      component={NightlifeCoordination}
+    />
+    <Route path="/BackEnd/PinterestClone" component={PinterestClone} />
+    <Route
+      path="/BackEnd/RequestHeaderParser"
+      component={RequestHeaderParser}
+    />
+    <Route path="/BackEnd/StockMarket" component={StockMarket} />
+    <Route
+      path="/BackEnd/TimestampMicroservice"
+      component={TimestampMicroservice}
+    />
+    <Route path="/BackEnd/URLShortener" component={URLShortener} />
+    <Route path="/BackEnd/VotingApp" component={VotingApp} />
     {/* DataVis */}
-    <Route path="/BarChart" component={BarChart}/>
-    <Route path=
-
-  ,
-  ,
-  DataAcrosstheGlobe,
-  ForceDirectedGraph,
-  GameofLive,
-  HeatMap,
-  MarkdownPreviewer,
-  RecipeBox,
-  RoguelikeGame,
-  ScatterplotGraph,
-  Calculator,
-  LocalWeather,
-  PersonalPortfolioWebpage,
-  PomodoroClock,
-  RandomQuoteMachine,
-  SimonGame,
-  TicTacToeGame,
-  TributePage,
-  Twitchtv,
-  WikipediaViewer,
+    <Route path="/DataVis/BarChart" component={BarChart} />
+    <Route path="/DataVis/CamperLeaderboard" component={CamperLeaderboard} />
+    <Route path="/DataVis/DataAcrosstheGlobe" component={DataAcrosstheGlobe} />
+    <Route path="/DataVis/ForceDirectedGraph" component={ForceDirectedGraph} />
+    <Route path="/DataVis/GameofLive" component={GameofLive} />
+    <Route path="/DataVis/HeatMap" component={HeatMap} />
+    <Route path="/DataVis/MarkdownPreviewer" component={MarkdownPreviewer} />
+    <Route path="/DataVis/RecipeBox" component={RecipeBox} />
+    <Route path="/DataVis/RoguelikeGame" component={RoguelikeGame} />
+    <Route path="/DataVis/ScatterplotGraph" component={ScatterplotGraph} />
+    {/* FrontEnd */}
+    <Route path="/FrontEnd/Calculator" component={Calculator} />
+    <Route path="/FrontEnd/LocalWeather" component={LocalWeather} />
+    <Route
+      path="/FrontEnd/PersonalPortfolioWebpage"
+      component={PersonalPortfolioWebpage}
+    />
+    <Route path="/FrontEnd/PomodoroClock" component={PomodoroClock} />
+    <Route path="/FrontEnd/RandomQuoteMachine" component={RandomQuoteMachine} />
+    <Route path="/FrontEnd/SimonGame" component={SimonGame} />
+    <Route path="/FrontEnd/TicTacToeGame" component={TicTacToeGame} />
+    <Route path="/FrontEnd/TributePage" component={TributePage} />
+    <Route path="/FrontEnd/Twitchtv" component={Twitchtv} />
+    <Route path="/FrontEnd/WikipediaViewer" component={WikipediaViewer} />
   </Switch>
 );
 
