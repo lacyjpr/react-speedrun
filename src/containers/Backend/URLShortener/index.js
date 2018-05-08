@@ -1,1 +1,2 @@
-export { default as URLShortener } from './URLShortener';
+import URLShortener from './URLShortener.jsx';
+export default URLShortener;

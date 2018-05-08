@@ -1,1 +1,2 @@
-export { default as StockMarket } from './StockMarket';
+import StockMarket from './StockMarket.jsx';
+export default StockMarket;

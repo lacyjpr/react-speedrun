@@ -1,1 +1,2 @@
-export { default as LocalWeather } from './LocalWeather';
+import LocalWeather from './LocalWeather.jsx';
+export default LocalWeather;

@@ -1,1 +1,2 @@
-export { default as Calculator } from './Calculator';
+import Calculator from './Calculator.jsx';
+export default Calculator;

@@ -1,1 +1,2 @@
-export { default as ForceDirectedGraph } from './ForceDirectedGraph';
+import ForceDirectedGraph from './ForceDirectedGraph.jsx';
+export default ForceDirectedGraph;

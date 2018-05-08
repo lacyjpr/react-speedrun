@@ -1,1 +1,2 @@
-export { default as RandomQuoteMachine } from './RandomQuoteMachine';
+import RandomQuoteMachine from './RandomQuoteMachine.jsx';
+export default RandomQuoteMachine;

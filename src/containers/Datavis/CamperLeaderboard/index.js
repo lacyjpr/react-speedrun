@@ -1,1 +1,2 @@
-export { default as CamperLeaderboard } from './CamperLeaderboard';
+import CamperLeaderboard from './CamperLeaderboard.jsx';
+export default CamperLeaderboard;

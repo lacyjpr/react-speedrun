@@ -1,1 +1,2 @@
-export { default as PomodoroClock } from './PomodoroClock';
+import PomodoroClock from './PomodoroClock.jsx';
+export default PomodoroClock;

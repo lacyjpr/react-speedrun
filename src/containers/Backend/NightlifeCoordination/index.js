@@ -1,1 +1,2 @@
-export { default as NightlifeCoordination } from './NightlifeCoordination';
+import NightlifeCoordination from './NightlifeCoordination.jsx';
+export default NightlifeCoordination;

@@ -1,1 +1,2 @@
-export { default as SimonGame } from './SimonGame';
+import SimonGame from './SimonGame.jsx';
+export default SimonGame;

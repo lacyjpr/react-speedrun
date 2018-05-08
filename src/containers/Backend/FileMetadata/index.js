@@ -1,1 +1,2 @@
-export { default as FileMetadata } from './FileMetadata';
+import FileMetadata from './FileMetadata.jsx';
+export default FileMetadata;

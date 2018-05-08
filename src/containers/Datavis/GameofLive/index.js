@@ -1,1 +1,2 @@
-export { default as GameofLive } from './GameofLive';
+import GameofLive from './GameofLive.jsx';
+export default GameofLive;

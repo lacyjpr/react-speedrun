@@ -1,1 +1,2 @@
-export { default as BookTradingClub } from './BookTradingClub';
+import BookTradingClub from './BookTradingClub.jsx';
+export default BookTradingClub;

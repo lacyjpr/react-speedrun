@@ -43,7 +43,8 @@ EOT
 
 # Initialize the exports for the project
 cat << EOT >> ${folder}/${project}/index.js
-export { default as ${project} } from './${project}';
+import ${project} from './${project}.jsx';
+export default ${project};
 EOT
 
 # Initialize the tests for the project

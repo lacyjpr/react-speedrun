@@ -1,1 +1,2 @@
-export { default as VotingApp } from './VotingApp';
+import VotingApp from './VotingApp.jsx';
+export default VotingApp;

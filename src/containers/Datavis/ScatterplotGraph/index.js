@@ -1,1 +1,2 @@
-export { default as ScatterplotGraph } from './ScatterplotGraph';
+import ScatterplotGraph from './ScatterplotGraph.jsx';
+export default ScatterplotGraph;

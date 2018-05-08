@@ -1,1 +1,2 @@
-export { default as DataAcrosstheGlobe } from './DataAcrosstheGlobe';
+import DataAcrosstheGlobe from './DataAcrosstheGlobe.jsx';
+export default DataAcrosstheGlobe;

@@ -1,1 +1,2 @@
-export { default as BarChart } from './BarChart';
+import BarChart from './BarChart.jsx';
+export default BarChart;

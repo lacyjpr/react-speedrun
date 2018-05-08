@@ -1,1 +1,2 @@
-export { default as RoguelikeGame } from './RoguelikeGame';
+import RoguelikeGame from './RoguelikeGame.jsx';
+export default RoguelikeGame;

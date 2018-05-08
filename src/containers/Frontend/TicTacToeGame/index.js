@@ -1,1 +1,2 @@
-export { default as TicTacToeGame } from './TicTacToeGame';
+import TicTacToeGame from './TicTacToeGame.jsx';
+export default TicTacToeGame;

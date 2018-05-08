@@ -1,1 +1,2 @@
-export { default as HeatMap } from './HeatMap';
+import HeatMap from './HeatMap.jsx';
+export default HeatMap;

@@ -1,1 +1,2 @@
-export { default as ImageSearch } from './ImageSearch';
+import ImageSearch from './ImageSearch.jsx';
+export default ImageSearch;

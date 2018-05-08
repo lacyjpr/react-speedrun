@@ -1,1 +1,2 @@
-export { default as TributePage } from './TributePage';
+import TributePage from './TributePage.jsx';
+export default TributePage;

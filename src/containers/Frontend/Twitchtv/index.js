@@ -1,1 +1,2 @@
-export { default as Twitchtv } from './Twitchtv';
+import Twitchtv from './Twitchtv.jsx';
+export default Twitchtv;

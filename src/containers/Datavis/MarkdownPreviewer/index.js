@@ -1,1 +1,2 @@
-export { default as MarkdownPreviewer } from './MarkdownPreviewer';
+import MarkdownPreviewer from './MarkdownPreviewer.jsx';
+export default MarkdownPreviewer;

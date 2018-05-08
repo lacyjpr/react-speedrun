@@ -1,1 +1,2 @@
-export { default as PinterestClone } from './PinterestClone';
+import PinterestClone from './PinterestClone.jsx';
+export default PinterestClone;
