@@ -7,6 +7,9 @@ const Home = () => (
       Objective: Complete as many of the FCC projects as possible using React
       during May 2018
     </p>
+    <a href="https://github.com/lacyjpr/react-speedrun" target="_blank">
+      GitHub Repo
+    </a>
   </div>
 );
 
