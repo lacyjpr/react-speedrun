@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Thumbnail, Row, Col } from 'react-bootstrap';
+import { Jumbotron, Thumbnail } from 'react-bootstrap';
 
 import ali from './../../../assets/Ali_Over_Liston.jpg';
 
@@ -17,8 +17,8 @@ const TributePage = () => (
           May 25, 1965.
         </p>
       </Thumbnail>
-      <Row>
-        <Col md={8} mdOffset={2}>
+      <div className="TributePage__row">
+        <div className="TributePage__row--col">
           <h4>Timeline:</h4>
           <ul className="TributePage__copy">
             <li>
@@ -133,8 +133,8 @@ const TributePage = () => (
               here.
             </a>
           </h5>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </Jumbotron>
   </div>
 );
