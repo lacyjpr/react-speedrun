@@ -6,11 +6,11 @@
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(3, minmax(50px, auto));
     margin: auto;
+  }
 
-    &--col {
-      grid-column-start: 2;
-      grid-column-end: 10;
-    }
+  &__col {
+    grid-column-start: 2;
+    grid-column-end: 10;
   }
 
   &__copy {

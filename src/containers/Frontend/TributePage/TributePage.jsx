@@ -18,7 +18,7 @@ const TributePage = () => (
         </p>
       </Thumbnail>
       <div className="TributePage__row">
-        <div className="TributePage__row--col">
+        <div className="TributePage__col">
           <h4>Timeline:</h4>
           <ul className="TributePage__copy">
             <li>
