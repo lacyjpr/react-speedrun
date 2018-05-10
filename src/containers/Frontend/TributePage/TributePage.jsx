@@ -9,7 +9,7 @@ const TributePage = () => (
   <div className="TributePage">
     <Jumbotron>
       <h1>Mohammad Ali</h1>
-      <h2>The Greatest Ever</h2>
+      <h3>The Greatest Ever</h3>
       <Thumbnail src={ali} alt="Ali over Liston">
         <p>
           Muhammad Ali after first round knockout of Sonny Liston during World
@@ -19,7 +19,7 @@ const TributePage = () => (
       </Thumbnail>
       <Row>
         <Col md={8} mdOffset={2}>
-          <h3>Timeline of Muhammad Ali's Life:</h3>
+          <h4>Timeline:</h4>
           <ul className="TributePage__copy">
             <li>
               <strong>1942</strong> Born Cassius Clay on January 17, in
