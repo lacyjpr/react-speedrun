@@ -5,7 +5,7 @@ const BigPicture = () => (
   <div className="big-picture">
     <div className="row">
       <div className="col-md-12">
-        <img src={bridge} class="img-responsive" />
+        <img src={bridge} className="img-responsive" />
       </div>
     </div>
   </div>

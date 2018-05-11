@@ -1,6 +1,17 @@
 .PersonalPortfolioWebpage {
-  text-align: center;
-  &__nav {
+  text-align: left !important &__nav {
     margin-bottom: 0px;
+  }
+
+  &__about {
+    color: white;
+    background-image: url('./../../../assets/portfolio/Doors.jpg');
+    background-size: 100% 100%;
+  }
+
+  &__about-me {
+    font-size: 1.5em;
+    padding-top: 10px;
+    padding-bottom: 100px;
   }
 }
