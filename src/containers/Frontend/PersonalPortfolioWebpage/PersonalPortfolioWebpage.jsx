@@ -5,6 +5,7 @@ import BigPicture from './BigPicture';
 import About from './About';
 import Portfolio from './Portfolio';
 import Contact from './Contact';
+import Footer from './Footer';
 
 import './PersonalPortfolioWebpage.scss';
 
@@ -15,6 +16,7 @@ const PersonalPortfolioWebpage = () => (
     <About />
     <Portfolio />
     <Contact />
+    <Footer />
   </div>
 );
 

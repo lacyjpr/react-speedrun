@@ -1,8 +1,10 @@
 .PersonalPortfolioWebpage {
   text-align: left;
+
   a {
     color: white;
   }
+
   li {
     display: inline-block;
   }
@@ -37,5 +39,11 @@
 
   &__li {
     padding: 0 10px 0 10px;
+    font-size: 1.2em;
+  }
+
+  &__footer {
+    background-color: black;
+    color: white;
   }
 }
