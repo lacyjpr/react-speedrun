@@ -1,5 +1,7 @@
 .PersonalPortfolioWebpage {
-  text-align: left !important &__nav {
+  text-align: left;
+
+  &__nav {
     margin-bottom: 0px;
   }
 
@@ -13,5 +15,11 @@
     font-size: 1.5em;
     padding-top: 10px;
     padding-bottom: 100px;
+  }
+
+  &__portfolio {
+    color: white;
+    background-image: url('./../../../assets/portfolio/Sunset.jpg');
+    background-size: 100% 100%;
   }
 }

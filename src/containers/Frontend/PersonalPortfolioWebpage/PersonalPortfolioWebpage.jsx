@@ -3,6 +3,7 @@ import React from 'react';
 import PortfolioHeader from './PortfolioHeader';
 import BigPicture from './BigPicture';
 import About from './About';
+import Portfolio from './Portfolio';
 
 import './PersonalPortfolioWebpage.scss';
 
@@ -11,6 +12,7 @@ const PersonalPortfolioWebpage = () => (
     <PortfolioHeader />
     <BigPicture />
     <About />
+    <Portfolio />
   </div>
 );
 
