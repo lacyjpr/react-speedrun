@@ -2,53 +2,53 @@ import React from 'react';
 
 const Contact = () => (
   <div className="PersonalPortfolioWebpage__contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="heading">
-            <h2 class="text-center">Contact</h2>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12">
+          <div className="heading">
+            <h2 className="text-center">Contact</h2>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6">
+      <div className="row">
+        <div className="col-md-6">
           <form
             role="form"
-            action="http://formspree.io/lacyjpr99@gmail.com"
+            action="https://formspree.io/lacyjpr99@gmail.com"
             method="POST"
           >
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="name"
                 placeholder="Name"
                 required
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 name="_replyto"
                 placeholder="Email"
                 required
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="subject"
-                Placeholder="Subject"
+                placeholder="Subject"
                 required
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <textarea
                 name="InputMessage"
-                class="form-control"
+                className="form-control"
                 placeholder="Message"
                 rows="3"
                 required
@@ -59,14 +59,14 @@ const Contact = () => (
               name="submit"
               id="submit"
               value="Submit"
-              class="btn btn-info pull-left"
+              className="btn btn-info pull-left"
             />
           </form>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+      <div className="row">
+        <div className="col-md-4 col-md-offset-4">
           <ul>
             <li>
               <a
