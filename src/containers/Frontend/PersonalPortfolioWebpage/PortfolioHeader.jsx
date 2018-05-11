@@ -3,7 +3,7 @@ import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const PortfolioHeader = () => (
-  <Navbar inverse collapseOnSelect>
+  <Navbar inverse collapseOnSelect className="PersonalPortfolioWebpage__nav">
     <Navbar.Header>
       <Navbar.Brand>
         <a href="#brand">Jean-Paul Lacy</a>
