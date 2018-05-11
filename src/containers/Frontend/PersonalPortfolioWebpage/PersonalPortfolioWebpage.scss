@@ -1,5 +1,11 @@
 .PersonalPortfolioWebpage {
   text-align: left;
+  a {
+    color: white;
+  }
+  li {
+    display: inline-block;
+  }
 
   &__nav {
     margin-bottom: 0px;
@@ -21,5 +27,15 @@
     color: white;
     background-image: url('./../../../assets/portfolio/Sunset.jpg');
     background-size: 100% 100%;
+  }
+
+  &__contact {
+    color: white;
+    background-image: url('./../../../assets/portfolio/Ocean.jpg');
+    background-size: 100% 100%;
+  }
+
+  &__li {
+    padding: 0 10px 0 10px;
   }
 }
