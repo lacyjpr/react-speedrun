@@ -14,19 +14,19 @@ const PortfolioHeader = () => (
       <Nav pullRight>
         <NavItem
           eventKey={1}
-          href="/#/Frontend/PersonalPortfolioWebpage/#about"
+          href="/react-speedrun/#/Frontend/PersonalPortfolioWebpage/#about"
         >
           About
         </NavItem>
         <NavItem
           eventKey={2}
-          href="/#/Frontend/PersonalPortfolioWebpage/#portfolio"
+          href="/react-speedrun/#/Frontend/PersonalPortfolioWebpage/#portfolio"
         >
           Portfolio
         </NavItem>
         <NavItem
           eventKey={3}
-          href="/#/Frontend/PersonalPortfolioWebpage/#contact"
+          href="/react-speedrun/#/Frontend/PersonalPortfolioWebpage/#contact"
         >
           Contact
         </NavItem>
