@@ -1,17 +1,36 @@
 import React from 'react';
 
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { HashLink as Link } from 'react-router-hash-link';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const PortfolioHeader = () => (
-  // <Navbar inverse collapseOnSelect className="PersonalPortfolioWebpage__nav">
-  //   <Navbar.Header>
-  //     <Navbar.Brand>
-  //       <a href="#brand">Jean-Paul Lacy</a>
-  //     </Navbar.Brand>
-  //     <Navbar.Toggle />
-  //   </Navbar.Header>
-  //   <Navbar.Collapse>
-  <nav className="navbar navbar-default navbar-inverse PersonalPortfolioWebpage__nav">
+  <Navbar inverse collapseOnSelect className="PersonalPortfolioWebpage__nav">
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#brand">Jean-Paul Lacy</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+    </Navbar.Header>
+    <Navbar.Collapse>
+      <Nav pullRight>
+        <Link to="#about" className="PersonalPortfolioWebpage__link">
+          About
+        </Link>
+        <Link to="#portfolio" className="PersonalPortfolioWebpage__link">
+          Portfolio
+        </Link>
+        <Link to="#contact" className="PersonalPortfolioWebpage__link">
+          Contact
+        </Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+);
+
+export default PortfolioHeader;
+
+{
+  /* <nav className="navbar navbar-default navbar-inverse PersonalPortfolioWebpage__nav">
     <div className="container-fluid">
       <div className="navbar-header">
         <button
@@ -33,42 +52,16 @@ const PortfolioHeader = () => (
       <div className="collapse navbar-collapse navbar-right" id="navigation">
         <ul className="nav navbar-nav" role="tablist">
           <li>
-            <a href="/#/Frontend/PersonalPortfolioWebpage/#about">About</a>
+            <Link to="#about">About</Link>
           </li>
           <li>
-            <a href="/#/Frontend/PersonalPortfolioWebpage/#portfolio">
-              Portfolio
-            </a>
+            <Link to="#portfolio">Portfolio</Link>
           </li>
           <li>
-            <a href="/#/Frontend/PersonalPortfolioWebpage/#contact">Contact</a>
+            <Link to="#contact">Contact</Link>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
-  //     <Nav pullRight>
-  //       <NavItem
-  //         eventKey={1}
-  //         href="/react-speedrun/#/Frontend/PersonalPortfolioWebpage/#about"
-  //       >
-  //         About
-  //       </NavItem>
-  //       <NavItem
-  //         eventKey={2}
-  //         href="/react-speedrun/#/Frontend/PersonalPortfolioWebpage/#portfolio"
-  //       >
-  //         Portfolio
-  //       </NavItem>
-  //       <NavItem
-  //         eventKey={3}
-  //         href="/react-speedrun/#/Frontend/PersonalPortfolioWebpage/#contact"
-  //       >
-  //         Contact
-  //       </NavItem>
-  //     </Nav>
-  //   </Navbar.Collapse>
-  // </Navbar>
-);
-
-export default PortfolioHeader;
+  </nav> */
+}

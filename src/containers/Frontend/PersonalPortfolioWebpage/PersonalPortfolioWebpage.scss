@@ -13,6 +13,11 @@
     margin-bottom: 0px;
   }
 
+  &__link {
+    color: #9d9d9d !important;
+    padding: 0 10px 0 10px;
+  }
+
   &__about {
     color: white;
     background-image: url('./../../../assets/portfolio/Doors.jpg');
