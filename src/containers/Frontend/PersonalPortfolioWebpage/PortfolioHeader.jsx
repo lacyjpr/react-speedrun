@@ -12,10 +12,7 @@ const PortfolioHeader = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
-        <NavItem
-          eventKey={1}
-          href="/#/Frontend/PersonalPortfolioWebpage/#about"
-        >
+        <NavItem eventKey={1} href="#about">
           About
         </NavItem>
         <NavItem
