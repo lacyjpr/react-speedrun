@@ -11,7 +11,7 @@ const PortfolioHeader = () => (
   //     <Navbar.Toggle />
   //   </Navbar.Header>
   //   <Navbar.Collapse>
-  <nav className="navbar navbar-default navbar-inverse">
+  <nav className="navbar navbar-default navbar-inverse PersonalPortfolioWebpage__nav">
     <div className="container-fluid">
       <div className="navbar-header">
         <button
