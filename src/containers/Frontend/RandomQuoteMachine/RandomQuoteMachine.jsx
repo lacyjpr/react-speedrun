@@ -9,17 +9,17 @@ class RandomQuoteMachine extends Component {
     this.state = {
       data: '',
     };
+    this.getQuote = this.getQuote.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.getQuote();
   }
 
-  getQuote() {
-    const res = axios.get(
-      'https://quotesondesign.com//wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
-    );
-    this.setState({ data: res.data });
+  async getQuote() {
+    const res = await axios.get('https://api.chucknorris.io/jokes/random');
+    const data = res.data;
+    this.setState({ data: data });
   }
 
   render() {
@@ -34,10 +34,10 @@ class RandomQuoteMachine extends Component {
             className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4"
           >
             <p id="quote" className="text-center">
-              random quote
+              {this.state.data.value && this.state.data.value}
             </p>
             <p id="author" className="text-right">
-              trump
+              {/* {this.state.data.title && this.state.data.title} */}
             </p>
             <div className="row">
               <div className="col-xs-6 col-sm-6 col-md-6">
@@ -54,6 +54,7 @@ class RandomQuoteMachine extends Component {
                   type="button"
                   className="btn btn-primary pull-right"
                   id="newQuote"
+                  onClick={this.getQuote}
                 >
                   New Quote
                 </button>
