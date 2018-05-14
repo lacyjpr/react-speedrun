@@ -57,7 +57,7 @@ class RandomQuoteMachine extends Component {
                   type="button"
                   className="btn btn-primary pull-right"
                   id="newQuote"
-                  onClick={this.getQuote}
+                  onClick={this.getQuote.bind(this)}
                 >
                   New Quote
                 </button>
