@@ -4,23 +4,26 @@ import axios from 'axios';
 import './RandomQuoteMachine.scss';
 
 class RandomQuoteMachine extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: '',
-    };
-    this.getQuote = this.getQuote.bind(this);
-  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     data: '',
+  //   };
+  //   this.getQuote = this.getQuote.bind(this);
+  // }
+  state = {
+    data: '',
+  };
 
   componentDidMount() {
     this.getQuote();
   }
 
-  getQuote = async () => {
+  async getQuote() {
     const res = await axios.get('https://api.chucknorris.io/jokes/random');
     const data = res.data;
     this.setState({ data: data });
-  };
+  }
 
   render() {
     return (
