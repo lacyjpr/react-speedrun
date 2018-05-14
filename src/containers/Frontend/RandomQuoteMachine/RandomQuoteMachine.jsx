@@ -2,6 +2,11 @@ import React from 'react';
 import './RandomQuoteMachine.scss';
 
 class RandomQuoteMachine extends React.Component {
+  state = {
+    quote: '',
+    author: '',
+  };
+
   render() {
     return (
       <div className="RandomQuoteMachine">
