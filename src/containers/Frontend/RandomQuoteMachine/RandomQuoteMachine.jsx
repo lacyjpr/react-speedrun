@@ -16,11 +16,11 @@ class RandomQuoteMachine extends Component {
     this.getQuote();
   }
 
-  async getQuote() {
+  getQuote = async () => {
     const res = await axios.get('https://api.chucknorris.io/jokes/random');
     const data = res.data;
     this.setState({ data: data });
-  }
+  };
 
   render() {
     return (
