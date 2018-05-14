@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+
 import './RandomQuoteMachine.scss';
 
-class RandomQuoteMachine extends React.Component {
-  state = {
-    quote: '',
-    author: '',
-  };
+class RandomQuoteMachine extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: '',
+    };
+  }
+
+  async componentDidMount() {
+    this.getQuote();
+  }
+
+  getQuote() {
+    const res = axios.get(
+      'https://quotesondesign.com//wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
+    );
+    this.setState({ data: res.data });
+  }
 
   render() {
     return (
