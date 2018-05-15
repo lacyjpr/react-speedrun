@@ -52,10 +52,7 @@ class LocalWeather extends Component {
     return (
       <div className="LocalWeather">
         <div className="row">
-          <div
-            className="col-xs-6 col col-xs-offset-3 col-md-4 col-md-offset-4 text-center"
-            id="weather"
-          >
+          <div className="LocalWeather__weather col-xs-6 col col-xs-offset-3 col-md-4 col-md-offset-4 text-center">
             <h1>Local Weather</h1>
             {this.state.location && (
               <div>
@@ -63,18 +60,22 @@ class LocalWeather extends Component {
                   src={this.state.weatherImage}
                   alt={this.state.weatherDescription}
                 />
-                <p id="city">{this.state.location.data.city}</p>
-                <p id="temp">
+                <p className="LocalWeather__city">
+                  {this.state.location.data.city}
+                </p>
+                <p className="LocalWeather__temp">
                   {this.state.temp} {this.state.tempUnit}
                 </p>
-                <p id="desc">{this.state.weatherDescription}</p>
+                <p className="LocalWeather__desc">
+                  {this.state.weatherDescription}
+                </p>
               </div>
             )}
 
             <div>
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-primary"
                 onClick={this.toggleUnit}
               >
                 C/F
