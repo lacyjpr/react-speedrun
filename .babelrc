@@ -3,16 +3,14 @@
   "plugins": [
     "react-hot-loader/babel",
     "babel-plugin-transform-object-rest-spread",
-    "transform-class-properties",
-    "transform-async-to-generator"
+    "transform-class-properties"
   ],
   "env": {
     "test": {
       "presets": ["react", ["env", { "modules": "commonjs" }]],
       "plugins": [
         "transform-es2015-modules-commonjs",
-        "transform-class-properties",
-        "transform-async-to-generator"
+        "transform-class-properties"
       ]
     }
   }
