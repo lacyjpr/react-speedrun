@@ -4,13 +4,6 @@ import axios from 'axios';
 import './RandomQuoteMachine.scss';
 
 class RandomQuoteMachine extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     data: '',
-  //   };
-  //   this.getQuote = this.getQuote.bind(this);
-  // }
   state = {
     data: '',
   };
@@ -22,7 +15,7 @@ class RandomQuoteMachine extends Component {
   async getQuote() {
     const res = await axios.get('https://api.chucknorris.io/jokes/random');
     const data = res.data;
-    this.setState({ data: data });
+    this.setState({ data });
   }
 
   render() {
@@ -38,9 +31,6 @@ class RandomQuoteMachine extends Component {
           >
             <p id="quote" className="text-center">
               {this.state.data.value && this.state.data.value}
-            </p>
-            <p id="author" className="text-right">
-              {/* {this.state.data.title && this.state.data.title} */}
             </p>
             <div className="row">
               <div className="col-xs-6 col-sm-6 col-md-6">
