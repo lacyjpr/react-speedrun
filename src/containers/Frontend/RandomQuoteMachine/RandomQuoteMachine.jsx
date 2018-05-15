@@ -18,6 +18,13 @@ class RandomQuoteMachine extends Component {
     this.setState({ data });
   };
 
+  tweet = () => {
+    window.open(
+      'https://twitter.com/intent/tweet?hashtags=quotes&text=' +
+        this.state.data.value
+    );
+  };
+
   render() {
     return (
       <div className="RandomQuoteMachine">
@@ -38,6 +45,7 @@ class RandomQuoteMachine extends Component {
                   type="button"
                   className="btn btn-primary pull-left"
                   id="tweet"
+                  onClick={this.tweet}
                 >
                   Tweet
                 </button>
