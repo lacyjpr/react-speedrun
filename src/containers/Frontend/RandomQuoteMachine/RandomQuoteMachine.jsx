@@ -32,10 +32,7 @@ class RandomQuoteMachine extends Component {
           <h1 className="text-center">Random Quote Machine</h1>
         </div>
         <div className="row">
-          <div
-            id="quoteBox"
-            className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4"
-          >
+          <div className="RandomQuoteMachine__quoteBox col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
             <p id="quote" className="text-center">
               {this.state.data.value && this.state.data.value}
             </p>
@@ -44,7 +41,6 @@ class RandomQuoteMachine extends Component {
                 <button
                   type="button"
                   className="btn btn-primary pull-left"
-                  id="tweet"
                   onClick={this.tweet}
                 >
                   Tweet
@@ -54,7 +50,6 @@ class RandomQuoteMachine extends Component {
                 <button
                   type="button"
                   className="btn btn-primary pull-right"
-                  id="newQuote"
                   onClick={this.getQuote}
                 >
                   New Quote
