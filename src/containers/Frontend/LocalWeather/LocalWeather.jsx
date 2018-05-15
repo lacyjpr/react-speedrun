@@ -34,6 +34,20 @@ class LocalWeather extends Component {
     console.log(this.state);
   };
 
+  toggleUnit = () => {
+    if (this.state.tempUnit === 'C') {
+      this.setState({
+        tempUnit: 'F',
+        temp: this.state.tempFahrenheit,
+      });
+    } else {
+      this.setState({
+        tempUnit: 'C',
+        temp: this.state.tempCelcius,
+      });
+    }
+  };
+
   render() {
     return (
       <div className="LocalWeather">
@@ -45,16 +59,24 @@ class LocalWeather extends Component {
             <h1>Local Weather</h1>
             {this.state.location && (
               <div>
+                <img
+                  src={this.state.weatherImage}
+                  alt={this.state.weatherDescription}
+                />
                 <p id="city">{this.state.location.data.city}</p>
-                <p id="tempCel">26</p>
-                <p id="tempFah">70</p>
-                <p id="desc">hot</p>
-                <div id="icon" />
+                <p id="temp">
+                  {this.state.temp} {this.state.tempUnit}
+                </p>
+                <p id="desc">{this.state.weatherDescription}</p>
               </div>
             )}
 
             <div>
-              <button type="button" className="btn btn-secondary" id="toggle">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={this.toggleUnit}
+              >
                 C/F
               </button>
             </div>
