@@ -9,13 +9,13 @@ class RandomQuoteMachine extends Component {
   };
 
   componentDidMount() {
-    this.getQuote(this);
+    this.getQuote();
   }
 
-  getQuote = async _this => {
+  getQuote = async () => {
     const res = await axios.get('https://api.chucknorris.io/jokes/random');
     const data = res.data;
-    _this.setState({ data });
+    this.setState({ data });
   };
 
   render() {
@@ -47,7 +47,7 @@ class RandomQuoteMachine extends Component {
                   type="button"
                   className="btn btn-primary pull-right"
                   id="newQuote"
-                  onClick={async () => await this.getQuote(this)}
+                  onClick={this.getQuote}
                 >
                   New Quote
                 </button>
