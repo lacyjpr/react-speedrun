@@ -5,7 +5,7 @@ import './RandomQuoteMachine.scss';
 
 class RandomQuoteMachine extends Component {
   state = {
-    data: '',
+    data: {},
   };
 
   componentDidMount() {
