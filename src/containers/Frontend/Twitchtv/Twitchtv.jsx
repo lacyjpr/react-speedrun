@@ -36,7 +36,10 @@ class Twitchtv extends Component {
       `https://wind-bow.glitch.me/twitch-api/streams/${streamer}`
     );
     const streamData = await response.json();
-    console.log(streamData);
+    this.setState({
+      streamersData: { ...this.state.streamersData, [streamer]: streamData },
+    });
+    console.log(this.state);
   };
 
   render() {
