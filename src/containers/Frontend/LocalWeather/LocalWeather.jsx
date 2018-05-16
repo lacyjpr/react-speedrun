@@ -22,7 +22,6 @@ class LocalWeather extends Component {
     const weather = await axios.get(
       `https://fcc-weather-api.glitch.me/api/current?lat=${LAT}&lon=${LON}`
     );
-    console.log(weather);
     this.setState({
       weatherImage: weather.data.weather[0].icon,
       weatherDescription: weather.data.weather[0].description,
@@ -31,7 +30,6 @@ class LocalWeather extends Component {
       tempFahrenheit: Math.round(weather.data.main.temp * 9 / 5 + 32),
       temp: weather.data.main.temp,
     });
-    console.log(this.state);
   };
 
   toggleUnit = () => {
