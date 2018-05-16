@@ -14,7 +14,6 @@ class WikipediaViewer extends Component {
 
   handleChange = async event => {
     await this.setState({ searchText: event.target.value });
-    console.log(this.state);
     const SEARCHTEXT = this.state.searchText;
     const results = await axios.get(
       `https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&generator=search&prop=extracts|info&inprop=url&exintro&explaintext&exsentences=1&exlimit=10&gsrsearch=${SEARCHTEXT}`
@@ -34,7 +33,7 @@ class WikipediaViewer extends Component {
                 <input
                   type="text"
                   id="searchText"
-                  className="form-control"
+                  className="form-control WikipediaViewer__searchBox"
                   placeholder="search WikipediA"
                   value={searchText}
                   onChange={this.handleChange}
@@ -67,7 +66,7 @@ class WikipediaViewer extends Component {
                 className="WikipediaViewer__link"
               >
                 <div className="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 WikipediaViewer__result">
-                  <h2>{article[1].title}</h2>
+                  <h4>{article[1].title}</h4>
                   <p>{article[1].extract}</p>
                 </div>
               </a>

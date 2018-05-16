@@ -1,10 +1,9 @@
 .WikipediaViewer {
   text-align: center;
-  background-color: white;
-  padding-top: 5vh;
 
-  h1 {
-    color: black;
+  &__searchBox {
+    font-family: 'Linux Libertine', 'Hoefler Text', Georgia, 'Times New Roman',
+      Times, serif;
   }
 
   &__link {
@@ -14,8 +13,7 @@
   }
 
   &__result {
-    background-color: white;
-    color: black;
+    color: cyan;
   }
 
   &__result:hover {
