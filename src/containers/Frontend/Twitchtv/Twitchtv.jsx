@@ -65,7 +65,7 @@ class Twitchtv extends Component {
             </button>
           </div>
         </div>
-        {/* Credit @Kornil https://github.com/Kornil/react-speedrun/blob/master/src/containers/twitch_app/index.jsx */}
+        {/* Credit @Kornil https://github.com/Kornil/react-speedrun/blob/master/src/containers/twitch_app/index.jsx & @P1xt https://github.com/P1xt/speedrun-may2018-p1xt/blob/master/fcc-react-client/src/Projects/Frontend/Twitchtv/Twitchtv.js */}
         {console.log(this.state.streamersData)}
         {this.state.streamersData &&
           //console.log(Object.entries(this.state.streamersData))
