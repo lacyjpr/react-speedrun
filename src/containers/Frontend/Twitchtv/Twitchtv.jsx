@@ -65,8 +65,30 @@ class Twitchtv extends Component {
             </button>
           </div>
         </div>
-
-        <div id="results" />
+        {/* Credit @Kornil https://github.com/Kornil/react-speedrun/blob/master/src/containers/twitch_app/index.jsx */}
+        {console.log(this.state.streamersData)}
+        {this.state.streamersData &&
+          //console.log(Object.entries(this.state.streamersData))
+          Object.entries(this.state.streamersData)
+            .sort((a, b) => (a[1].stream === null) - (b[1].stream === null))
+            .map(stream => {
+              console.log(stream[0]);
+            })}
+        {/* 
+            .map(stream => {
+              stream[1].stream.channel.logo !== null && (   console.log(stream[1].stream.channel.logo),
+              <li className="list-group-item" key={stream[1]}>
+                {stream[1].stream.channel.logo !== null ? (
+                  <img alt="avatar" src={stream[1].stream.channel.logo} />
+                ) : (
+                  <img
+                    alt="missing avatar"
+                    src="http://via.placeholder.com/50x50"
+                  />
+                )
+              </li>)
+            )}
+            })} */}
       </div>
     );
   }
