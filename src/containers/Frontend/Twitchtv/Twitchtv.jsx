@@ -72,7 +72,10 @@ class Twitchtv extends Component {
           Object.entries(this.state.streamersData)
             .sort((a, b) => (a[1].stream === null) - (b[1].stream === null))
             .map(stream => {
-              console.log(stream[0]);
+              console.log(stream);
+              if (stream[1].stream !== null) {
+                console.log(stream[1].stream.channel.logo);
+              }
             })}
         {/* 
             .map(stream => {
