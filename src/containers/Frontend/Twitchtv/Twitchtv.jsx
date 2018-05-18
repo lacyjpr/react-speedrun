@@ -77,17 +77,20 @@ class Twitchtv extends Component {
                 // if (stream[1].stream !== null) {
                 //   console.log(stream[1].stream.channel.logo);
                 // }
-                <li className="list-group-item" key={stream[1]}>
-                  {stream[1].stream !== null ? (
-                    (console.log(stream[1].stream.channel.logo),
-                    <img alt="avatar" src={stream[1].stream.channel.logo} />)
-                  ) : (
-                    <img
-                      alt="missing avatar"
-                      src="http://via.placeholder.com/50x50"
-                    />
-                  )}
-                </li>;
+                return (
+                  <li className="list-group-item" key={stream[1]}>
+                    {stream[1].stream !== null ? (
+                      // (console.log(stream[1].stream.channel.logo),
+                      <img alt="avatar" src={stream[1].stream.channel.logo} />
+                    ) : (
+                      //)
+                      <img
+                        alt="missing avatar"
+                        src="http://via.placeholder.com/50x50"
+                      />
+                    )}
+                  </li>
+                );
               })}
         </ul>
 
