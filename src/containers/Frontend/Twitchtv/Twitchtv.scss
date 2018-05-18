@@ -3,9 +3,20 @@
 
   &__stream {
     text-align: left;
+    background-color: #fff294;
+    margin-top: 10px;
+    border: 5px solid #6441a5;
+    border-radius: 4px;
+    padding-bottom: 2px;
+    padding-top: 2px;
   }
 
   &__stream-name {
     margin-left: 10px;
+  }
+
+  &__viewers {
+    float: right;
+    padding-top: 12px;
   }
 }
