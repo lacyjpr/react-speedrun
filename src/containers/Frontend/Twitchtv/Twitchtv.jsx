@@ -39,7 +39,6 @@ class Twitchtv extends Component {
     this.setState({
       streamersData: { ...this.state.streamersData, [streamer]: streamData },
     });
-    console.log(this.state);
   };
 
   render() {
@@ -50,25 +49,17 @@ class Twitchtv extends Component {
             <h1>Twitch.tv Streamers</h1>
           </div>
         </div>
-        {/* <ul className="list-group"> */}
         {/* Credit @Kornil https://github.com/Kornil/react-speedrun/blob/master/src/containers/twitch_app/index.jsx & @P1xt https://github.com/P1xt/speedrun-may2018-p1xt/blob/master/fcc-react-client/src/Projects/Frontend/Twitchtv/Twitchtv.js */}
-        {/* {console.log(this.state.streamersData)} */}
         {this.state.streamersData &&
-          //console.log(Object.entries(this.state.streamersData))
           Object.entries(this.state.streamersData)
             .sort((a, b) => (a[1].stream === null) - (b[1].stream === null))
             .map(stream => {
-              // console.log(stream);
-              // if (stream[1].stream !== null) {
-              //   console.log(stream[1].stream.channel.logo);
-              // }
               return (
                 <div
                   className="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 Twitchtv__stream"
                   key={stream[0]}
                 >
                   {stream[1].stream !== null ? (
-                    // (console.log(stream[1].stream.channel.logo),
                     <img
                       alt="avatar"
                       src={stream[1].stream.channel.logo}
@@ -76,7 +67,6 @@ class Twitchtv extends Component {
                       height={50}
                     />
                   ) : (
-                    //)
                     <img
                       alt="missing avatar"
                       src="https://via.placeholder.com/50x50"
@@ -99,7 +89,6 @@ class Twitchtv extends Component {
                 </div>
               );
             })}
-        {/* </ul> */}
       </div>
     );
   }
