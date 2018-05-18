@@ -78,7 +78,7 @@ class Twitchtv extends Component {
                 //   console.log(stream[1].stream.channel.logo);
                 // }
                 return (
-                  <li className="list-group-item" key={stream[1]}>
+                  <li className="list-group-item" key={stream[0]}>
                     {stream[1].stream !== null ? (
                       // (console.log(stream[1].stream.channel.logo),
                       <img alt="avatar" src={stream[1].stream.channel.logo} />
@@ -89,6 +89,7 @@ class Twitchtv extends Component {
                         src="http://via.placeholder.com/50x50"
                       />
                     )}
+                    {stream[0]}
                   </li>
                 );
               })}
