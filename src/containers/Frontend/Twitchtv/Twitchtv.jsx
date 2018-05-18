@@ -56,7 +56,7 @@ class Twitchtv extends Component {
             .map(stream => {
               return (
                 <div
-                  className="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 Twitchtv__stream"
+                  className="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2 Twitchtv__stream"
                   key={stream[0]}
                 >
                   {stream[1].stream !== null ? (
