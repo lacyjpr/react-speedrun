@@ -79,7 +79,7 @@ class Twitchtv extends Component {
                     //)
                     <img
                       alt="missing avatar"
-                      src="http://via.placeholder.com/50x50"
+                      src="https://via.placeholder.com/50x50"
                     />
                   )}
                   <span className="Twitchtv__stream-name">{stream[0]}</span>
