@@ -48,21 +48,6 @@ class Twitchtv extends Component {
         <div className="row">
           <div className="col-md-12 text-center">
             <h1>Twitch.tv Streamers</h1>
-            <button type="button" className="btn btn-default Twitchtv__all-btn">
-              All
-            </button>
-            <button
-              type="button"
-              className="btn btn-default Twitchtv__online-btn"
-            >
-              Online
-            </button>
-            <button
-              type="button"
-              className="btn btn-default Twitchtv__offline-btn"
-            >
-              Offline
-            </button>
           </div>
         </div>
         <ul className="list-group">
@@ -78,10 +63,18 @@ class Twitchtv extends Component {
                 //   console.log(stream[1].stream.channel.logo);
                 // }
                 return (
-                  <li className="list-group-item" key={stream[0]}>
+                  <li
+                    className="list-group-item Twitchtv__stream"
+                    key={stream[0]}
+                  >
                     {stream[1].stream !== null ? (
                       // (console.log(stream[1].stream.channel.logo),
-                      <img alt="avatar" src={stream[1].stream.channel.logo} />
+                      <img
+                        alt="avatar"
+                        src={stream[1].stream.channel.logo}
+                        width={50}
+                        height={50}
+                      />
                     ) : (
                       //)
                       <img
@@ -89,27 +82,21 @@ class Twitchtv extends Component {
                         src="http://via.placeholder.com/50x50"
                       />
                     )}
-                    {stream[0]}
+                    <span className="Twitchtv__stream-name">{stream[0]}</span>
+                    {stream[1].stream &&
+                    stream[1].stream.channel.game !== null ? (
+                      <span>
+                        <a href={stream[1].stream.channel.url} target="_blank">
+                          &nbsp; {stream[1].stream.channel.status} &nbsp;
+                        </a>
+                      </span>
+                    ) : (
+                      <span> Offline </span>
+                    )}
                   </li>
                 );
               })}
         </ul>
-
-        {/* 
-            .map(stream => {
-              stream[1].stream.channel.logo !== null && (   console.log(stream[1].stream.channel.logo),
-              <li className="list-group-item" key={stream[1]}>
-                {stream[1].stream.channel.logo !== null ? (
-                  <img alt="avatar" src={stream[1].stream.channel.logo} />
-                ) : (
-                  <img
-                    alt="missing avatar"
-                    src="http://via.placeholder.com/50x50"
-                  />
-                )
-              </li>)
-            )}
-            })} */}
       </div>
     );
   }

@@ -1,17 +1,11 @@
 .Twitchtv {
   text-align: center;
 
-  &__all-btn {
-    background-color: #b2a900;
-    color: white;
+  &__stream {
+    text-align: left;
   }
 
-  &__online-btn {
-    background-color: #fff294;
-  }
-
-  &__offline-btn {
-    background-color: #3d19ff;
-    color: white;
+  &__stream-name {
+    margin-left: 10px;
   }
 }
