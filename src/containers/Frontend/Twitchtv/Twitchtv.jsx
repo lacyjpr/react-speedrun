@@ -65,18 +65,21 @@ class Twitchtv extends Component {
             </button>
           </div>
         </div>
-        {/* Credit @Kornil https://github.com/Kornil/react-speedrun/blob/master/src/containers/twitch_app/index.jsx & @P1xt https://github.com/P1xt/speedrun-may2018-p1xt/blob/master/fcc-react-client/src/Projects/Frontend/Twitchtv/Twitchtv.js */}
-        {console.log(this.state.streamersData)}
-        {this.state.streamersData &&
-          //console.log(Object.entries(this.state.streamersData))
-          Object.entries(this.state.streamersData)
-            .sort((a, b) => (a[1].stream === null) - (b[1].stream === null))
-            .map(stream => {
-              console.log(stream);
-              if (stream[1].stream !== null) {
-                console.log(stream[1].stream.channel.logo);
-              }
-            })}
+        <ul className="list-group">
+          {/* Credit @Kornil https://github.com/Kornil/react-speedrun/blob/master/src/containers/twitch_app/index.jsx & @P1xt https://github.com/P1xt/speedrun-may2018-p1xt/blob/master/fcc-react-client/src/Projects/Frontend/Twitchtv/Twitchtv.js */}
+          {console.log(this.state.streamersData)}
+          {this.state.streamersData &&
+            //console.log(Object.entries(this.state.streamersData))
+            Object.entries(this.state.streamersData)
+              .sort((a, b) => (a[1].stream === null) - (b[1].stream === null))
+              .map(stream => {
+                console.log(stream);
+                if (stream[1].stream !== null) {
+                  console.log(stream[1].stream.channel.logo);
+                }
+              })}
+        </ul>
+
         {/* 
             .map(stream => {
               stream[1].stream.channel.logo !== null && (   console.log(stream[1].stream.channel.logo),
