@@ -101,6 +101,36 @@ class Calculator extends Component {
     }
   };
 
+  equals = () => {
+    let { formula } = this.state;
+    // evaluate the formula
+    const str = formula.join('');
+    let finalSolution = eval(str);
+    // Convert finalSolution to number
+    finalSolution = parseFloat(finalSolution);
+    // Round to 10 decimal places
+    finalSolution = Math.round(10000000000 * finalSolution) / 10000000000;
+    // Prevent scientific notation + remove trailing zeros credit: http://stackoverflow.com/questions/1015402/chop-unused-decimals-with-javascript
+    finalSolution = finalSolution.toFixed(10).replace(/(\.[0-9]*?)0+$/, '$1');
+    // Remove trailing decimal points credit: http://stackoverflow.com/questions/1015402/chop-unused-decimals-with-javascript
+    finalSolution = finalSolution.replace(/\.$/, '');
+    // Prevent answers too long for display
+    if (finalSolution > 9999999999 || finalSolution < -999999999) {
+      this.setState({ solution: 'Overflow!' });
+    } else {
+      // Save finalSolution as a number so zero & digit functions work
+      var finalSolution2 = parseFloat(finalSolution);
+      // Keep the final solution in formula
+      this.setState({ formula: [finalSolution2] });
+      this.setState({ solution: finalSolution });
+    }
+  };
+
+  allClear = () => {
+    this.setState({ formula: [0] });
+    this.setState({ solution: '0' });
+  };
+
   render() {
     return (
       <div className="Calculator">
