@@ -6,8 +6,8 @@ class Calculator extends Component {
     super();
 
     this.state = {
-      formula: [],
-      solution: '',
+      formula: [0],
+      solution: '0',
     };
   }
 
@@ -16,6 +16,44 @@ class Calculator extends Component {
     console.log(e.target.value);
     const val = e.target.value;
     console.log(val);
+    switch (val) {
+      case '0':
+        this.zero(val);
+        break;
+      case '1':
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+        this.digit(val);
+        break;
+      case '.':
+        this.decimal(val);
+        break;
+      case '+':
+      case '-':
+        this.operator(val);
+        break;
+      case '*':
+        this.operator(val);
+        break;
+      case '/':
+        this.operator(val);
+        break;
+      case '=':
+        this.equals();
+        break;
+      case 'AC':
+        this.allClear();
+        break;
+      case 'C':
+        this.clear();
+        break;
+    }
   };
 
   render() {
@@ -24,8 +62,8 @@ class Calculator extends Component {
         <h1>Calculator</h1>
         <div className="jumbotron" id="calc">
           <div className="displayBox text-right">
-            <h2 className="problem">0</h2>
-            <h1 className="answer">0</h1>
+            <h2 className="problem">{this.state.formula}</h2>
+            <h1 className="answer">{this.state.solution}</h1>
           </div>
 
           <div className="button-row">
