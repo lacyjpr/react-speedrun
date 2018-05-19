@@ -131,6 +131,20 @@ class Calculator extends Component {
     this.setState({ solution: '0' });
   };
 
+  clear = () => {
+    let { formula, solution } = this.state;
+    formula.splice(-1, 1);
+    solution = solution.substring(0, solution.length - 1);
+    this.setState({ formula });
+    this.setState({ solution });
+    if (formula.length === 0) {
+      this.setState({ formula: [0] });
+    }
+    if (solution.length === 0) {
+      this.setState({ solution: '0' });
+    }
+  };
+
   render() {
     return (
       <div className="Calculator">
