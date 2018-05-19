@@ -83,6 +83,24 @@ class Calculator extends Component {
     }
   };
 
+  operator = val => {
+    const { formula } = this.state;
+    // Prevent multiple operators in a row & at the start of a formula
+    if (
+      formula[formula.length - 1] !== '+' &&
+      formula[formula.length - 1] !== '-' &&
+      formula[formula.length - 1] !== '*' &&
+      formula[formula.length - 1] !== '/' &&
+      formula[formula.length - 1] !== '.' &&
+      formula.length > 0
+    ) {
+      formula.push(val);
+      this.setState({ formula });
+      // Empty solution so next digit entered doesn't also display the operator
+      this.setState({ solution: '' });
+    }
+  };
+
   render() {
     return (
       <div className="Calculator">
