@@ -56,6 +56,27 @@ class Calculator extends Component {
     }
   };
 
+  digit = val => {
+    const { formula, solution } = this.state;
+    if (typeof formula[0] === 'number' && formula.length === 1) {
+      this.setState({ formula: [] });
+      this.setState({ solution: '' });
+    }
+    // Prevent multiple zeros at the beginning of a number
+    if (solution === '0') {
+      this.setState({ solution: val });
+      formula.pop();
+      formula.push(val);
+      this.setState({ formula });
+    }
+    // Push the digit into formula if solution's length is less than 10
+    else if (solution.length < 10) {
+      formula.push(val);
+      this.setState({ formula });
+      this.setState({ solution: solution + val });
+    }
+  };
+
   render() {
     return (
       <div className="Calculator">
