@@ -36,11 +36,7 @@ class Calculator extends Component {
         break;
       case '+':
       case '-':
-        this.operator(val);
-        break;
       case '*':
-        this.operator(val);
-        break;
       case '/':
         this.operator(val);
         break;
