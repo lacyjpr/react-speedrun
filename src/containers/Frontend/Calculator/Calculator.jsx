@@ -25,69 +25,151 @@ class Calculator extends Component {
             >
               AC
             </button>
-            <button type="button" className="btn btn-default btn-lg clear">
+            <button
+              type="button"
+              className="btn btn-default btn-lg clear"
+              onClick={this.handleClick}
+              value="C"
+            >
               C
             </button>
-            <button type="button" className="btn btn-default btn-lg divide">
+            <button
+              type="button"
+              className="btn btn-default btn-lg divide"
+              onClick={this.handleClick}
+              value="/"
+            >
               ÷
             </button>
           </div>
 
           <div className="button-row">
-            <button type="button" className="btn btn-default btn-lg btn-7">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-7"
+              onClick={this.handleClick}
+              value="7"
+            >
               7
             </button>
-            <button type="button" className="btn btn-default btn-lg btn-8">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-8"
+              onClick={this.handleClick}
+              value="8"
+            >
               8
             </button>
-            <button type="button" className="btn btn-default btn-lg btn-9">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-9"
+              onClick={this.handleClick}
+              value="9"
+            >
               9
             </button>
-            <button type="button" className="btn btn-default btn-lg multiply">
+            <button
+              type="button"
+              className="btn btn-default btn-lg multiply"
+              onClick={this.handleClick}
+              value="*"
+            >
               x
             </button>
           </div>
 
           <div className="button-row">
-            <button type="button" className="btn btn-default btn-lg btn-4">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-4"
+              onClick={this.handleClick}
+              value="4"
+            >
               4
             </button>
-            <button type="button" className="btn btn-default btn-lg btn-5">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-5"
+              onClick={this.handleClick}
+              value="5"
+            >
               5
             </button>
-            <button type="button" className="btn btn-default btn-lg btn-6">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-6"
+              onClick={this.handleClick}
+              value="6"
+            >
               6
             </button>
-            <button type="button" className="btn btn-default btn-lg subtract">
+            <button
+              type="button"
+              className="btn btn-default btn-lg subtract"
+              onClick={this.handleClick}
+              value="-"
+            >
               -
             </button>
           </div>
 
           <div className="button-row">
-            <button type="button" className="btn btn-default btn-lg btn-1">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-1"
+              onClick={this.handleClick}
+              value="1"
+            >
               1
             </button>
-            <button type="button" className="btn btn-default btn-lg btn-2">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-2"
+              onClick={this.handleClick}
+              value="2"
+            >
               2
             </button>
-            <button type="button" className="btn btn-default btn-lg btn-3">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-3"
+              onClick={this.handleClick}
+              value="3"
+            >
               3
             </button>
-            <button type="button" className="btn btn-default btn-lg add">
+            <button
+              type="button"
+              className="btn btn-default btn-lg add"
+              onClick={this.handleClick}
+              value="+"
+            >
               +
             </button>
           </div>
 
           <div className="button-row">
-            <button type="button" className="btn btn-default btn-lg btn-0">
+            <button
+              type="button"
+              className="btn btn-default btn-lg btn-0"
+              onClick={this.handleClick}
+              value="0"
+            >
               0
             </button>
-            <button type="button" className="btn btn-default btn-lg decimal">
+            <button
+              type="button"
+              className="btn btn-default btn-lg decimal"
+              onClick={this.handleClick}
+              value="."
+            >
               .
             </button>
             <button
               type="button"
               className="btn btn-default btn-lg btn-wide equals"
+              onClick={this.handleClick}
+              value="="
             >
               =
             </button>
