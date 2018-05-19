@@ -2,6 +2,15 @@ import React, { Component } from 'react';
 import './Calculator.scss';
 
 class Calculator extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      formula: [],
+      solution: '',
+    };
+  }
+
   handleClick = e => {
     console.log(e.target.value);
   };
