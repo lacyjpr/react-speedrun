@@ -1,3 +1,96 @@
 .Calculator {
   text-align: center;
 }
+
+.jumbotron {
+  width: 250px;
+  text-align: center;
+  margin: 40px auto;
+}
+
+#calc {
+  padding: 27px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: #e9cc90;
+  box-shadow: 10px 15px 25px 2px #706565, inset -8px -12px 18px 2px #9c8451;
+}
+
+.displayBox {
+  width: 99%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: #d3d3d3;
+}
+
+.jumbotron h2 {
+  font-size: 15px;
+  text-align: right;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.jumbotron h1 {
+  font-size: 30px;
+  text-align: right;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.button-row {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.btn {
+  width: 45px;
+  border: 1px solid black;
+  color: #ffffcf;
+  background-color: #a0522d;
+  box-shadow: 5px 5px 5px 0px #9c8451, inset -2px -4px 4px 2px #53250f;
+}
+
+.btn-wide {
+  width: 94px;
+}
+
+.btn:hover,
+.btn:focus,
+.btn.active,
+.btn:active {
+  border: 1px solid black;
+  background-color: #a0522d !important;
+  outline: none !important;
+}
+
+.allClear:hover,
+.allClear:focus,
+.allClear:active {
+  border: 1px solid black;
+  background-color: #ff3a34 !important;
+}
+
+.clear:hover,
+.clear:focus,
+.clear:active {
+  border: 1px solid black;
+  background-color: #ff3a34 !important;
+}
+
+.equals:hover,
+.equals:focus,
+.equals:active {
+  border: 1px solid black;
+  background-color: #ff3a34 !important;
+}
+
+.allClear,
+.clear,
+.equals {
+  background-color: #ff3a34;
+  box-shadow: 5px 5px 5px 0px #9c8451, inset -2px -4px 4px 2px #b8211c;
+}
