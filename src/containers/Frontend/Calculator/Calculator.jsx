@@ -12,7 +12,10 @@ class Calculator extends Component {
   }
 
   handleClick = e => {
+    e.preventDefault();
     console.log(e.target.value);
+    const val = e.target.value;
+    console.log(val);
   };
 
   render() {
