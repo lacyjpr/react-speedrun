@@ -117,7 +117,6 @@ class Calculator extends Component {
 
   equals = () => {
     let { formula } = this.state;
-
     // Prevent operands at the end of a formula
     if (
       formula[formula.length - 1] !== '+' &&
@@ -137,7 +136,7 @@ class Calculator extends Component {
       // Remove trailing decimal points credit: http://stackoverflow.com/questions/1015402/chop-unused-decimals-with-javascript
       finalSolution = finalSolution.replace(/\.$/, '');
       // Prevent answers too long for display
-      if (finalSolution > 9999999999 || finalSolution < -999999999) {
+      if (finalSolution.length > 10) {
         this.setState({ solution: 'Overflow!' });
       } else {
         // Save finalSolution as a number so zero & digit functions work
