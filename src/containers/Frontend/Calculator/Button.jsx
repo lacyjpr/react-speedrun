@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Button = ({ value, handleClick }) => (
+const Button = ({ equals, clear, value, handleClick }) => (
   <button
     type="button"
-    className={`btn btn-default btn-lg btn-${value}`}
+    className={`btn btn-default btn-lg ${equals ? 'equals' : ''} ${
+      clear ? 'clear' : ''
+    }`}
     onClick={handleClick}
     value={value}
   >

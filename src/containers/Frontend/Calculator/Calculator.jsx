@@ -154,7 +154,7 @@ class Calculator extends Component {
           </div>
 
           <div className="Calculator__button-row">
-            <Button value={'C'} handleClick={this.handleClick} />
+            <Button value={'C'} handleClick={this.handleClick} clear />
             <Button value={'/'} handleClick={this.handleClick} />
           </div>
 
@@ -182,14 +182,7 @@ class Calculator extends Component {
           <div className="Calculator__button-row">
             <Button value={'0'} handleClick={this.handleClick} />
             <Button value={'.'} handleClick={this.handleClick} />
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-wide equals"
-              onClick={this.handleClick}
-              value="="
-            >
-              =
-            </button>
+            <Button value={'='} handleClick={this.handleClick} equals />
           </div>
         </div>
       </div>
