@@ -55,6 +55,7 @@ class Calculator extends Component {
     if (
       solution.length < 10 &&
       solution !== '0' &&
+      !isNaN(solution) &&
       formula[formula.length - 1] !== '/'
     ) {
       formula.push(val);
