@@ -69,8 +69,6 @@ class Calculator extends Component {
     if (solution === '0') {
       this.setState({ solution: val });
       formula.pop();
-      // formula.push(val);
-      // this.setState({ formula });
       this.setState(({ formula }) => ({ formula: formula.concat(val) }));
     }
     // Push the digit into formula if solution's length is less than 10 & formula's length is less than 20
@@ -96,15 +94,11 @@ class Calculator extends Component {
   operator = val => {
     const { formula } = this.state;
     // Prevent multiple operators in a row & at the start of a formula, check formula max length
-    if (
-      formula[formula.length - 1] !== '+' &&
-      formula[formula.length - 1] !== '-' &&
-      formula[formula.length - 1] !== '*' &&
-      formula[formula.length - 1] !== '/' &&
-      formula[formula.length - 1] !== '.' &&
-      formula.length > 0 &&
-      formula.length < 20
-    ) {
+    const ops = ['+', '-', '*', '/', '.'];
+    const isNotOp = !~ops.indexOf(formula[formula.length - 1]);
+    const hasCorrectLength = formula.length > 0 && formula.length < 20;
+
+    if (isNotOp && hasCorrectLength) {
       formula.push(val);
       this.setState({ formula });
       // Empty solution so next digit entered doesn't also display the operator
