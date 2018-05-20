@@ -59,8 +59,7 @@ class Calculator extends Component {
       formula[formula.length - 1] !== '/'
     ) {
       formula.push(val);
-      this.setState({ formula });
-      this.setState({ solution: solution + val });
+      this.setState({ formula, solution: solution + val });
     }
   };
 
@@ -76,8 +75,7 @@ class Calculator extends Component {
     // Push the digit into formula if solution's length is less than 10 & formula's length is less than 20
     else if (solution.length < 10 && formula.length < 20) {
       formula.push(val);
-      this.setState({ formula });
-      this.setState({ solution: solution + val });
+      this.setState({ formula, solution: solution + val });
     }
   };
 
@@ -90,8 +88,7 @@ class Calculator extends Component {
       formula.indexOf('.') === -1
     ) {
       formula.push(val);
-      this.setState({ formula });
-      this.setState({ solution: solution + val });
+      this.setState({ formula, solution: solution + val });
     }
   };
 
@@ -141,8 +138,7 @@ class Calculator extends Component {
         // Save finalSolution as a number so zero & digit functions work
         var finalSolution2 = parseFloat(finalSolution);
         // Keep the final solution in formula
-        this.setState({ formula: [finalSolution2] });
-        this.setState({ solution: finalSolution });
+        this.setState({ formula: [finalSolution2], solution: finalSolution });
       }
     }
   };
