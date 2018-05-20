@@ -8,7 +8,7 @@
 ---
 
 Start date: May 9, 2018
-End Date:
+End Date: June 10, 2018
 Projects Completed: 0
 
 ---
