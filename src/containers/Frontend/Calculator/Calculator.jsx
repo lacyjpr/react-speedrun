@@ -41,11 +41,8 @@ class Calculator extends Component {
       case '=':
         this.equals();
         break;
-      case 'AC':
-        this.allClear();
-        break;
       case 'C':
-        this.clear();
+        this.allClear();
         break;
     }
   };
@@ -154,20 +151,6 @@ class Calculator extends Component {
     this.setState({ solution: '0' });
   };
 
-  clear = () => {
-    let { formula, solution } = this.state;
-    formula.splice(-1, 1);
-    solution = solution.substring(0, solution.length - 1);
-    this.setState({ formula });
-    this.setState({ solution });
-    if (formula.length === 0) {
-      this.setState({ formula: [0] });
-    }
-    if (solution.length === 0) {
-      this.setState({ solution: '0' });
-    }
-  };
-
   render() {
     return (
       <div className="Calculator">
@@ -181,15 +164,7 @@ class Calculator extends Component {
           <div className="Calculator__button-row">
             <button
               type="button"
-              className="btn btn-default btn-lg btn-wide allClear"
-              onClick={this.handleClick}
-              value="AC"
-            >
-              AC
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg clear"
+              className="btn btn-default btn-lg btn-big allClear"
               onClick={this.handleClick}
               value="C"
             >
