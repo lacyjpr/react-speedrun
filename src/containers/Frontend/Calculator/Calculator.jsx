@@ -52,11 +52,6 @@ class Calculator extends Component {
 
   zero = val => {
     const { formula, solution } = this.state;
-    // If formula already holds a value from a previous calculation and a number is clicked, clear formula
-    // if (typeof formula[0] === 'number' && formula.length === 1) {
-    //   this.setState({ formula: [0] });
-    //   this.setState({ solution: '0' });
-    // }
     // Push the digit into formula if solution's length is less than 10
     // If solution already contains only a zero do nothing
     // Prevent divide by zero
@@ -73,11 +68,7 @@ class Calculator extends Component {
 
   digit = val => {
     const { formula, solution } = this.state;
-    if (typeof formula[0] === 'number' && formula.length === 1) {
-      this.setState({ formula: [] });
-      this.setState({ solution: '' });
-    }
-    // Prevent multiple zeros at the beginning of a number
+    // Prevent zeros at the beginning of a number
     if (solution === '0') {
       this.setState({ solution: val });
       formula.pop();
