@@ -75,8 +75,8 @@ class Calculator extends Component {
       formula.push(val);
       this.setState({ formula });
     }
-    // Push the digit into formula if solution's length is less than 10
-    else if (solution.length < 10) {
+    // Push the digit into formula if solution's length is less than 10 & formula's length is less than 20
+    else if (solution.length < 10 && formula.length < 20) {
       formula.push(val);
       this.setState({ formula });
       this.setState({ solution: solution + val });
@@ -106,7 +106,8 @@ class Calculator extends Component {
       formula[formula.length - 1] !== '*' &&
       formula[formula.length - 1] !== '/' &&
       formula[formula.length - 1] !== '.' &&
-      formula.length > 0
+      formula.length > 0 &&
+      formula.length < 20
     ) {
       formula.push(val);
       this.setState({ formula });
