@@ -155,146 +155,33 @@ class Calculator extends Component {
 
           <div className="Calculator__button-row">
             <Button value={'C'} handleClick={this.handleClick} />
-            {/* <button
-              type="button"
-              className="btn btn-default btn-lg btn-big allClear"
-              onClick={this.handleClick}
-              value="C"
-            >
-              C
-            </button> */}
-            <button
-              type="button"
-              className="btn btn-default btn-lg divide"
-              onClick={this.handleClick}
-              value="/"
-            >
-              ÷
-            </button>
+            <Button value={'/'} handleClick={this.handleClick} />
           </div>
 
           <div className="Calculator__button-row">
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-7"
-              onClick={this.handleClick}
-              value="7"
-            >
-              7
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-8"
-              onClick={this.handleClick}
-              value="8"
-            >
-              8
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-9"
-              onClick={this.handleClick}
-              value="9"
-            >
-              9
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg multiply"
-              onClick={this.handleClick}
-              value="*"
-            >
-              x
-            </button>
+            <Button value={'7'} handleClick={this.handleClick} />
+            <Button value={'8'} handleClick={this.handleClick} />
+            <Button value={'9'} handleClick={this.handleClick} />
+            <Button value={'*'} handleClick={this.handleClick} />
           </div>
 
           <div className="Calculator__button-row">
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-4"
-              onClick={this.handleClick}
-              value="4"
-            >
-              4
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-5"
-              onClick={this.handleClick}
-              value="5"
-            >
-              5
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-6"
-              onClick={this.handleClick}
-              value="6"
-            >
-              6
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg subtract"
-              onClick={this.handleClick}
-              value="-"
-            >
-              -
-            </button>
+            <Button value={'4'} handleClick={this.handleClick} />
+            <Button value={'5'} handleClick={this.handleClick} />
+            <Button value={'6'} handleClick={this.handleClick} />
+            <Button value={'-'} handleClick={this.handleClick} />
           </div>
 
           <div className="Calculator__button-row">
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-1"
-              onClick={this.handleClick}
-              value="1"
-            >
-              1
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-2"
-              onClick={this.handleClick}
-              value="2"
-            >
-              2
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-3"
-              onClick={this.handleClick}
-              value="3"
-            >
-              3
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg add"
-              onClick={this.handleClick}
-              value="+"
-            >
-              +
-            </button>
+            <Button value={'1'} handleClick={this.handleClick} />
+            <Button value={'2'} handleClick={this.handleClick} />
+            <Button value={'3'} handleClick={this.handleClick} />
+            <Button value={'+'} handleClick={this.handleClick} />
           </div>
 
           <div className="Calculator__button-row">
-            <button
-              type="button"
-              className="btn btn-default btn-lg btn-0"
-              onClick={this.handleClick}
-              value="0"
-            >
-              0
-            </button>
-            <button
-              type="button"
-              className="btn btn-default btn-lg decimal"
-              onClick={this.handleClick}
-              value="."
-            >
-              .
-            </button>
+            <Button value={'0'} handleClick={this.handleClick} />
+            <Button value={'.'} handleClick={this.handleClick} />
             <button
               type="button"
               className="btn btn-default btn-lg btn-wide equals"

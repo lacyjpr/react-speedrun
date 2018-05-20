@@ -71,12 +71,6 @@
     outline: none !important;
   }
 
-  .btn-big {
-    width: 135px;
-    background-color: #ff3a34;
-    box-shadow: 5px 5px 5px 0px #9c8451, inset -2px -4px 4px 2px #b8211c;
-  }
-
   .btn:hover,
   .btn:focus,
   .btn.active,
@@ -86,20 +80,6 @@
     outline: none !important;
   }
 
-  .allClear:hover,
-  .allClear:focus,
-  .allClear:active {
-    border: 1px solid black;
-    background-color: #ff3a34 !important;
-  }
-
-  .clear:hover,
-  .clear:focus,
-  .clear:active {
-    border: 1px solid black;
-    background-color: #ff3a34 !important;
-  }
-
   .equals:hover,
   .equals:focus,
   .equals:active {
@@ -107,7 +87,6 @@
     background-color: #ff3a34 !important;
   }
 
-  .allClear,
   .equals {
     background-color: #ff3a34;
     box-shadow: 5px 5px 5px 0px #9c8451, inset -2px -4px 4px 2px #b8211c;
