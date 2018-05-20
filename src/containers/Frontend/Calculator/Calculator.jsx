@@ -13,9 +13,7 @@ class Calculator extends Component {
 
   handleClick = e => {
     e.preventDefault();
-    console.log(e.target.value);
     const val = e.target.value;
-    console.log(val);
     switch (val) {
       case '0':
         this.zero(val);
@@ -149,13 +147,13 @@ class Calculator extends Component {
     return (
       <div className="Calculator">
         <h1>Calculator</h1>
-        <div className="jumbotron" id="calc">
-          <div className="displayBox text-right">
-            <h2 className="problem">{this.state.formula}</h2>
-            <h1 className="answer">{this.state.solution}</h1>
+        <div className="jumbotron Calculator__jumbotron" id="calc">
+          <div className="Calculator__displayBox text-right">
+            <h2 className="Calculator__problem">{this.state.formula}</h2>
+            <h1 className="Calculator__answer">{this.state.solution}</h1>
           </div>
 
-          <div className="button-row">
+          <div className="Calculator__button-row">
             <button
               type="button"
               className="btn btn-default btn-lg btn-wide allClear"
