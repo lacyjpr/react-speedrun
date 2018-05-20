@@ -94,8 +94,8 @@ class Calculator extends Component {
   operator = val => {
     const { formula } = this.state;
     // Prevent multiple operators in a row & at the start of a formula, check formula max length
-    const ops = ['+', '-', '*', '/', '.'];
-    const isNotOp = !~ops.indexOf(formula[formula.length - 1]);
+    const operands = ['+', '-', '*', '/', '.'];
+    const isNotOp = !~operands.indexOf(formula[formula.length - 1]);
     const hasCorrectLength = formula.length > 0 && formula.length < 20;
 
     if (isNotOp && hasCorrectLength) {
@@ -109,12 +109,9 @@ class Calculator extends Component {
   equals = () => {
     let { formula } = this.state;
     // Prevent operands at the end of a formula
-    if (
-      formula[formula.length - 1] !== '+' &&
-      formula[formula.length - 1] !== '-' &&
-      formula[formula.length - 1] !== '*' &&
-      formula[formula.length - 1] !== '/'
-    ) {
+    const operands = ['+', '-', '*', '/'];
+    const isNotOp = !~operands.indexOf(formula[formula.length - 1]);
+    if (isNotOp) {
       // evaluate the formula
       const str = formula.join('');
       let finalSolution = eval(str);
