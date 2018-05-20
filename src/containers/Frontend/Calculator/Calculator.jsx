@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import Button from './Button';
+
 import './Calculator.scss';
 
 class Calculator extends Component {
@@ -151,14 +154,15 @@ class Calculator extends Component {
           </div>
 
           <div className="Calculator__button-row">
-            <button
+            <Button value={'C'} handleClick={this.handleClick} />
+            {/* <button
               type="button"
               className="btn btn-default btn-lg btn-big allClear"
               onClick={this.handleClick}
               value="C"
             >
               C
-            </button>
+            </button> */}
             <button
               type="button"
               className="btn btn-default btn-lg divide"

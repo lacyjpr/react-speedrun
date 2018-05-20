@@ -57,8 +57,24 @@
     width: 90px;
   }
 
+  .btn-C {
+    width: 135px;
+    background-color: #ff3a34;
+    box-shadow: 5px 5px 5px 0px #9c8451, inset -2px -4px 4px 2px #b8211c;
+  }
+  .btn-C:hover,
+  .btn-C:focus,
+  .btn-C.active,
+  .btn-C:active {
+    border: 1px solid black;
+    background-color: #ff3a34 !important;
+    outline: none !important;
+  }
+
   .btn-big {
     width: 135px;
+    background-color: #ff3a34;
+    box-shadow: 5px 5px 5px 0px #9c8451, inset -2px -4px 4px 2px #b8211c;
   }
 
   .btn:hover,
@@ -66,7 +82,7 @@
   .btn.active,
   .btn:active {
     border: 1px solid black;
-    background-color: #a0522d !important;
+    background-color: #a0522d;
     outline: none !important;
   }
 
@@ -92,7 +108,6 @@
   }
 
   .allClear,
-  .clear,
   .equals {
     background-color: #ff3a34;
     box-shadow: 5px 5px 5px 0px #9c8451, inset -2px -4px 4px 2px #b8211c;
