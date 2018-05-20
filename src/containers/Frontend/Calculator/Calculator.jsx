@@ -85,8 +85,12 @@ class Calculator extends Component {
 
   decimal = val => {
     const { formula, solution } = this.state;
-    // Prevent multiple decimal points in an entry
-    if (solution.length < 10 && solution.indexOf('.') === -1) {
+    // Prevent multiple decimal points in an entry or formula
+    if (
+      solution.length < 10 &&
+      solution.indexOf('.') === -1 &&
+      formula.indexOf('.') === -1
+    ) {
       formula.push(val);
       this.setState({ formula });
       this.setState({ solution: solution + val });
