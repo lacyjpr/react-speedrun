@@ -99,7 +99,7 @@ class Calculator extends Component {
 
   operator = val => {
     const { formula } = this.state;
-    // Prevent multiple operators in a row & at the start of a formula
+    // Prevent multiple operators in a row & at the start of a formula, check formula max length
     if (
       formula[formula.length - 1] !== '+' &&
       formula[formula.length - 1] !== '-' &&
