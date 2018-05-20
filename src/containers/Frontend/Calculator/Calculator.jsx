@@ -169,7 +169,7 @@ class Calculator extends Component {
             </button>
           </div>
 
-          <div className="button-row">
+          <div className="Calculator__button-row">
             <button
               type="button"
               className="btn btn-default btn-lg btn-7"
@@ -204,7 +204,7 @@ class Calculator extends Component {
             </button>
           </div>
 
-          <div className="button-row">
+          <div className="Calculator__button-row">
             <button
               type="button"
               className="btn btn-default btn-lg btn-4"
@@ -239,7 +239,7 @@ class Calculator extends Component {
             </button>
           </div>
 
-          <div className="button-row">
+          <div className="Calculator__button-row">
             <button
               type="button"
               className="btn btn-default btn-lg btn-1"
@@ -274,7 +274,7 @@ class Calculator extends Component {
             </button>
           </div>
 
-          <div className="button-row">
+          <div className="Calculator__button-row">
             <button
               type="button"
               className="btn btn-default btn-lg btn-0"
