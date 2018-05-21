@@ -31,7 +31,7 @@ class PomodoroClock extends Component {
                 <p className="text-center">Break</p>
                 <span className="breakMinus">-</span>
                 <span className="breakTime">{breakTime}</span>
-                <span className="breakPlus" onClick={this.breakPlus.bind(this)}>
+                <span className="breakPlus" onClick={this.breakPlus}>
                   +
                 </span>
               </div>
