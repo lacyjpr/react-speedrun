@@ -10,31 +10,53 @@ class PomodoroClock extends Component {
       workTime: 25,
       timerState: '',
       counter: null,
+      startButtonText: 'Start',
     };
   }
 
+  // Increment break time
   breakPlus = () => {
     this.setState({ breakTime: this.state.breakTime + 1 });
   };
 
+  // Decrement break time
   breakMinus = () => {
     if (this.state.breakTime >= 1) {
       this.setState({ breakTime: this.state.breakTime - 1 });
     }
   };
 
+  // Increment work time
   workPlus = () => {
     this.setState({ workTime: this.state.workTime + 1 });
   };
 
+  // Decrement work time
   workMinus = () => {
     if (this.state.workTime >= 1) {
       this.setState({ workTime: this.state.workTime - 1 });
     }
   };
 
+  start = () => {
+    const val = this.state.startButtonText;
+    switch (val) {
+      case 'Start':
+        this.setState({ startButtonText: 'Pause' });
+        break;
+      case 'Pause':
+        this.setState({ startButtonText: 'Start' });
+    }
+  };
+
   render() {
-    const { breakTime, workTime, timerState, counter } = this.state;
+    const {
+      breakTime,
+      workTime,
+      startButtonText,
+      timerState,
+      counter,
+    } = this.state;
     return (
       <div className="PomodoroClock">
         <div className="row">
@@ -66,7 +88,9 @@ class PomodoroClock extends Component {
             </div>
 
             <div className="row">
-              <div className="start">Start</div>
+              <button className="start" onClick={this.start}>
+                {startButtonText}
+              </button>
             </div>
 
             <div className="clock">
