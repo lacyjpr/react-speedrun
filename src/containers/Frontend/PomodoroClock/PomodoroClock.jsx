@@ -2,7 +2,23 @@ import React, { Component } from 'react';
 import './PomodoroClock.scss';
 
 class PomodoroClock extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      breakTime: 5,
+      workTime: 25,
+      timerState: '',
+      counter: null,
+    };
+  }
+
+  breakPlus = () => {
+    this.setState({ breakTime: this.state.breakTime + 1 });
+  };
+
   render() {
+    const { breakTime, workTime, timerState, counter } = this.state;
     return (
       <div className="PomodoroClock">
         <div className="row">
@@ -14,8 +30,10 @@ class PomodoroClock extends Component {
               <div className="col-xs-4 break">
                 <p className="text-center">Break</p>
                 <span className="breakMinus">-</span>
-                <span className="breakTime">5</span>
-                <span className="breakPlus">+</span>
+                <span className="breakTime">{breakTime}</span>
+                <span className="breakPlus" onClick={this.breakPlus.bind(this)}>
+                  +
+                </span>
               </div>
               <div className="col-xs-4 work">
                 <p className="text-center">Work</p>
