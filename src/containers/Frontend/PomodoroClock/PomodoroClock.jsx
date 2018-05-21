@@ -17,6 +17,12 @@ class PomodoroClock extends Component {
     this.setState({ breakTime: this.state.breakTime + 1 });
   };
 
+  breakMinus = () => {
+    if (this.state.breakTime >= 1) {
+      this.setState({ breakTime: this.state.breakTime - 1 });
+    }
+  };
+
   render() {
     const { breakTime, workTime, timerState, counter } = this.state;
     return (
@@ -29,17 +35,19 @@ class PomodoroClock extends Component {
             <div className="row">
               <div className="col-xs-4 break">
                 <p className="text-center">Break</p>
-                <span className="breakMinus">-</span>
+                <button className="breakMinus" onClick={this.breakMinus}>
+                  -
+                </button>
                 <span className="breakTime">{breakTime}</span>
-                <span className="breakPlus" onClick={this.breakPlus}>
+                <button className="breakPlus" onClick={this.breakPlus}>
                   +
-                </span>
+                </button>
               </div>
               <div className="col-xs-4 work">
                 <p className="text-center">Work</p>
-                <span className="workMinus">-</span>
+                <button className="workMinus">-</button>
                 <span className="workTime">25</span>
-                <span className="workPlus">+</span>
+                <button className="workPlus">+</button>
               </div>
             </div>
 
