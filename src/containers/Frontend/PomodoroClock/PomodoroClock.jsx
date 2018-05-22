@@ -6,7 +6,7 @@ class PomodoroClock extends Component {
     super();
 
     this.state = {
-      breakTime: 5,
+      breakTime: '5:00',
       workTime: '25:00',
       timerState: '',
       counter: '25:00',
@@ -16,7 +16,12 @@ class PomodoroClock extends Component {
 
   // Increment break time
   breakPlus = () => {
-    this.setState({ breakTime: this.state.breakTime + 1 });
+    let time = this.toSeconds(this.state.breakTime);
+    if (time >= 0) {
+      time = time + 60;
+      time = this.toMinutes(time);
+      this.setState({ breakTime: time });
+    }
   };
 
   // Decrement break time
@@ -29,20 +34,20 @@ class PomodoroClock extends Component {
   // Increment work time
   workPlus = () => {
     let time = this.toSeconds(this.state.workTime);
-    if (time >= 1) {
+    if (time >= 0) {
       time = time + 60;
-      let time2 = this.toMinutes(time);
-      this.setState({ workTime: time2, counter: time2 });
+      time = this.toMinutes(time);
+      this.setState({ workTime: time, counter: time });
     }
   };
 
   // Decrement work time
   workMinus = () => {
     let time = this.toSeconds(this.state.workTime);
-    if (time >= 1) {
+    if (time >= 120) {
       time = time - 60;
-      let time2 = this.toMinutes(time);
-      this.setState({ workTime: time2, counter: time2 });
+      time = this.toMinutes(time);
+      this.setState({ workTime: time, counter: time });
     }
   };
 
@@ -62,8 +67,25 @@ class PomodoroClock extends Component {
 
   workTimer = val => {
     let time = this.toSeconds(val);
-    setInterval(() => {
+    let clock = setInterval(() => {
       time = time - 1;
+      if (time <= 0) {
+        clearInterval(clock);
+        this.breakTimer(this.state.breakTime);
+      }
+      let time2 = this.toMinutes(time);
+      this.setState({ counter: time2 });
+    }, 1000);
+  };
+
+  breakTimer = val => {
+    let time = this.toSeconds(val);
+    let clock = setInterval(() => {
+      time = time - 1;
+      if (time <= 0) {
+        clearInterval(clock);
+        this.workTimer(this.state.workTime);
+      }
       let time2 = this.toMinutes(time);
       this.setState({ counter: time2 });
     }, 1000);
