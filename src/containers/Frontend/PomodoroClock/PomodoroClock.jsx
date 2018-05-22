@@ -28,7 +28,12 @@ class PomodoroClock extends Component {
 
   // Increment work time
   workPlus = () => {
-    this.setState({ workTime: this.state.workTime + 1 });
+    let time = this.toSeconds(this.state.workTime);
+    if (time >= 1) {
+      time = time + 60;
+      let time2 = this.toMinutes(time);
+      this.setState({ workTime: time2, counter: time2 });
+    }
   };
 
   // Decrement work time
