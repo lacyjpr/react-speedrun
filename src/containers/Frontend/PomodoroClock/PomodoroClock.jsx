@@ -65,15 +65,16 @@ class PomodoroClock extends Component {
       case 'Pause':
         this.setState({ startButtonText: 'Start' });
         this.setState({ timerState: 'paused' });
+        clearInterval(this.clock);
     }
   };
 
   workTimer = val => {
     let time = this.toSeconds(val);
-    let clock = setInterval(() => {
+    this.clock = setInterval(() => {
       time = time - 1;
       if (time <= 0) {
-        clearInterval(clock);
+        clearInterval(this.clock);
         this.breakTimer(this.state.breakTime);
       }
       let time2 = this.toMinutes(time);
@@ -83,10 +84,10 @@ class PomodoroClock extends Component {
 
   breakTimer = val => {
     let time = this.toSeconds(val);
-    let clock = setInterval(() => {
+    this.clock = setInterval(() => {
       time = time - 1;
       if (time <= 0) {
-        clearInterval(clock);
+        clearInterval(this.clock);
         this.workTimer(this.state.workTime);
       }
       let time2 = this.toMinutes(time);
