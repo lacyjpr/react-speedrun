@@ -7,9 +7,9 @@ class PomodoroClock extends Component {
 
     this.state = {
       breakTime: 5,
-      workTime: 25,
+      workTime: '25:00',
       timerState: '',
-      counter: null,
+      counter: '25:00',
       startButtonText: 'Start',
     };
   }
@@ -43,10 +43,37 @@ class PomodoroClock extends Component {
     switch (val) {
       case 'Start':
         this.setState({ startButtonText: 'Pause' });
+        this.setState({ timerState: 'running' });
+        this.workTimer(this.state.workTime);
         break;
       case 'Pause':
         this.setState({ startButtonText: 'Start' });
+        this.setState({ timerState: 'paused' });
     }
+  };
+
+  workTimer = val => {
+    let time = this.toSeconds(val);
+    setInterval(() => {
+      time = time - 1;
+      let time2 = this.toMinutes(time);
+      this.setState({ counter: time2 });
+    }, 1000);
+  };
+
+  toSeconds = val => {
+    const arr = val.toString().split(':');
+    const minutes = parseInt(arr[0], 10);
+    const seconds = parseInt(arr[1], 10);
+    return seconds + minutes * 60;
+  };
+
+  toMinutes = val => {
+    // Convert seconds to minutes and seconds credit: http://stackoverflow.com/questions/3733227/javascript-seconds-to-minutes-and-seconds
+    const minutes = Math.floor(val / 60);
+    let seconds = val - minutes * 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    return minutes + ':' + seconds;
   };
 
   render() {
@@ -98,7 +125,7 @@ class PomodoroClock extends Component {
               <div className="breakTimer" />
               <div className="getToWork hidden">Work!</div>
               <div className="takeABreak hidden">Break Time!</div>
-              <div className="content">25:00</div>
+              <div className="content">{counter}</div>
             </div>
 
             <div className="row">
