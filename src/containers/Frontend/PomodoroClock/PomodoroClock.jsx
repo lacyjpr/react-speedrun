@@ -168,8 +168,24 @@ class PomodoroClock extends Component {
             <div className="clock">
               <div className="progress" />
               <div className="breakTimer" />
-              <div className="getToWork hidden">Work!</div>
-              <div className="takeABreak hidden">Break Time!</div>
+              <div
+                className={
+                  timerState === 'Work running'
+                    ? 'getToWork'
+                    : 'getToWork hidden'
+                }
+              >
+                Work!
+              </div>
+              <div
+                className={
+                  timerState === 'Break running'
+                    ? 'takeABreak'
+                    : 'takeABreak hidden'
+                }
+              >
+                Break Time!
+              </div>
               <div className="content">{counter}</div>
             </div>
 
