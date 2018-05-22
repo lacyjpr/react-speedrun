@@ -26,8 +26,11 @@ class PomodoroClock extends Component {
 
   // Decrement break time
   breakMinus = () => {
-    if (this.state.breakTime >= 1) {
-      this.setState({ breakTime: this.state.breakTime - 1 });
+    let time = this.toSeconds(this.state.breakTime);
+    if (time >= 120) {
+      time = time - 60;
+      time = this.toMinutes(time);
+      this.setState({ breakTime: time });
     }
   };
 
