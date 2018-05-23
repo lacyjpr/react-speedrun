@@ -123,6 +123,7 @@
 
   .progress {
     z-index: 1;
+    transition: 100ms ease-in-out;
     width: 0px;
     height: 100%;
     position: absolute;
