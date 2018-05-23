@@ -7,10 +7,10 @@ class PomodoroClock extends Component {
     super();
 
     this.state = {
-      breakTime: '0:10',
-      workTime: '0:10',
+      breakTime: '5:00',
+      workTime: '25:00',
       timerState: '',
-      counter: '0:10',
+      counter: '25:00',
       startButtonText: 'Start',
       progress: 0,
       breakProgress: 0,
