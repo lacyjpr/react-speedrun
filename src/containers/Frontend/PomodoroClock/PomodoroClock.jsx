@@ -7,10 +7,10 @@ class PomodoroClock extends Component {
     super();
 
     this.state = {
-      breakTime: '0:10',
-      workTime: '0:10',
+      breakTime: '5:00',
+      workTime: '25:00',
       timerState: '',
-      counter: '0:10',
+      counter: '25:00',
       startButtonText: 'Start',
       progress: 0,
       breakProgress: 0,
@@ -60,7 +60,6 @@ class PomodoroClock extends Component {
 
   start = () => {
     const val = this.state.startButtonText;
-    console.log(this.state);
     switch (val) {
       case 'Start':
         this.setState({ startButtonText: 'Pause' });
@@ -76,10 +75,8 @@ class PomodoroClock extends Component {
         this.setState({ startButtonText: 'Start' });
         if (this.state.timerState === 'Work running') {
           this.setState({ timerState: 'Work paused' });
-          console.log(this.state.timerState);
         } else if (this.state.timerState == 'Break running') {
           this.setState({ timerState: 'Break paused' });
-          console.log(this.state.timerState);
         }
         clearInterval(this.clock);
     }
@@ -114,7 +111,6 @@ class PomodoroClock extends Component {
             this.toSeconds(this.state.workTime) *
             100;
       }
-      console.log('progress', progress);
       this.setState({ progress });
       time = time - 1;
       if (time <= 0) {
@@ -123,7 +119,6 @@ class PomodoroClock extends Component {
       }
       let time2 = this.toMinutes(time);
       this.setState({ counter: time2 });
-      console.log(this.state);
     }, 1000);
   };
 
@@ -143,7 +138,6 @@ class PomodoroClock extends Component {
             this.toSeconds(this.state.workTime) *
             100;
       }
-      console.log('breakProgress', breakProgress);
       this.setState({ breakProgress });
       time = time - 1;
       if (time <= 0) {
@@ -152,7 +146,6 @@ class PomodoroClock extends Component {
       }
       let time2 = this.toMinutes(time);
       this.setState({ counter: time2 });
-      console.log(this.state);
     }, 1000);
   };
 
