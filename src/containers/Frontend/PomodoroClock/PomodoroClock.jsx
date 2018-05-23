@@ -105,12 +105,16 @@ class PomodoroClock extends Component {
     let time = this.toSeconds(val);
     this.setState({ breakProgress: 0 });
     this.clock = setInterval(() => {
-      progress =
-        100 -
-        this.toSeconds(this.state.counter) /
-          this.toSeconds(this.state.workTime) *
-          100;
-      console.log(progress);
+      if (this.toSeconds(this.state.counter) === 0) {
+        progress = 0;
+      } else {
+        progress =
+          100 -
+          this.toSeconds(this.state.counter) /
+            this.toSeconds(this.state.workTime) *
+            100;
+      }
+      console.log('progress', progress);
       this.setState({ progress });
       time = time - 1;
       if (time <= 0) {
@@ -129,14 +133,17 @@ class PomodoroClock extends Component {
     this.setState({ timerState: 'Break running' });
     let time = this.toSeconds(val);
     this.setState({ progress: 0 });
-    this.setState({ breakProgress: 0 });
     this.clock = setInterval(() => {
-      breakProgress =
-        100 -
-        this.toSeconds(this.state.counter) /
-          this.toSeconds(this.state.breakTime) *
-          100;
-      console.log(breakProgress);
+      if (this.toSeconds(this.state.counter) === 0) {
+        breakProgress = 0;
+      } else {
+        breakProgress =
+          100 -
+          this.toSeconds(this.state.counter) /
+            this.toSeconds(this.state.workTime) *
+            100;
+      }
+      console.log('breakProgress', breakProgress);
       this.setState({ breakProgress });
       time = time - 1;
       if (time <= 0) {
