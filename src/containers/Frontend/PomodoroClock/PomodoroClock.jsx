@@ -12,6 +12,7 @@ class PomodoroClock extends Component {
       timerState: '',
       counter: '25:00',
       startButtonText: 'Start',
+      progress: 0,
     };
     this.sound = new Audio(ding);
   }
@@ -88,14 +89,23 @@ class PomodoroClock extends Component {
       timerState: '',
       counter: '25:00',
       startButtonText: 'Start',
+      progress: 0,
     });
   };
 
   workTimer = val => {
+    let progress;
     this.sound.play();
     this.setState({ timerState: 'Work running' });
     let time = this.toSeconds(val);
     this.clock = setInterval(() => {
+      progress =
+        100 -
+        this.toSeconds(this.state.counter) /
+          this.toSeconds(this.state.workTime) *
+          100;
+      this.setState({ progress });
+      console.log(this.state);
       time = time - 1;
       if (time <= 0) {
         clearInterval(this.clock);
@@ -143,6 +153,7 @@ class PomodoroClock extends Component {
       startButtonText,
       timerState,
       counter,
+      progress,
     } = this.state;
     return (
       <div className="PomodoroClock">
@@ -181,7 +192,7 @@ class PomodoroClock extends Component {
             </div>
 
             <div className="clock">
-              <div className="progress" />
+              <div className="progress" style={{ width: `${progress}%` }} />
               <div className="breakTimer" />
               <div
                 className={
