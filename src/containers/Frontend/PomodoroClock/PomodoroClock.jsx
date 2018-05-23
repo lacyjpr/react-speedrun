@@ -18,7 +18,6 @@ class PomodoroClock extends Component {
     this.sound = new Audio(ding);
   }
 
-  // Increment break time
   breakPlus = () => {
     let time = this.toSeconds(this.state.breakTime);
     if (time >= 0) {
@@ -28,7 +27,6 @@ class PomodoroClock extends Component {
     }
   };
 
-  // Decrement break time
   breakMinus = () => {
     let time = this.toSeconds(this.state.breakTime);
     if (time >= 120) {
@@ -38,7 +36,6 @@ class PomodoroClock extends Component {
     }
   };
 
-  // Increment work time
   workPlus = () => {
     let time = this.toSeconds(this.state.workTime);
     if (time >= 0) {
@@ -48,7 +45,6 @@ class PomodoroClock extends Component {
     }
   };
 
-  // Decrement work time
   workMinus = () => {
     let time = this.toSeconds(this.state.workTime);
     if (time >= 120) {
@@ -106,7 +102,7 @@ class PomodoroClock extends Component {
         progress = 0;
       } else {
         progress =
-          20 +
+          5 +
           (100 -
             this.toSeconds(this.state.counter) /
               this.toSeconds(this.state.workTime) *
@@ -134,7 +130,7 @@ class PomodoroClock extends Component {
         breakProgress = 0;
       } else {
         breakProgress =
-          20 +
+          5 +
           (100 -
             this.toSeconds(this.state.counter) /
               this.toSeconds(this.state.workTime) *
