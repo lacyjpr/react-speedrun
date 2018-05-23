@@ -7,12 +7,13 @@ class PomodoroClock extends Component {
     super();
 
     this.state = {
-      breakTime: '5:00',
-      workTime: '25:00',
+      breakTime: '0:10',
+      workTime: '0:10',
       timerState: '',
-      counter: '25:00',
+      counter: '0:10',
       startButtonText: 'Start',
       progress: 0,
+      breakProgress: 0,
     };
     this.sound = new Audio(ding);
   }
@@ -59,6 +60,7 @@ class PomodoroClock extends Component {
 
   start = () => {
     const val = this.state.startButtonText;
+    console.log(this.state);
     switch (val) {
       case 'Start':
         this.setState({ startButtonText: 'Pause' });
@@ -74,8 +76,10 @@ class PomodoroClock extends Component {
         this.setState({ startButtonText: 'Start' });
         if (this.state.timerState === 'Work running') {
           this.setState({ timerState: 'Work paused' });
-        } else if (this.timerState === 'Break running') {
+          console.log(this.state.timerState);
+        } else if (this.state.timerState == 'Break running') {
           this.setState({ timerState: 'Break paused' });
+          console.log(this.state.timerState);
         }
         clearInterval(this.clock);
     }
@@ -90,6 +94,7 @@ class PomodoroClock extends Component {
       counter: '25:00',
       startButtonText: 'Start',
       progress: 0,
+      breakTimer: 0,
     });
   };
 
@@ -98,14 +103,15 @@ class PomodoroClock extends Component {
     this.sound.play();
     this.setState({ timerState: 'Work running' });
     let time = this.toSeconds(val);
+    this.setState({ breakProgress: 0 });
     this.clock = setInterval(() => {
       progress =
         100 -
         this.toSeconds(this.state.counter) /
           this.toSeconds(this.state.workTime) *
           100;
+      console.log(progress);
       this.setState({ progress });
-      console.log(this.state);
       time = time - 1;
       if (time <= 0) {
         clearInterval(this.clock);
@@ -113,14 +119,25 @@ class PomodoroClock extends Component {
       }
       let time2 = this.toMinutes(time);
       this.setState({ counter: time2 });
+      console.log(this.state);
     }, 1000);
   };
 
   breakTimer = val => {
+    let breakProgress;
     this.sound.play();
     this.setState({ timerState: 'Break running' });
     let time = this.toSeconds(val);
+    this.setState({ progress: 0 });
+    this.setState({ breakProgress: 0 });
     this.clock = setInterval(() => {
+      breakProgress =
+        100 -
+        this.toSeconds(this.state.counter) /
+          this.toSeconds(this.state.breakTime) *
+          100;
+      console.log(breakProgress);
+      this.setState({ breakProgress });
       time = time - 1;
       if (time <= 0) {
         clearInterval(this.clock);
@@ -128,6 +145,7 @@ class PomodoroClock extends Component {
       }
       let time2 = this.toMinutes(time);
       this.setState({ counter: time2 });
+      console.log(this.state);
     }, 1000);
   };
 
@@ -154,6 +172,7 @@ class PomodoroClock extends Component {
       timerState,
       counter,
       progress,
+      breakProgress,
     } = this.state;
     return (
       <div className="PomodoroClock">
@@ -193,7 +212,10 @@ class PomodoroClock extends Component {
 
             <div className="clock">
               <div className="progress" style={{ width: `${progress}%` }} />
-              <div className="breakTimer" />
+              <div
+                className="breakTimer"
+                style={{ width: `${breakProgress}%` }}
+              />
               <div
                 className={
                   timerState === 'Work running'
