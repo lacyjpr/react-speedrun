@@ -65,6 +65,13 @@ module.exports = {
           limit: 10000,
         },
       },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
+        query: {
+          name: 'src/assets/[name].[hash:8].[ext]',
+        },
+      },
     ],
   },
   resolve: {

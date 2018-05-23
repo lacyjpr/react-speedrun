@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ding from './../../../assets/alarm.mp3';
 import './PomodoroClock.scss';
 
 class PomodoroClock extends Component {
@@ -12,6 +13,7 @@ class PomodoroClock extends Component {
       counter: '25:00',
       startButtonText: 'Start',
     };
+    this.sound = new Audio(ding);
   }
 
   // Increment break time
@@ -79,6 +81,7 @@ class PomodoroClock extends Component {
   };
 
   workTimer = val => {
+    this.sound.play();
     this.setState({ timerState: 'Work running' });
     let time = this.toSeconds(val);
     this.clock = setInterval(() => {
@@ -93,6 +96,7 @@ class PomodoroClock extends Component {
   };
 
   breakTimer = val => {
+    this.sound.play();
     this.setState({ timerState: 'Break running' });
     let time = this.toSeconds(val);
     this.clock = setInterval(() => {
@@ -190,7 +194,9 @@ class PomodoroClock extends Component {
             </div>
 
             <div className="row">
-              <div className="reset">Reset</div>
+              <button className="reset" onClick={this.reset}>
+                Reset
+              </button>
             </div>
           </div>
         </div>
