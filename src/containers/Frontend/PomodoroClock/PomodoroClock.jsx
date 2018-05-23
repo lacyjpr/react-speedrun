@@ -80,6 +80,17 @@ class PomodoroClock extends Component {
     }
   };
 
+  reset = () => {
+    clearInterval(this.clock);
+    this.setState({
+      breakTime: '5:00',
+      workTime: '25:00',
+      timerState: '',
+      counter: '25:00',
+      startButtonText: 'Start',
+    });
+  };
+
   workTimer = val => {
     this.sound.play();
     this.setState({ timerState: 'Work running' });
