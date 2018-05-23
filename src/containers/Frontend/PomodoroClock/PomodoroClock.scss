@@ -128,7 +128,6 @@
 
   .progress {
     z-index: 1;
-    transition: 1000ms ease-in;
     width: 0px;
     height: 100%;
     position: absolute;
@@ -139,7 +138,6 @@
 
   .breakTimer {
     z-index: 1;
-    transition: 1000ms ease-in;
     width: 0px;
     height: 100%;
     position: absolute;
