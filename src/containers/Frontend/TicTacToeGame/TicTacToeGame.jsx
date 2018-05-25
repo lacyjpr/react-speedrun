@@ -17,15 +17,78 @@ class TicTacToeGame extends Component {
             </button>
           </div>
 
-          <div className="square" id="top-left" />
-          <div className="square" id="top-middle" />
-          <div className="square" id="top-right" />
-          <div className="square" id="middle-left" />
-          <div className="square" id="middle-middle" />
-          <div className="square" id="middle-right" />
-          <div className="square" id="bottom-left" />
-          <div className="square" id="bottom-middle" />
-          <div className="square" id="bottom-right" />
+          <div
+            className="square"
+            id="top-left"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="top-middle"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="top-right"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="middle-left"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="middle-middle"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="middle-right"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="bottom-left"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="bottom-middle"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
+          <div
+            className="square"
+            id="bottom-right"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          />
 
           <div className="button" id="reset">
             Reset
