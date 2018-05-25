@@ -1,3 +1,144 @@
 .TicTacToeGame {
   text-align: center;
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #111111;
+    font-size: 4vh;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #111111;
+    font-size: 7vh;
+  }
+
+  .main {
+    margin: 0;
+    padding: 0;
+    padding-top: 25vh;
+    height: auto;
+    width: 100%;
+  }
+
+  #playerX {
+    margin: 0 0.5vh 2vh 0;
+  }
+
+  #playerX:active {
+    color: #2222ff;
+  }
+
+  #playerO {
+    margin: 0 0 2vh 0.5vh;
+  }
+
+  #playerO:active {
+    color: #ff2222;
+  }
+
+  .board {
+    padding: 0;
+    margin: auto;
+    width: 33vh;
+    height: 33vh;
+    text-align: center;
+  }
+
+  .square {
+    padding: 0;
+    height: 10vh;
+    line-height: 10vh;
+    width: 10vh;
+    background: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    font-size: 9vh;
+  }
+
+  #top-left {
+    border-right: 1vh solid #111111;
+    border-bottom: 1vh solid #111111;
+  }
+
+  #top-middle {
+    border-bottom: 1vh solid #111111;
+  }
+
+  #top-right {
+    border-left: 1vh solid #111111;
+    border-bottom: 1vh solid #111111;
+  }
+
+  #middle-left {
+    border-right: 1vh solid #111111;
+  }
+
+  #middle-right {
+    border-left: 1vh solid #111111;
+  }
+
+  #bottom-left {
+    border-right: 1vh solid #111111;
+    border-top: 1vh solid #111111;
+  }
+
+  #bottom-middle {
+    border-top: 1vh solid #111111;
+  }
+
+  #bottom-right {
+    border-left: 1vh solid #111111;
+    border-top: 1vh solid #111111;
+  }
+
+  .button {
+    padding: 0;
+    margin: 0.5vh;
+    height: 5vh;
+    width: 14.5vh;
+    line-height: 5vh;
+    vertical-align: middle;
+    background: #111111;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    font-size: 4vh;
+    user-select: none;
+  }
+
+  #reset {
+    padding: 0;
+    margin: 2vh 0 0 0;
+    height: 5vh;
+    width: 30vh;
+    line-height: 5vh;
+    vertical-align: middle;
+    background: #111111;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    font-size: 4vh;
+  }
+
+  #reset:active {
+    color: #00ff00;
+  }
+
+  .difficulty {
+    color: #111111;
+    text-align: center;
+    font-size: 2.5vh;
+    width: 30vh;
+  }
+
+  input[type='radio'] {
+    margin: 2.5vh 0.5vh 2.5vh 0.5vh;
+  }
 }
