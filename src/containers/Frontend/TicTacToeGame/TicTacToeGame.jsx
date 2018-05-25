@@ -90,7 +90,14 @@ class TicTacToeGame extends Component {
             onKeyPress={this.handleKeyPress}
           />
 
-          <div className="button" id="reset">
+          <div
+            className="button"
+            id="reset"
+            role="button"
+            tabIndex={0}
+            onClick={this.doSomething}
+            onKeyPress={this.handleKeyPress}
+          >
             Reset
           </div>
 
