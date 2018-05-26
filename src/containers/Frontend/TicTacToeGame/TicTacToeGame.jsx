@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import './TicTacToeGame.scss';
 
 class TicTacToeGame extends Component {
+  constructor() {
+    super();
+    this.state = {
+      board: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      running: false,
+      human: false,
+      computer: true,
+      HUMVAL: -1,
+      COMVAL: 1,
+      humSymbol: 'X',
+      comSymbol: 'O',
+      difficulty: 'easy',
+      empties: [],
+      winMatrix: [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ],
+    };
+  }
   setDifficulty = e => {
     console.log(e.target.value);
   };
