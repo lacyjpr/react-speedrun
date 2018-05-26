@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import win from './../../../assets/win.mp3';
+import lose from './../../../assets/lose.mp3';
+import draw from './../../../assets/draw.mp3';
 import './TicTacToeGame.scss';
 
 class TicTacToeGame extends Component {
   constructor() {
     super();
+
     this.state = {
       board: [0, 0, 0, 0, 0, 0, 0, 0, 0],
       running: false,
@@ -26,6 +30,10 @@ class TicTacToeGame extends Component {
         [2, 4, 6],
       ],
     };
+
+    this.win = new Audio(win);
+    this.lose = new Audio(lose);
+    this.draw = new Audio(draw);
   }
   setDifficulty = e => {
     console.log(e.target.value);
