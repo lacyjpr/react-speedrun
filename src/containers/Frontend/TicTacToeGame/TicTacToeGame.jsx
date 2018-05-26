@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './TicTacToeGame.scss';
 
 class TicTacToeGame extends Component {
+  setDifficulty = e => {
+    console.log(e.target.value);
+  };
+
   render() {
     return (
       <div className="TicTacToeGame">
@@ -102,8 +106,13 @@ class TicTacToeGame extends Component {
           </div>
 
           <div className="difficulty">
-            <form name="hardness">
-              <input type="radio" name="difficulty" value="easy" />
+            <form name="hardness" onChange={this.setDifficulty}>
+              <input
+                type="radio"
+                name="difficulty"
+                value="easy"
+                defaultChecked
+              />
               Easy
               <input type="radio" name="difficulty" value="medium" />
               Medium
