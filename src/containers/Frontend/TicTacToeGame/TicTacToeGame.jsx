@@ -34,6 +34,20 @@ class TicTacToeGame extends Component {
     this.win = new Audio(win);
     this.lose = new Audio(lose);
     this.draw = new Audio(draw);
+
+    // Dom elements
+    let squares = document.getElementsByClassName('square');
+    let playerX = document.getElementById('playerX');
+    let playerO = document.getElementById('playerO');
+    let $reset = document.getElementById('reset');
+    let win = document.getElementById('win');
+    let lose = document.getElementById('lose');
+    let draw = document.getElementById('draw');
+
+    // Hide win lose draw messages
+    win.style.display = 'none';
+    lose.style.display = 'none';
+    draw.style.display = 'none';
   }
   setDifficulty = e => {
     console.log(e.target.value);
