@@ -40,17 +40,29 @@ class TicTacToeGame extends Component {
     let playerX = document.getElementById('playerX');
     let playerO = document.getElementById('playerO');
     let $reset = document.getElementById('reset');
-    let win = document.getElementById('win');
-    let lose = document.getElementById('lose');
-    let draw = document.getElementById('draw');
-
-    // Hide win lose draw messages
-    win.style.display = 'none';
-    lose.style.display = 'none';
-    draw.style.display = 'none';
   }
   setDifficulty = e => {
     console.log(e.target.value);
+  };
+
+  pickX = () => {
+    if (this.state.running === true) {
+      console.log(this.state);
+      return;
+    } else {
+      this.setState({ humSymbol: 'X', comSymbol: 'O', running: true });
+      console.log(this.state);
+    }
+  };
+
+  pickO = () => {
+    if (this.state.running === true) {
+      console.log(this.state);
+      return;
+    } else {
+      this.setState({ humSymbol: 'O', comSymbol: 'X', running: true });
+      console.log(this.state);
+    }
   };
 
   render() {
@@ -60,10 +72,10 @@ class TicTacToeGame extends Component {
         <div className="board">
           <div id="player">
             <p>Play as:</p>
-            <button className="button" id="playerX">
+            <button className="button" id="playerX" onClick={this.pickX}>
               X
             </button>
-            <button className="button" id="playerO">
+            <button className="button" id="playerO" onClick={this.pickO}>
               O
             </button>
           </div>
