@@ -48,21 +48,17 @@ class TicTacToeGame extends Component {
 
   pickX = () => {
     if (this.state.running === true) {
-      console.log(this.state);
       return;
     } else {
       this.setState({ humSymbol: 'X', comSymbol: 'O', running: true });
-      console.log(this.state);
     }
   };
 
   pickO = () => {
     if (this.state.running === true) {
-      console.log(this.state);
       return;
     } else {
       this.setState({ humSymbol: 'O', comSymbol: 'X', running: true });
-      console.log(this.state);
     }
   };
 
@@ -70,7 +66,7 @@ class TicTacToeGame extends Component {
     const { running, human, board } = this.state;
     e.preventDefault();
     const clicked = e.target.value;
-    console.log(clicked);
+
     if (!running) {
       return;
     }
@@ -83,7 +79,6 @@ class TicTacToeGame extends Component {
 
   // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   set = (index, player) => {
-    console.log('set called');
     const {
       human,
       board,
@@ -98,9 +93,7 @@ class TicTacToeGame extends Component {
     }
 
     if (board[index] === 0) {
-      console.log(index);
       if (player === human) {
-        console.log(this.squares);
         this.squares[index].style.color = '#2222ff';
         this.squares[index].innerHTML = humSymbol;
         board[index] = HUMVAL;
@@ -127,6 +120,28 @@ class TicTacToeGame extends Component {
       // 	}
       // 	game.running = false;
     }
+  };
+
+  // Check for win credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
+  checkWin = (board, player) => {
+    const { human, HUMVAL, COMVAL, winMatrix } = this.state;
+    var value = player === human ? HUMVAL : COMVAL;
+
+    for (var j = 0; j < 8; j++) {
+      var win = true;
+
+      for (var k = 0; k < 3; k++) {
+        if (board[winMatrix[j][k]] != value) {
+          win = false;
+          break;
+        }
+      }
+      if (win) {
+        return true;
+      }
+    }
+
+    return false;
   };
 
   render() {
