@@ -144,6 +144,17 @@ class TicTacToeGame extends Component {
     return false;
   };
 
+  // Check for full board credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
+  checkFull = board => {
+    for (var l = 0; l < 9; l++) {
+      if (board[l] === 0) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
   render() {
     return (
       <div className="TicTacToeGame">
