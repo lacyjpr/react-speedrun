@@ -36,11 +36,12 @@ class TicTacToeGame extends Component {
     this.draw = new Audio(draw);
 
     // Dom elements
-    let squares = document.getElementsByClassName('square');
-    let playerX = document.getElementById('playerX');
-    let playerO = document.getElementById('playerO');
-    let $reset = document.getElementById('reset');
+    this.squares = document.getElementsByClassName('square');
+    this.playerX = document.getElementById('playerX');
+    this.playerO = document.getElementById('playerO');
+    this.$reset = document.getElementById('reset');
   }
+
   setDifficulty = e => {
     console.log(e.target.value);
   };
@@ -65,6 +66,69 @@ class TicTacToeGame extends Component {
     }
   };
 
+  take = e => {
+    const { running, human, board } = this.state;
+    e.preventDefault();
+    const clicked = e.target.value;
+    console.log(clicked);
+    if (!running) {
+      return;
+    }
+
+    if (board[clicked] === 0) {
+      this.set(clicked, human);
+      //this.callAI();
+    }
+  };
+
+  // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
+  set = (index, player) => {
+    console.log('set called');
+    const {
+      human,
+      board,
+      running,
+      humSymbol,
+      HUMVAL,
+      comSymbol,
+      COMVAL,
+    } = this.state;
+    if (!running) {
+      return;
+    }
+
+    if (board[index] === 0) {
+      console.log(index);
+      if (player === human) {
+        console.log(this.squares);
+        this.squares[index].style.color = '#2222ff';
+        this.squares[index].innerHTML = humSymbol;
+        board[index] = HUMVAL;
+      } else {
+        this.squares[index].style.color = '#ff2222';
+        this.squares[index].innerHTML = comSymbol;
+        board[index] = COMVAL;
+      }
+
+      // Display Win Lose or Draw credit Pankajashree R https://github.com/pankaja-shree/chingu-fcc-speedrun-challenge/blob/master/frontend/tictactoe-game/scripts.js
+      // if (!checkWin(game.board, player) && checkFull(game.board)) {
+      // 	document.getElementById("draw").style.display = "block";
+      // 	game.draw.play();
+      // }
+
+      // if (checkWin(game.board, player)){
+      // 	if (player === game.human){
+      // 		document.getElementById("win").style.display = "block";
+      // 		game.win.play();
+
+      // 	} else {
+      // 		document.getElementById("lose").style.display = "block";
+      // 		game.lose.play();
+      // 	}
+      // 	game.running = false;
+    }
+  };
+
   render() {
     return (
       <div className="TicTacToeGame">
@@ -80,77 +144,78 @@ class TicTacToeGame extends Component {
             </button>
           </div>
 
-          <div
+          <button
             className="square"
             id="top-left"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="0"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="top-middle"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="1"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="top-right"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="2"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="middle-left"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="3"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="middle-middle"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="4"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="middle-right"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="5"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="bottom-left"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="6"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="bottom-middle"
-            role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="7"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
-          <div
+          <button
             className="square"
             id="bottom-right"
             role="button"
             tabIndex={0}
-            onClick={this.doSomething}
-            onKeyPress={this.handleKeyPress}
+            value="8"
+            onClick={this.take}
+            onKeyPress={this.take}
           />
 
           <div
@@ -158,7 +223,7 @@ class TicTacToeGame extends Component {
             id="reset"
             role="button"
             tabIndex={0}
-            onClick={this.doSomething}
+            onClick={this.reset}
             onKeyPress={this.handleKeyPress}
           >
             Reset
