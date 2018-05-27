@@ -79,7 +79,10 @@ class TicTacToeGame extends Component {
     if (this.state.running === true) {
       return;
     } else {
-      this.setState({ humSymbol: 'O', comSymbol: 'X', running: true });
+      this.setState(
+        { humSymbol: 'O', comSymbol: 'X', running: true },
+        this.callAI
+      );
     }
   };
 
@@ -100,6 +103,8 @@ class TicTacToeGame extends Component {
 
   // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   set = (index, player) => {
+    console.log('set called');
+    console.log(this.state);
     let {
       human,
       board,
@@ -128,6 +133,7 @@ class TicTacToeGame extends Component {
       if (!this.checkWin(board, player) && this.checkFull(board)) {
         document.getElementById('draw').style.display = 'block';
         this.draw.play();
+        this.setState({ running: false });
       }
 
       if (this.checkWin(board, player)) {
@@ -138,7 +144,7 @@ class TicTacToeGame extends Component {
           document.getElementById('lose').style.display = 'block';
           this.lose.play();
         }
-        running = false;
+        this.setState({ running: false });
       }
     }
   };
@@ -176,6 +182,7 @@ class TicTacToeGame extends Component {
 
   // Start AI
   callAI = () => {
+    console.log('callAI called');
     const { difficulty, board, computer } = this.state;
     if (difficulty === 'easy') {
       this.randomMove();
