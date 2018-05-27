@@ -17,7 +17,7 @@ class TicTacToeGame extends Component {
       COMVAL: 1,
       humSymbol: 'X',
       comSymbol: 'O',
-      difficulty: 'easy',
+      difficulty: 'hard',
       empties: [],
       winMatrix: [
         [0, 1, 2],
@@ -200,9 +200,12 @@ class TicTacToeGame extends Component {
   // Get empty squares
   getEmpties = () => {
     let { empties, board } = this.state;
+    console.log('board', board);
+    this.setState({ empties: [] });
     for (var n = 0; n < 9; n++) {
       if (board[n] === 0) {
         empties.push(n);
+        console.log('empties', empties);
       }
     }
   };
@@ -213,7 +216,47 @@ class TicTacToeGame extends Component {
     const { empties, computer } = this.state;
     this.getEmpties();
     const randomCell = empties[Math.floor(Math.random() * empties.length)];
+    console.log(randomCell);
     this.set(randomCell, computer);
+  };
+
+  // Minimax AI credit to KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
+  miniMax = (board, depth, player) => {
+    const { human, HUMVAL, COMVAL, computer } = this.state;
+    // Terminal condition
+    if (this.checkWin(board, !player)) {
+      return -10 + depth;
+    }
+    // Terminal condition
+    if (this.checkFull(board)) {
+      return 0;
+    }
+
+    const value = player === human ? HUMVAL : COMVAL;
+
+    var max = -Infinity;
+    var index = 0;
+
+    // Recurse through possible moves until a terminal condition is reached
+    for (var m = 0; m < 9; m++) {
+      if (board[m] === 0) {
+        var newBoard = board.slice();
+        newBoard[m] = value;
+
+        var moveVal = -this.miniMax(newBoard, depth + 1, !player);
+
+        if (moveVal > max) {
+          max = moveVal;
+          index = m;
+        }
+      }
+    }
+    // Make the best possible move
+    if (depth === 0) {
+      this.set(index, computer);
+    }
+
+    return max;
   };
 
   render() {
