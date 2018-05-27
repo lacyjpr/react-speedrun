@@ -267,80 +267,26 @@ class TicTacToeGame extends Component {
               O
             </button>
           </div>
-
-          <button
-            className="square"
-            id="top-left"
-            tabIndex={0}
-            value="0"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="top-middle"
-            tabIndex={0}
-            value="1"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="top-right"
-            tabIndex={0}
-            value="2"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="middle-left"
-            tabIndex={0}
-            value="3"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="middle-middle"
-            tabIndex={0}
-            value="4"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="middle-right"
-            tabIndex={0}
-            value="5"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="bottom-left"
-            tabIndex={0}
-            value="6"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="bottom-middle"
-            tabIndex={0}
-            value="7"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-          <button
-            className="square"
-            id="bottom-right"
-            tabIndex={0}
-            value="8"
-            onClick={this.take}
-            onKeyPress={this.take}
-          />
-
+          {[
+            'top-left',
+            'top-middle',
+            'top-right',
+            'middle-left',
+            'middle-middle',
+            'middle-right',
+            'bottom-left',
+            'bottom-middle',
+            'bottom-right',
+          ].map((x, i) => (
+            <button
+              className="square"
+              id={x}
+              tabIndex={0}
+              value={i}
+              onClick={this.take}
+              onKeyPress={this.take}
+            />
+          ))}
           <div
             className="button"
             id="reset"
@@ -351,23 +297,27 @@ class TicTacToeGame extends Component {
           >
             Reset
           </div>
-
           <div className="difficulty">
             <form name="hardness" onChange={this.setDifficulty}>
               <input
                 type="radio"
                 name="difficulty"
                 value="easy"
+                id="easy"
                 defaultChecked
               />
-              Easy
-              <input type="radio" name="difficulty" value="medium" />
-              Medium
-              <input type="radio" name="difficulty" value="hard" />
-              Hard
+              <label htmlFor="easy">Easy</label>
+              <input
+                type="radio"
+                name="difficulty"
+                value="medium"
+                id="medium"
+              />
+              <label htmlFor="medium">Medium</label>
+              <input type="radio" name="difficulty" value="hard" id="hard" />
+              <label htmlFor="hard">Hard</label>
             </form>
           </div>
-
           <div className="display">
             <h1 id="win" className={winner === 'human' ? '' : 'hidden'}>
               You Win!
