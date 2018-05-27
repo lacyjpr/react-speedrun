@@ -53,6 +53,18 @@ class TicTacToeGame extends Component {
     console.log(e.target.value);
   };
 
+  reset = () => {
+    const { board } = this.state;
+    for (var x = 0; x < 9; x++) {
+      this.squares[x].innerHTML = '';
+      board[x] = 0;
+    }
+    this.setState({ running: false, humSymbol: 'X', comSymbol: 'O' });
+    document.getElementById('win').style.display = 'none';
+    document.getElementById('lose').style.display = 'none';
+    document.getElementById('draw').style.display = 'none';
+  };
+
   pickX = () => {
     if (this.state.running === true) {
       return;
@@ -286,7 +298,6 @@ class TicTacToeGame extends Component {
           <button
             className="square"
             id="bottom-right"
-            role="button"
             tabIndex={0}
             value="8"
             onClick={this.take}
@@ -299,7 +310,7 @@ class TicTacToeGame extends Component {
             role="button"
             tabIndex={0}
             onClick={this.reset}
-            onKeyPress={this.handleKeyPress}
+            onKeyPress={this.reset}
           >
             Reset
           </div>
