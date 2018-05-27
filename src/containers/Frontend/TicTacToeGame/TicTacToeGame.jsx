@@ -17,7 +17,7 @@ class TicTacToeGame extends Component {
       COMVAL: 1,
       humSymbol: 'X',
       comSymbol: 'O',
-      difficulty: 'hard',
+      difficulty: 'easy',
       empties: [],
       winMatrix: [
         [0, 1, 2],
@@ -50,7 +50,10 @@ class TicTacToeGame extends Component {
   }
 
   setDifficulty = e => {
+    e.preventDefault();
     console.log(e.target.value);
+    const difficulty = e.target.value;
+    this.setState({ difficulty });
   };
 
   reset = () => {
