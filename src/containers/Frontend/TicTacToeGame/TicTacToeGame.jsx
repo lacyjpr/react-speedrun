@@ -19,6 +19,7 @@ class TicTacToeGame extends Component {
       comSymbol: 'O',
       difficulty: 'easy',
       empties: [],
+      winner: null,
       winMatrix: [
         [0, 1, 2],
         [3, 4, 5],
@@ -35,18 +36,7 @@ class TicTacToeGame extends Component {
     this.lose = new Audio(lose);
     this.draw = new Audio(draw);
 
-    // Dom elements
     this.squares = document.getElementsByClassName('square');
-    this.playerX = document.getElementById('playerX');
-    this.playerO = document.getElementById('playerO');
-    this.$reset = document.getElementById('reset');
-  }
-
-  componentDidMount() {
-    // Hide win lose draw messages
-    document.getElementById('win').style.display = 'none';
-    document.getElementById('lose').style.display = 'none';
-    document.getElementById('draw').style.display = 'none';
   }
 
   setDifficulty = e => {
@@ -61,10 +51,12 @@ class TicTacToeGame extends Component {
       this.squares[x].innerHTML = '';
       board[x] = 0;
     }
-    this.setState({ running: false, humSymbol: 'X', comSymbol: 'O' });
-    document.getElementById('win').style.display = 'none';
-    document.getElementById('lose').style.display = 'none';
-    document.getElementById('draw').style.display = 'none';
+    this.setState({
+      running: false,
+      humSymbol: 'X',
+      comSymbol: 'O',
+      winner: null,
+    });
   };
 
   pickX = () => {
@@ -135,17 +127,16 @@ class TicTacToeGame extends Component {
 
         // Display Win Lose or Draw credit Pankajashree R https://github.com/pankaja-shree/chingu-fcc-speedrun-challenge/blob/master/frontend/tictactoe-game/scripts.js
         if (!this.checkWin(board, player) && this.checkFull(board)) {
-          document.getElementById('draw').style.display = 'block';
           this.draw.play();
-          this.setState({ running: false }, resolve());
+          this.setState({ running: false, winner: 'none' }, resolve());
         }
 
         if (this.checkWin(board, player)) {
           if (player === human) {
-            document.getElementById('win').style.display = 'block';
+            this.setState({ winner: 'human' });
             this.win.play();
           } else {
-            document.getElementById('lose').style.display = 'block';
+            this.setState({ winner: 'computer' });
             this.lose.play();
           }
           this.setState({ running: false }, resolve());
@@ -265,6 +256,7 @@ class TicTacToeGame extends Component {
   };
 
   render() {
+    const { winner } = this.state;
     return (
       <div className="TicTacToeGame">
         <h1>Tic Tac Toe</h1>
@@ -380,9 +372,15 @@ class TicTacToeGame extends Component {
           </div>
 
           <div className="display">
-            <h1 id="win">You Win!</h1>
-            <h1 id="lose">You Lose!</h1>
-            <h1 id="draw">Draw!</h1>
+            <h1 id="win" className={winner === 'human' ? '' : 'hidden'}>
+              You Win!
+            </h1>
+            <h1 id="lose" className={winner === 'computer' ? '' : 'hidden'}>
+              You Lose!
+            </h1>
+            <h1 id="draw" className={winner === 'none' ? '' : 'hidden'}>
+              Draw!
+            </h1>
           </div>
         </div>
       </div>
