@@ -95,8 +95,6 @@ class TicTacToeGame extends Component {
   // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   set = (index, player) => {
     return new Promise(resolve => {
-      console.log('set called');
-      console.log(this.state);
       let {
         human,
         board,
@@ -178,7 +176,6 @@ class TicTacToeGame extends Component {
 
   // Start AI
   callAI = () => {
-    console.log('callAI called');
     const { difficulty, board, computer } = this.state;
     if (difficulty === 'easy') {
       this.randomMove();
