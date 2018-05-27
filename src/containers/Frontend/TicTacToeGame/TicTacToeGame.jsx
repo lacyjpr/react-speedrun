@@ -282,6 +282,7 @@ class TicTacToeGame extends Component {
               className="square"
               id={x}
               tabIndex={0}
+              key={i}
               value={i}
               onClick={this.take}
               onKeyPress={this.take}
