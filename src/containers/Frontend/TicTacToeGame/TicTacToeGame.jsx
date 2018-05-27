@@ -80,12 +80,14 @@ class TicTacToeGame extends Component {
 
     if (board[clicked] === 0) {
       this.set(clicked, human);
-      //this.callAI();
+      this.callAI();
     }
   };
 
   // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   set = (index, player) => {
+    console.log('set called');
+    console.log(this.state);
     let {
       human,
       board,
@@ -163,7 +165,9 @@ class TicTacToeGame extends Component {
 
   // Start AI
   callAI = () => {
+    console.log('callAI called');
     const { difficulty, board, computer } = this.state;
+    console.log(difficulty);
     if (difficulty === 'easy') {
       this.randomMove();
       return;
@@ -184,12 +188,20 @@ class TicTacToeGame extends Component {
   // Get empty squares
   getEmpties = () => {
     let { empties, board } = this.state;
-    empties = [];
     for (var n = 0; n < 9; n++) {
       if (board[n] === 0) {
         empties.push(n);
       }
     }
+  };
+
+  // Make a random move
+  randomMove = () => {
+    console.log('randomMove called');
+    const { empties, computer } = this.state;
+    this.getEmpties();
+    const randomCell = empties[Math.floor(Math.random() * empties.length)];
+    this.set(randomCell, computer);
   };
 
   render() {
