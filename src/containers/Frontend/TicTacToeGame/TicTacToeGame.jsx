@@ -158,8 +158,38 @@ class TicTacToeGame extends Component {
         return false;
       }
     }
-
     return true;
+  };
+
+  // Start AI
+  callAI = () => {
+    const { difficulty, board, computer } = this.state;
+    if (difficulty === 'easy') {
+      this.randomMove();
+      return;
+    }
+    if (difficulty === 'medium') {
+      if (Math.random() * 100 <= 50) {
+        this.miniMax(board, 0, computer);
+        return;
+      } else {
+        this.randomMove();
+        return;
+      }
+    } else {
+      this.miniMax(board, 0, computer);
+    }
+  };
+
+  // Get empty squares
+  getEmpties = () => {
+    let { empties, board } = this.state;
+    empties = [];
+    for (var n = 0; n < 9; n++) {
+      if (board[n] === 0) {
+        empties.push(n);
+      }
+    }
   };
 
   render() {
