@@ -51,7 +51,6 @@ class TicTacToeGame extends Component {
 
   setDifficulty = e => {
     e.preventDefault();
-    console.log(e.target.value);
     const difficulty = e.target.value;
     this.setState({ difficulty });
   };
@@ -101,8 +100,6 @@ class TicTacToeGame extends Component {
 
   // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   set = (index, player) => {
-    console.log('set called');
-    console.log(this.state);
     let {
       human,
       board,
@@ -149,12 +146,12 @@ class TicTacToeGame extends Component {
   // Check for win credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   checkWin = (board, player) => {
     const { human, HUMVAL, COMVAL, winMatrix } = this.state;
-    var value = player === human ? HUMVAL : COMVAL;
+    const value = player === human ? HUMVAL : COMVAL;
 
-    for (var j = 0; j < 8; j++) {
-      var win = true;
+    for (let j = 0; j < 8; j++) {
+      let win = true;
 
-      for (var k = 0; k < 3; k++) {
+      for (let k = 0; k < 3; k++) {
         if (board[winMatrix[j][k]] != value) {
           win = false;
           break;
@@ -164,7 +161,6 @@ class TicTacToeGame extends Component {
         return true;
       }
     }
-
     return false;
   };
 
@@ -180,9 +176,7 @@ class TicTacToeGame extends Component {
 
   // Start AI
   callAI = () => {
-    console.log('callAI called');
     const { difficulty, board, computer } = this.state;
-    console.log(difficulty);
     if (difficulty === 'easy') {
       this.randomMove();
       return;
@@ -203,23 +197,19 @@ class TicTacToeGame extends Component {
   // Get empty squares
   getEmpties = () => {
     let { empties, board } = this.state;
-    console.log('board', board);
     this.setState({ empties: [] });
-    for (var n = 0; n < 9; n++) {
+    for (let n = 0; n < 9; n++) {
       if (board[n] === 0) {
         empties.push(n);
-        console.log('empties', empties);
       }
     }
   };
 
   // Make a random move
   randomMove = () => {
-    console.log('randomMove called');
     const { empties, computer } = this.state;
     this.getEmpties();
     const randomCell = empties[Math.floor(Math.random() * empties.length)];
-    console.log(randomCell);
     this.set(randomCell, computer);
   };
 
@@ -237,16 +227,16 @@ class TicTacToeGame extends Component {
 
     const value = player === human ? HUMVAL : COMVAL;
 
-    var max = -Infinity;
-    var index = 0;
+    let max = -Infinity;
+    let index = 0;
 
     // Recurse through possible moves until a terminal condition is reached
-    for (var m = 0; m < 9; m++) {
+    for (let m = 0; m < 9; m++) {
       if (board[m] === 0) {
-        var newBoard = board.slice();
+        let newBoard = board.slice();
         newBoard[m] = value;
 
-        var moveVal = -this.miniMax(newBoard, depth + 1, !player);
+        const moveVal = -this.miniMax(newBoard, depth + 1, !player);
 
         if (moveVal > max) {
           max = moveVal;
