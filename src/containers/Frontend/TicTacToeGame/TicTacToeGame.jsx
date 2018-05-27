@@ -42,6 +42,13 @@ class TicTacToeGame extends Component {
     this.$reset = document.getElementById('reset');
   }
 
+  componentDidMount() {
+    // Hide win lose draw messages
+    document.getElementById('win').style.display = 'none';
+    document.getElementById('lose').style.display = 'none';
+    document.getElementById('draw').style.display = 'none';
+  }
+
   setDifficulty = e => {
     console.log(e.target.value);
   };
@@ -79,7 +86,7 @@ class TicTacToeGame extends Component {
 
   // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   set = (index, player) => {
-    const {
+    let {
       human,
       board,
       running,
@@ -104,21 +111,21 @@ class TicTacToeGame extends Component {
       }
 
       // Display Win Lose or Draw credit Pankajashree R https://github.com/pankaja-shree/chingu-fcc-speedrun-challenge/blob/master/frontend/tictactoe-game/scripts.js
-      // if (!checkWin(game.board, player) && checkFull(game.board)) {
-      // 	document.getElementById("draw").style.display = "block";
-      // 	game.draw.play();
-      // }
+      if (!this.checkWin(board, player) && this.checkFull(board)) {
+        document.getElementById('draw').style.display = 'block';
+        this.draw.play();
+      }
 
-      // if (checkWin(game.board, player)){
-      // 	if (player === game.human){
-      // 		document.getElementById("win").style.display = "block";
-      // 		game.win.play();
-
-      // 	} else {
-      // 		document.getElementById("lose").style.display = "block";
-      // 		game.lose.play();
-      // 	}
-      // 	game.running = false;
+      if (this.checkWin(board, player)) {
+        if (player === human) {
+          document.getElementById('win').style.display = 'block';
+          this.win.play();
+        } else {
+          document.getElementById('lose').style.display = 'block';
+          this.lose.play();
+        }
+        running = false;
+      }
     }
   };
 
