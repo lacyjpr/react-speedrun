@@ -96,57 +96,62 @@ class TicTacToeGame extends Component {
     }
 
     if (board[clicked] === 0) {
-      this.set(clicked, human);
-      this.callAI();
+      this.set(clicked, human).then(() => this.callAI());
     }
   };
 
   // Set squares credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
   set = (index, player) => {
-    console.log('set called');
-    console.log(this.state);
-    let {
-      human,
-      board,
-      running,
-      humSymbol,
-      HUMVAL,
-      comSymbol,
-      COMVAL,
-    } = this.state;
-    if (!running) {
-      return;
-    }
-
-    if (board[index] === 0) {
-      if (player === human) {
-        this.squares[index].style.color = '#2222ff';
-        this.squares[index].innerHTML = humSymbol;
-        board[index] = HUMVAL;
-      } else {
-        this.squares[index].style.color = '#ff2222';
-        this.squares[index].innerHTML = comSymbol;
-        board[index] = COMVAL;
+    return new Promise(resolve => {
+      console.log('set called');
+      console.log(this.state);
+      let {
+        human,
+        board,
+        running,
+        humSymbol,
+        HUMVAL,
+        comSymbol,
+        COMVAL,
+      } = this.state;
+      if (!running) {
+        return;
       }
 
-      // Display Win Lose or Draw credit Pankajashree R https://github.com/pankaja-shree/chingu-fcc-speedrun-challenge/blob/master/frontend/tictactoe-game/scripts.js
-      if (!this.checkWin(board, player) && this.checkFull(board)) {
-        document.getElementById('draw').style.display = 'block';
-        this.draw.play();
-        this.setState({ running: false });
-      }
-
-      if (this.checkWin(board, player)) {
+      if (board[index] === 0) {
         if (player === human) {
-          document.getElementById('win').style.display = 'block';
-          this.win.play();
+          resolve(
+            (this.squares[index].style.color = '#2222ff'),
+            (this.squares[index].innerHTML = humSymbol),
+            (board[index] = HUMVAL)
+          );
         } else {
-          document.getElementById('lose').style.display = 'block';
-          this.lose.play();
+          resolve(
+            (this.squares[index].style.color = '#ff2222'),
+            (this.squares[index].innerHTML = comSymbol),
+            (board[index] = COMVAL)
+          );
         }
-        this.setState({ running: false });
+
+        // Display Win Lose or Draw credit Pankajashree R https://github.com/pankaja-shree/chingu-fcc-speedrun-challenge/blob/master/frontend/tictactoe-game/scripts.js
+        if (!this.checkWin(board, player) && this.checkFull(board)) {
+          document.getElementById('draw').style.display = 'block';
+          this.draw.play();
+          this.setState({ running: false }, resolve());
+        }
+
+        if (this.checkWin(board, player)) {
+          if (player === human) {
+            document.getElementById('win').style.display = 'block';
+            this.win.play();
+          } else {
+            document.getElementById('lose').style.display = 'block';
+            this.lose.play();
+          }
+          this.setState({ running: false }, resolve());
+        }
       }
-    }
+    });
   };
 
   // Check for win credit KPkiller1671 https://www.youtube.com/watch?v=aWhb9dr1jNw
