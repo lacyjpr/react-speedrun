@@ -1,12 +1,6 @@
 .SimonGame {
   text-align: center;
 
-  body,
-  html {
-    font-family: Georgia, 'Times New Roman', Serif;
-    color: white;
-  }
-
   &__container {
     position: relative;
     border: 1vh black solid;
