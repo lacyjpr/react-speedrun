@@ -126,7 +126,7 @@
     user-select: none;
   }
 
-  .wrap {
+  &__wrap {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -138,7 +138,7 @@
     width: 10vh;
   }
 
-  .wrap2 {
+  &__wrap2 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -150,11 +150,11 @@
     width: 10vh;
   }
 
-  .col1 {
+  &__col1 {
     text-align: center;
   }
 
-  #display {
+  &__display {
     color: black;
     margin: 0 0 0 2.5vh;
     font-size: 4vh;
@@ -164,7 +164,7 @@
     border-radius: 10px;
   }
 
-  .label1 {
+  &__label1 {
     color: white;
     font-family: Arial, sans;
     font-size: 1.25vh;
@@ -173,19 +173,19 @@
     text-align: center;
   }
 
-  .btn-round {
+  &__btn-round {
     height: 3.5vh;
     width: 3.5vh;
     border-radius: 50%;
   }
 
-  #start {
+  &__start {
     margin-top: 1vh;
     margin-left: 1.5vh;
     background-color: #ff0000;
   }
 
-  .label2 {
+  &__label2 {
     color: white;
     font-family: Arial, sans;
     font-size: 1.25vh;
@@ -194,25 +194,25 @@
     text-align: center;
   }
 
-  #led {
+  &__led {
     margin-left: 3vh;
     height: 0.5vh;
     width: 0.5vh;
     background-color: #ff0000;
   }
 
-  #led.on {
+  &__led.on {
     background-color: #006600;
   }
 
-  #strict {
+  &__strict {
     margin-top: 0.5vh;
     margin-left: 1.5vh;
     margin-right: 2vh;
     background-color: #ffff00;
   }
 
-  .label3 {
+  &__label3 {
     color: white;
     font-family: Arial, sans;
     font-size: 1.25vh;
@@ -221,7 +221,7 @@
     text-align: center;
   }
 
-  .col2 {
+  &__col2 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -233,57 +233,17 @@
     border: 0;
   }
 
-  #reset {
+  &__reset {
     background-color: #0000ff;
+    margin-left: -1.75vh;
   }
 
-  .label4 {
+  &__label4 {
     color: white;
     font-family: Arial, sans;
     font-size: 1.25vh;
     padding-top: 0.75vh;
+    margin-left: -1.75vh;
     text-align: center;
   }
 }
-// @media (max-width: 576px) {
-//   .SimonGame {
-//     text-align: center;
-
-//     &__container {
-//       width: 50vh;
-//       height: 50vh;
-//     }
-
-//     &__innerCircle {
-//       top: 12.5vh;
-//       left: 12.5vh;
-//     }
-
-//     .brand {
-//       margin-left: 4vh;
-//     }
-
-//     .wrap {
-//       display: -webkit-flex;
-//       display: -ms-flexbox;
-//       display: flex;
-//       -webkit-justify-content: center;
-//       -ms-flex-pack: center;
-//       justify-content: center;
-//       margin-top: 0;
-//       margin-left: 7.5vh;
-//     }
-
-//     .wrap2 {
-//       display: -webkit-flex;
-//       display: -ms-flexbox;
-//       display: flex;
-//       -webkit-justify-content: center;
-//       -ms-flex-pack: center;
-//       justify-content: center;
-//       margin-top: 0;
-//       margin-left: 8vh;
-//       width: 10vh;
-//     }
-//   }
-// }

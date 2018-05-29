@@ -31,26 +31,26 @@ class SimonGame extends Component {
             Simon<span className="SimonGame__small">®</span>
           </div>
 
-          <div className="wrap">
-            <div className="col1">
-              <div id="display">--</div>
-              <div className="label1">Count</div>
+          <div className="SimonGame__wrap">
+            <div className="SimonGame__col1">
+              <div className="SimonGame__display">--</div>
+              <div className="SimonGame__label1">Count</div>
             </div>
-            <div className="col1">
-              <div className=" btn-round" id="start" />
-              <div className="label2">Start</div>
+            <div className="SimonGame__col1">
+              <div className="SimonGame__btn-round SimonGame__start" />
+              <div className="SimonGame__label2">Start</div>
             </div>
-            <div className="col1">
-              <div id="led" />
-              <div className=" btn-round" id="strict" />
-              <div className="label3">Strict</div>
+            <div className="SimonGame__col1">
+              <div className="SimonGame__led" />
+              <div className="SimonGame__btn-round SimonGame__strict" />
+              <div className="SimonGame__label3">Strict</div>
             </div>
           </div>
 
-          <div className="wrap2">
-            <div className="col2">
-              <div className="btn-round" id="reset" />
-              <div className="label4">Reset</div>
+          <div className="SimonGame__wrap2">
+            <div className="SimonGame__col2">
+              <div className="SimonGame__btn-round SimonGame__reset" />
+              <div className="SimonGame__label4">Reset</div>
             </div>
           </div>
         </div>
