@@ -6,29 +6,29 @@ class SimonGame extends Component {
     return (
       <div className="SimonGame__container">
         <div className="SimonGame__button-row">
-          <div
-            className="SimonGame__btn SimonGame__top-left notouch unclickable"
+          <button
+            className="SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable"
             id="red"
           />
-          <div
-            className="SimonGame__btn SimonGame__top-right notouch unclickable"
+          <button
+            className="SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable"
             id="blue"
           />
         </div>
         <div className="SimonGame__button-row">
-          <div
-            className="SimonGame__btn SimonGame__bottom-left notouch unclickable"
+          <button
+            className="SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable"
             id="green"
           />
-          <div
-            className="button SimonGame__btn SimonGame__bottom-right notouch unclickable"
+          <button
+            className="button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable"
             id="yellow"
           />
         </div>
 
-        <div className="innerCircle">
-          <div className="brand">
-            Simon<span className="small">®</span>
+        <div className="SimonGame__innerCircle">
+          <div className="SimonGame__brand">
+            Simon<span className="SimonGame__small">®</span>
           </div>
 
           <div className="wrap">

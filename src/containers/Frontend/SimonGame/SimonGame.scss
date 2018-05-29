@@ -15,6 +15,8 @@
     width: 60vh;
     height: 60vh;
     background-color: black;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Serif;
   }
 
   &__button-row {
@@ -27,6 +29,7 @@
     height: 96%;
     float: left;
     margin: 1%;
+    border: none;
     cursor: pointer;
     /* disable touch highlight: https://developers.google.com/web/fundamentals/design-and-ui/input/touch/ */
     -webkit-tap-highlight-color: transparent;
@@ -39,11 +42,11 @@
     border: 0;
   }
 
-  .unclickable {
+  &__unclickable {
     pointer-events: none;
   }
 
-  .clickable {
+  &__clickable {
     pointer-events: auto;
   }
 
@@ -87,7 +90,7 @@
     background-color: #ffff00;
   }
 
-  .innerCircle {
+  &__innerCircle {
     position: absolute;
     top: 15vh;
     left: 15vh;
@@ -100,7 +103,7 @@
     text-align: center;
   }
 
-  .brand {
+  &__brand {
     text-align: center;
     font-size: 6vh;
     padding: 0;
@@ -113,7 +116,7 @@
     width: 10vh;
   }
 
-  .small {
+  &__small {
     font-size: 1.5vh;
     position: relative;
     top: -3vh;
@@ -242,41 +245,45 @@
     text-align: center;
   }
 }
-@media (max-width: 576px) {
-  .SimonGame__container {
-    width: 50vh;
-    height: 50vh;
-  }
+// @media (max-width: 576px) {
+//   .SimonGame {
+//     text-align: center;
 
-  .innerCircle {
-    top: 12.5vh;
-    left: 12.5vh;
-  }
+//     &__container {
+//       width: 50vh;
+//       height: 50vh;
+//     }
 
-  .brand {
-    margin-left: 4vh;
-  }
+//     &__innerCircle {
+//       top: 12.5vh;
+//       left: 12.5vh;
+//     }
 
-  .wrap {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin-top: 0;
-    margin-left: 7.5vh;
-  }
+//     .brand {
+//       margin-left: 4vh;
+//     }
 
-  .wrap2 {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    margin-top: 0;
-    margin-left: 8vh;
-    width: 10vh;
-  }
-}
+//     .wrap {
+//       display: -webkit-flex;
+//       display: -ms-flexbox;
+//       display: flex;
+//       -webkit-justify-content: center;
+//       -ms-flex-pack: center;
+//       justify-content: center;
+//       margin-top: 0;
+//       margin-left: 7.5vh;
+//     }
+
+//     .wrap2 {
+//       display: -webkit-flex;
+//       display: -ms-flexbox;
+//       display: flex;
+//       -webkit-justify-content: center;
+//       -ms-flex-pack: center;
+//       justify-content: center;
+//       margin-top: 0;
+//       margin-left: 8vh;
+//       width: 10vh;
+//     }
+//   }
+// }
