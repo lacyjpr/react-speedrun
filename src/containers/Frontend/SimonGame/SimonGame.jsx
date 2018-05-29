@@ -50,7 +50,15 @@ class SimonGame extends Component {
           <div className="SimonGame__wrap2">
             <div className="SimonGame__col2">
               <div className="SimonGame__btn-round SimonGame__reset" />
-              <div className="SimonGame__label4">Reset</div>
+              <div
+                className="SimonGame__label4"
+                role="button"
+                tabIndex={0}
+                onClick={this.reset}
+                onKeyPress={this.reset}
+              >
+                Reset
+              </div>
             </div>
           </div>
         </div>
