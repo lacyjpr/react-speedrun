@@ -1,3 +1,282 @@
 .SimonGame {
   text-align: center;
+
+  body,
+  html {
+    font-family: Georgia, 'Times New Roman', Serif;
+    color: white;
+  }
+
+  &__container {
+    position: relative;
+    border: 1vh black solid;
+    border-radius: 50%;
+    margin: auto;
+    width: 60vh;
+    height: 60vh;
+    background-color: black;
+  }
+
+  &__button-row {
+    width: 100%;
+    height: 50%;
+  }
+
+  &__btn {
+    width: 48%;
+    height: 96%;
+    float: left;
+    margin: 1%;
+    cursor: pointer;
+    /* disable touch highlight: https://developers.google.com/web/fundamentals/design-and-ui/input/touch/ */
+    -webkit-tap-highlight-color: transparent;
+    /* Firefox Specific CSS to remove button differences and focus ring */
+    background-image: none;
+  }
+
+  /* Firefox Specific CSS to remove button differences and focus ring */
+  &__btn::-moz-focus-inner {
+    border: 0;
+  }
+
+  .unclickable {
+    pointer-events: none;
+  }
+
+  .clickable {
+    pointer-events: auto;
+  }
+
+  &__top-left {
+    border-top-left-radius: 100%;
+    background-color: #bf0000; /*red*/
+  }
+
+  &__top-left:active,
+  &__top-left.active {
+    background-color: #ff0000;
+  }
+
+  &__top-right {
+    border-top-right-radius: 100%;
+    background-color: #0000bf; /*blue*/
+  }
+
+  &__top-right:active,
+  &__top-right.active {
+    background-color: #2133ff;
+  }
+
+  &__bottom-left {
+    border-bottom-left-radius: 100%;
+    background-color: #006600; /*green*/
+  }
+
+  &__bottom-left:active,
+  &__bottom-left.active {
+    background-color: #00a000;
+  }
+
+  &__bottom-right {
+    border-bottom-right-radius: 100%;
+    background-color: #bfbf00; /*yellow*/
+  }
+
+  &__bottom-right:active,
+  &__bottom-right.active {
+    background-color: #ffff00;
+  }
+
+  .innerCircle {
+    position: absolute;
+    top: 15vh;
+    left: 15vh;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 10;
+    overflow: auto;
+    text-align: center;
+  }
+
+  .brand {
+    text-align: center;
+    font-size: 6vh;
+    padding: 0;
+    margin-top: 4vh;
+    margin-left: 6vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 10vh;
+  }
+
+  .small {
+    font-size: 1.5vh;
+    position: relative;
+    top: -3vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .wrap {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 1.5vh;
+    margin-left: 9.5vh;
+    width: 10vh;
+  }
+
+  .wrap2 {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 1.5vh;
+    margin-left: 10.25vh;
+    width: 10vh;
+  }
+
+  .col1 {
+    text-align: center;
+  }
+
+  #display {
+    color: black;
+    margin: 0 0 0 2.5vh;
+    font-size: 4vh;
+    width: 8vh;
+    height: 5vh;
+    background-color: grey;
+    border-radius: 10px;
+  }
+
+  .label1 {
+    color: white;
+    font-family: Arial, sans;
+    font-size: 1.25vh;
+    margin-left: 2vh;
+    padding-top: 0.75vh;
+    text-align: center;
+  }
+
+  .btn-round {
+    height: 3.5vh;
+    width: 3.5vh;
+    border-radius: 50%;
+  }
+
+  #start {
+    margin-top: 1vh;
+    margin-left: 1.5vh;
+    background-color: #ff0000;
+  }
+
+  .label2 {
+    color: white;
+    font-family: Arial, sans;
+    font-size: 1.25vh;
+    margin-left: 1vh;
+    padding-top: 0.75vh;
+    text-align: center;
+  }
+
+  #led {
+    margin-left: 3vh;
+    height: 0.5vh;
+    width: 0.5vh;
+    background-color: #ff0000;
+  }
+
+  #led.on {
+    background-color: #006600;
+  }
+
+  #strict {
+    margin-top: 0.5vh;
+    margin-left: 1.5vh;
+    margin-right: 2vh;
+    background-color: #ffff00;
+  }
+
+  .label3 {
+    color: white;
+    font-family: Arial, sans;
+    font-size: 1.25vh;
+    margin-left: -0.75vh;
+    padding-top: 0.75vh;
+    text-align: center;
+  }
+
+  .col2 {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    border: 0;
+  }
+
+  #reset {
+    background-color: #0000ff;
+  }
+
+  .label4 {
+    color: white;
+    font-family: Arial, sans;
+    font-size: 1.25vh;
+    padding-top: 0.75vh;
+    text-align: center;
+  }
+}
+@media (max-width: 576px) {
+  .SimonGame__container {
+    width: 50vh;
+    height: 50vh;
+  }
+
+  .innerCircle {
+    top: 12.5vh;
+    left: 12.5vh;
+  }
+
+  .brand {
+    margin-left: 4vh;
+  }
+
+  .wrap {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-left: 7.5vh;
+  }
+
+  .wrap2 {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 0;
+    margin-left: 8vh;
+    width: 10vh;
+  }
 }
