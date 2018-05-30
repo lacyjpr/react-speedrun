@@ -2,6 +2,32 @@ import React, { Component } from 'react';
 import './SimonGame.scss';
 
 class SimonGame extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      running: false,
+      strict: false,
+      count: 0,
+      colors: ['red', 'blue', 'green', 'yellow'],
+      computerArray: [],
+      playerArray: [],
+      move: '',
+    };
+
+    this.red = new Audio(
+      'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+    );
+    this.blue = new Audio(
+      'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'
+    );
+    this.green = new Audio(
+      'https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'
+    );
+    this.yellow = new Audio(
+      'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'
+    );
+  }
   render() {
     return (
       <div className="SimonGame__container">
