@@ -13,6 +13,7 @@ class SimonGame extends Component {
       computerArray: [],
       playerArray: [],
       move: '',
+      display: '--',
     };
 
     this.red = new Audio(
@@ -28,7 +29,9 @@ class SimonGame extends Component {
       'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'
     );
   }
+
   render() {
+    const { display } = this.state;
     return (
       <div className="SimonGame__container">
         <div className="SimonGame__button-row">
@@ -59,12 +62,20 @@ class SimonGame extends Component {
 
           <div className="SimonGame__wrap">
             <div className="SimonGame__col1">
-              <div className="SimonGame__display">--</div>
+              <div className="SimonGame__display">{display}</div>
               <div className="SimonGame__label1">Count</div>
             </div>
             <div className="SimonGame__col1">
               <div className="SimonGame__btn-round SimonGame__start" />
-              <div className="SimonGame__label2">Start</div>
+              <div
+                className="SimonGame__label2"
+                role="button"
+                tabIndex={0}
+                onClick={this.startGame}
+                onKeyPress={this.startGame}
+              >
+                Start
+              </div>
             </div>
             <div className="SimonGame__col1">
               <div className="SimonGame__led" />
