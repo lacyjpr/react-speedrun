@@ -15,6 +15,10 @@ class SimonGame extends Component {
       move: '',
       display: '--',
       clickAble: true,
+      redActive: false,
+      blueActive: false,
+      greenActive: false,
+      yellowActive: false,
     };
 
     this.red = new Audio(
@@ -63,14 +67,49 @@ class SimonGame extends Component {
     let sequence = setInterval(() => {
       // Make color buttons unclickable
       this.setState({ clickAble: false });
-      //let color = computerArray[i];
-      //this.lightSound(color);
+      let color = computerArray[i];
+      this.lightSound(color);
       i++;
+      console.log(i);
       if (i >= count) {
         clearInterval(sequence);
         //playerPlay();
       }
     }, 700);
+  };
+
+  // Lights & sound
+  lightSound = color => {
+    switch (color) {
+      case 'red':
+        this.setState({ redActive: true });
+        this.red.play();
+        setTimeout(() => {
+          this.setState({ redActive: false });
+        }, 400);
+        break;
+      case 'blue':
+        this.setState({ blueActive: true });
+        this.blue.play();
+        setTimeout(() => {
+          this.setState({ blueActive: false });
+        }, 400);
+        break;
+      case 'green':
+        this.setState({ greenActive: true });
+        this.green.play();
+        setTimeout(() => {
+          this.setState({ greenActive: false });
+        }, 400);
+        break;
+      case 'yellow':
+        this.setState({ yellowActive: true });
+        this.yellow.play();
+        setTimeout(() => {
+          this.setState({ yellowActive: true });
+        }, 400);
+        break;
+    }
   };
 
   startGame = () => {
@@ -79,7 +118,7 @@ class SimonGame extends Component {
   };
 
   render() {
-    const { display, running, clickAble } = this.state;
+    const { display, running, clickAble, redActive } = this.state;
     return (
       <div className="SimonGame__container">
         <div className="SimonGame__button-row">
@@ -87,7 +126,10 @@ class SimonGame extends Component {
             className={
               clickAble
                 ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch'
-                : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
+                : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable' +
+                    !clickAble && redActive
+                  ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable active'
+                  : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
             }
             id="red"
           />
