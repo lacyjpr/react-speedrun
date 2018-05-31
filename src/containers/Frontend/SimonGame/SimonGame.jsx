@@ -35,20 +35,29 @@ class SimonGame extends Component {
     return new Promise(resolve => {
       this.setState({ computerArray: [] });
       let array = [];
-      for (var i = 0; i < 20; i++) {
+      for (let i = 0; i < 20; i++) {
         array.push(colors[Math.floor(Math.random() * 4)]);
       }
       resolve(this.setState({ computerArray: array }));
     });
   };
 
+  computerPlay = () => {
+    this.setState({
+      count: this.state.count + 1,
+      display: this.state.count + 1,
+    });
+    console.log(this.state);
+    //this.showComputerArray();
+  };
+
   startGame = () => {
     this.setState({ display: '--', running: true, count: 0 });
-    this.getComputerArray().then(() => console.log(this.state));
+    this.getComputerArray().then(() => this.computerPlay());
   };
 
   render() {
-    const { display } = this.state;
+    const { display, running } = this.state;
     return (
       <div className="SimonGame__container">
         <div className="SimonGame__button-row">
@@ -84,7 +93,11 @@ class SimonGame extends Component {
             </div>
             <div className="SimonGame__col1">
               <div
-                className="SimonGame__btn-round SimonGame__start"
+                className={
+                  running
+                    ? 'SimonGame__btn-round SimonGame__start SimonGame__unclickable'
+                    : 'SimonGame__btn-round SimonGame__start'
+                }
                 role="button"
                 tabIndex={0}
                 onClick={this.startGame}
