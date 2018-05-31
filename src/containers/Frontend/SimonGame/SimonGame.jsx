@@ -30,6 +30,23 @@ class SimonGame extends Component {
     );
   }
 
+  getComputerArray = () => {
+    const { colors } = this.state;
+    return new Promise(resolve => {
+      this.setState({ computerArray: [] });
+      let array = [];
+      for (var i = 0; i < 20; i++) {
+        array.push(colors[Math.floor(Math.random() * 4)]);
+      }
+      resolve(this.setState({ computerArray: array }));
+    });
+  };
+
+  startGame = () => {
+    this.setState({ display: '--', running: true, count: 0 });
+    this.getComputerArray().then(() => console.log(this.state));
+  };
+
   render() {
     const { display } = this.state;
     return (
@@ -66,16 +83,14 @@ class SimonGame extends Component {
               <div className="SimonGame__label1">Count</div>
             </div>
             <div className="SimonGame__col1">
-              <div className="SimonGame__btn-round SimonGame__start" />
               <div
-                className="SimonGame__label2"
+                className="SimonGame__btn-round SimonGame__start"
                 role="button"
                 tabIndex={0}
                 onClick={this.startGame}
                 onKeyPress={this.startGame}
-              >
-                Start
-              </div>
+              />
+              <div className="SimonGame__label2">Start</div>
             </div>
             <div className="SimonGame__col1">
               <div className="SimonGame__led" />
