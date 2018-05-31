@@ -106,7 +106,7 @@ class SimonGame extends Component {
         this.setState({ yellowActive: true });
         this.yellow.play();
         setTimeout(() => {
-          this.setState({ yellowActive: true });
+          this.setState({ yellowActive: false });
         }, 400);
         break;
     }
@@ -118,7 +118,15 @@ class SimonGame extends Component {
   };
 
   render() {
-    const { display, running, clickAble, redActive } = this.state;
+    const {
+      display,
+      running,
+      clickAble,
+      redActive,
+      blueActive,
+      greenActive,
+      yellowActive,
+    } = this.state;
     return (
       <div className="SimonGame__container">
         <div className="SimonGame__button-row">
@@ -137,7 +145,10 @@ class SimonGame extends Component {
             className={
               clickAble
                 ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch'
-                : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
+                : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable' +
+                    !clickAble && blueActive
+                  ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable active'
+                  : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
             }
             id="blue"
           />
@@ -147,7 +158,10 @@ class SimonGame extends Component {
             className={
               clickAble
                 ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch'
-                : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
+                : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable' +
+                    !clickAble && greenActive
+                  ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable active'
+                  : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
             }
             id="green"
           />
@@ -155,7 +169,10 @@ class SimonGame extends Component {
             className={
               clickAble
                 ? 'button SimonGame__btn SimonGame__bottom-right notouch'
-                : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
+                : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable' +
+                    !clickAble && yellowActive
+                  ? 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable active'
+                  : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
             }
             id="yellow"
           />
