@@ -14,6 +14,7 @@ class SimonGame extends Component {
       playerArray: [],
       move: '',
       display: '--',
+      clickAble: true,
     };
 
     this.red = new Audio(
@@ -42,13 +43,34 @@ class SimonGame extends Component {
     });
   };
 
+  // Play Computer Array
   computerPlay = () => {
     this.setState({
       count: this.state.count + 1,
       display: this.state.count + 1,
     });
     console.log(this.state);
-    //this.showComputerArray();
+    this.showComputerArray();
+  };
+
+  // Display computer array
+  showComputerArray = () => {
+    const { computerArray, count } = this.state;
+    // Show game count &  Empty player array
+    this.setState({ display: this.state.count, playerArray: [] });
+    // Show computer array credit http://codepen.io/renestl/pen/ORdNKZ
+    let i = 0;
+    let sequence = setInterval(() => {
+      // Make color buttons unclickable
+      this.setState({ clickAble: false });
+      //let color = computerArray[i];
+      //this.lightSound(color);
+      i++;
+      if (i >= count) {
+        clearInterval(sequence);
+        //playerPlay();
+      }
+    }, 700);
   };
 
   startGame = () => {
@@ -57,26 +79,42 @@ class SimonGame extends Component {
   };
 
   render() {
-    const { display, running } = this.state;
+    const { display, running, clickAble } = this.state;
     return (
       <div className="SimonGame__container">
         <div className="SimonGame__button-row">
           <button
-            className="SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable"
+            className={
+              clickAble
+                ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch'
+                : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
+            }
             id="red"
           />
           <button
-            className="SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable"
+            className={
+              clickAble
+                ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch'
+                : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
+            }
             id="blue"
           />
         </div>
         <div className="SimonGame__button-row">
           <button
-            className="SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable"
+            className={
+              clickAble
+                ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch'
+                : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
+            }
             id="green"
           />
           <button
-            className="button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable"
+            className={
+              clickAble
+                ? 'button SimonGame__btn SimonGame__bottom-right notouch'
+                : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
+            }
             id="yellow"
           />
         </div>
