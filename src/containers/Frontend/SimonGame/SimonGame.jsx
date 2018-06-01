@@ -147,6 +147,7 @@ class SimonGame extends Component {
                     : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
             }
             id="red"
+            value="red"
           />
           <button
             className={
@@ -161,6 +162,7 @@ class SimonGame extends Component {
                     : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
             }
             id="blue"
+            value="blue"
           />
         </div>
         <div className="SimonGame__button-row">
@@ -177,6 +179,7 @@ class SimonGame extends Component {
                     : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
             }
             id="green"
+            value="green"
           />
           <button
             className={
@@ -191,6 +194,7 @@ class SimonGame extends Component {
                     : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
             }
             id="yellow"
+            value="green"
           />
         </div>
 
