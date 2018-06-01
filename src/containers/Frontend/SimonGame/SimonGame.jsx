@@ -64,7 +64,7 @@ class SimonGame extends Component {
     this.setState({ display: this.state.count, playerArray: [] });
     // Show computer array credit http://codepen.io/renestl/pen/ORdNKZ
     let i = 0;
-    let sequence = setInterval(() => {
+    const sequence = setInterval(() => {
       // Make color buttons unclickable
       this.setState({ clickAble: false });
       let color = computerArray[i];
@@ -73,13 +73,9 @@ class SimonGame extends Component {
       console.log(i);
       if (i >= count) {
         clearInterval(sequence);
-        this.playerPlay();
+        this.setState({ clickAble: true });
       }
     }, 700);
-  };
-
-  playerPlay = () => {
-    this.setState({ clickAble: true });
   };
 
   // Lights & sound
@@ -91,7 +87,7 @@ class SimonGame extends Component {
         this.red.play();
         setTimeout(() => {
           this.setState({ redActive: false });
-        }, 400);
+        }, 1000);
         break;
       case 'blue':
         this.setState({ blueActive: true });
@@ -99,7 +95,7 @@ class SimonGame extends Component {
         this.blue.play();
         setTimeout(() => {
           this.setState({ blueActive: false });
-        }, 400);
+        }, 1000);
         break;
       case 'green':
         this.setState({ greenActive: true });
@@ -107,7 +103,7 @@ class SimonGame extends Component {
         this.green.play();
         setTimeout(() => {
           this.setState({ greenActive: false });
-        }, 400);
+        }, 1000);
         break;
       case 'yellow':
         this.setState({ yellowActive: true });
@@ -115,7 +111,7 @@ class SimonGame extends Component {
         this.yellow.play();
         setTimeout(() => {
           this.setState({ yellowActive: false });
-        }, 400);
+        }, 1000);
         break;
     }
   };
@@ -140,23 +136,29 @@ class SimonGame extends Component {
         <div className="SimonGame__button-row">
           <button
             className={
-              clickAble && redActive
+              !clickAble && redActive
                 ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable active'
                 : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable' +
-                  clickAble
-                  ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch'
-                  : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
+                    clickAble && redActive
+                  ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch active'
+                  : 'SimonGame__btn SimonGame__top-left SimonGame__notouch' +
+                    clickAble
+                    ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch'
+                    : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
             }
             id="red"
           />
           <button
             className={
-              clickAble && blueActive
+              !clickAble && blueActive
                 ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable active'
                 : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable' +
-                  clickAble
-                  ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch'
-                  : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
+                    clickAble && blueActive
+                  ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch active'
+                  : 'SimonGame__btn SimonGame__top-right SimonGame__notouch' +
+                    clickAble
+                    ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch'
+                    : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
             }
             id="blue"
           />
@@ -164,23 +166,29 @@ class SimonGame extends Component {
         <div className="SimonGame__button-row">
           <button
             className={
-              clickAble && greenActive
+              !clickAble && greenActive
                 ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable active'
                 : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable' +
-                  clickAble
-                  ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch'
-                  : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
+                    clickAble && greenActive
+                  ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch active'
+                  : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch' +
+                    clickAble
+                    ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch'
+                    : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
             }
             id="green"
           />
           <button
             className={
-              clickAble && yellowActive
+              !clickAble && yellowActive
                 ? 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable active'
                 : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable' +
-                  clickAble
-                  ? 'button SimonGame__btn SimonGame__bottom-right notouch'
-                  : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
+                    clickAble && yellowActive
+                  ? 'button SimonGame__btn SimonGame__bottom-right notouch active'
+                  : 'button SimonGame__btn SimonGame__bottom-right notouch' +
+                    clickAble
+                    ? 'button SimonGame__btn SimonGame__bottom-right notouch'
+                    : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
             }
             id="yellow"
           />
