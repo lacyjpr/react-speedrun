@@ -78,6 +78,16 @@ class SimonGame extends Component {
     }, 700);
   };
 
+  // Get player move & push to playerArray
+  getPlay = e => {
+    console.log(e.target.value);
+    // game.move = this.id;
+    // sound(game.move);
+    // // Push player input to playerArray
+    // game.playerArray.push(game.move);
+    // checkPlay();
+  };
+
   // Lights & sound
   lightSound = color => {
     switch (color) {
@@ -148,6 +158,7 @@ class SimonGame extends Component {
             }
             id="red"
             value="red"
+            onClick={this.getPlay}
           />
           <button
             className={
@@ -163,6 +174,7 @@ class SimonGame extends Component {
             }
             id="blue"
             value="blue"
+            onClick={this.getPlay}
           />
         </div>
         <div className="SimonGame__button-row">
@@ -180,6 +192,7 @@ class SimonGame extends Component {
             }
             id="green"
             value="green"
+            onClick={this.getPlay}
           />
           <button
             className={
@@ -194,7 +207,8 @@ class SimonGame extends Component {
                     : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
             }
             id="yellow"
-            value="green"
+            value="yellow"
+            onClick={this.getPlay}
           />
         </div>
 
