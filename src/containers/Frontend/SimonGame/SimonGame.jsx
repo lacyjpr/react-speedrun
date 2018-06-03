@@ -13,7 +13,7 @@ class SimonGame extends Component {
       computerArray: [],
       playerArray: [],
       display: '--',
-      clickAble: true,
+      clickAble: false,
       redActive: false,
       blueActive: false,
       greenActive: false,
@@ -87,20 +87,22 @@ class SimonGame extends Component {
 
   // Get player move & push to playerArray
   getPlay = e => {
-    const { playerArray } = this.state;
+    const { playerArray, running } = this.state;
     e.preventDefault;
     console.log(e.target.value);
-    const move = e.target.value;
-    this.sound(move);
-    let arr = playerArray;
-    arr.push(move);
-    this.setState({ playerArray: arr });
-    console.log(this.state);
-    // game.move = this.id;
-    // sound(game.move);
-    // // Push player input to playerArray
-    // game.playerArray.push(game.move);
-    this.checkPlay();
+    if (running) {
+      const move = e.target.value;
+      this.sound(move);
+      let arr = playerArray;
+      arr.push(move);
+      this.setState({ playerArray: arr });
+      console.log(this.state);
+      // game.move = this.id;
+      // sound(game.move);
+      // // Push player input to playerArray
+      // game.playerArray.push(game.move);
+      this.checkPlay();
+    }
   };
 
   checkPlay = () => {
@@ -146,7 +148,7 @@ class SimonGame extends Component {
         // setTimeout(function() {
         //   winDance();
         // }, 700);
-        this.setState({ display: 'Win', running: false });
+        this.setState({ display: 'Win', running: false, clickAble: false });
         // $display.innerHTML = 'Win';
         // $start.classList.remove('unclickable');
         // $start.classList.add('clickable');
@@ -244,12 +246,14 @@ class SimonGame extends Component {
               !clickAble && redActive
                 ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable active'
                 : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable' +
-                    clickAble && redActive
-                  ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch active'
-                  : 'SimonGame__btn SimonGame__top-left SimonGame__notouch' +
-                    clickAble
-                    ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch'
-                    : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
+                  //   clickAble && redActive
+                  // ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch active'
+                  // : 'SimonGame__btn SimonGame__top-left SimonGame__notouch' +
+                  clickAble
+                  ? redActive
+                    ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch active'
+                    : 'SimonGame__btn SimonGame__top-left SimonGame__notouch'
+                  : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
             }
             id="red"
             value="red"
@@ -260,12 +264,14 @@ class SimonGame extends Component {
               !clickAble && blueActive
                 ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable active'
                 : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable' +
-                    clickAble && blueActive
-                  ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch active'
-                  : 'SimonGame__btn SimonGame__top-right SimonGame__notouch' +
-                    clickAble
-                    ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch'
-                    : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
+                  //   clickAble && blueActive
+                  // ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch active'
+                  // : 'SimonGame__btn SimonGame__top-right SimonGame__notouch' +
+                  clickAble
+                  ? blueActive
+                    ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch active'
+                    : 'SimonGame__btn SimonGame__top-right SimonGame__notouch'
+                  : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
             }
             id="blue"
             value="blue"
@@ -278,12 +284,14 @@ class SimonGame extends Component {
               !clickAble && greenActive
                 ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable active'
                 : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable' +
-                    clickAble && greenActive
-                  ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch active'
-                  : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch' +
-                    clickAble
-                    ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch'
-                    : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
+                  //   clickAble && greenActive
+                  // ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch active'
+                  // : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch' +
+                  clickAble
+                  ? greenActive
+                    ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch active'
+                    : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch'
+                  : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
             }
             id="green"
             value="green"
@@ -294,12 +302,14 @@ class SimonGame extends Component {
               !clickAble && yellowActive
                 ? 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable active'
                 : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable' +
-                    clickAble && yellowActive
-                  ? 'button SimonGame__btn SimonGame__bottom-right notouch active'
-                  : 'button SimonGame__btn SimonGame__bottom-right notouch' +
-                    clickAble
-                    ? 'button SimonGame__btn SimonGame__bottom-right notouch'
-                    : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
+                  //   clickAble && yellowActive
+                  // ? 'button SimonGame__btn SimonGame__bottom-right notouch active'
+                  // : 'button SimonGame__btn SimonGame__bottom-right notouch' +
+                  clickAble
+                  ? yellowActive
+                    ? 'button SimonGame__btn SimonGame__bottom-right notouch active'
+                    : 'button SimonGame__btn SimonGame__bottom-right notouch'
+                  : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
             }
             id="yellow"
             value="yellow"
