@@ -12,7 +12,6 @@ class SimonGame extends Component {
       colors: ['red', 'blue', 'green', 'yellow'],
       computerArray: [],
       playerArray: [],
-      move: '',
       display: '--',
       clickAble: true,
       redActive: false,
@@ -80,6 +79,7 @@ class SimonGame extends Component {
 
   // Get player move & push to playerArray
   getPlay = e => {
+    e.preventDefault;
     console.log(e.target.value);
     // game.move = this.id;
     // sound(game.move);
@@ -122,6 +122,26 @@ class SimonGame extends Component {
         setTimeout(() => {
           this.setState({ yellowActive: false });
         }, 1000);
+        break;
+    }
+  };
+
+  sound = color => {
+    switch (color) {
+      case 'red':
+        this.red.play();
+        break;
+      case 'blue':
+        this.blue.play();
+        break;
+      case 'green':
+        this.green.play();
+        break;
+      case 'yellow':
+        this.yellow.play();
+        break;
+      default:
+        console.log('error');
         break;
     }
   };
