@@ -79,8 +79,15 @@ class SimonGame extends Component {
 
   // Get player move & push to playerArray
   getPlay = e => {
+    const { playerArray } = this.state;
     e.preventDefault;
     console.log(e.target.value);
+    const move = e.target.value;
+    this.sound(move);
+    let arr = this.state.playerArray;
+    arr.push(move);
+    this.setState({ playerArray: arr });
+    console.log(this.state);
     // game.move = this.id;
     // sound(game.move);
     // // Push player input to playerArray
