@@ -8,7 +8,7 @@ class SimonGame extends Component {
     this.state = {
       running: false,
       strict: false,
-      count: 0,
+      count: 1,
       colors: ['red', 'blue', 'green', 'yellow'],
       computerArray: [],
       playerArray: [],
@@ -48,12 +48,15 @@ class SimonGame extends Component {
 
   // Play Computer Array
   computerPlay = () => {
-    this.setState({
-      count: this.state.count + 1,
-      display: this.state.count + 1,
-    });
-    console.log(this.state);
-    this.showComputerArray();
+    this.setState(
+      {
+        count: this.state.count + 1,
+        display: this.state.count + 1,
+      },
+      this.showComputerArray()
+    );
+    console.log('computerPlay', this.state);
+    //this.showComputerArray();
   };
 
   // Display computer array
@@ -70,11 +73,16 @@ class SimonGame extends Component {
       this.lightSound(color);
       i++;
       console.log(i);
-      if (i >= count) {
+      console.log('count', this.state.count);
+      if (i >= this.state.count) {
         clearInterval(sequence);
-        this.setState({ clickAble: true });
+        this.playerPlay();
       }
     }, 700);
+  };
+
+  playerPlay = () => {
+    this.setState({ clickAble: true });
   };
 
   // Get player move & push to playerArray
@@ -84,7 +92,7 @@ class SimonGame extends Component {
     console.log(e.target.value);
     const move = e.target.value;
     this.sound(move);
-    let arr = this.state.playerArray;
+    let arr = playerArray;
     arr.push(move);
     this.setState({ playerArray: arr });
     console.log(this.state);
@@ -92,7 +100,67 @@ class SimonGame extends Component {
     // sound(game.move);
     // // Push player input to playerArray
     // game.playerArray.push(game.move);
-    // checkPlay();
+    this.checkPlay();
+  };
+
+  checkPlay = () => {
+    const { playerArray, computerArray, strict, count } = this.state;
+    // Check if player input matches computer array credit: http://codepen.io/renestl/pen/ORdNKZ
+    // If no match:
+    if (
+      playerArray[playerArray.length - 1] !==
+      computerArray[playerArray.length - 1]
+    ) {
+      // If strict, restart
+      if (strict === true) {
+        this.setState({ display: '!!!' });
+        // $display.innerHTML = '!!!';
+        // game.sound.red.play();
+        // game.sound.blue.play();
+        // game.sound.green.play();
+        // game.sound.yellow.play();
+        // setTimeout(function() {
+        //   this.startGame();
+        // }, 2000);
+      }
+      // If not strict replay computer array
+      else {
+        this.setState({ display: '!!!' });
+        // $display.innerHTML = '!!!';
+        // setTimeout(function() {
+        //   $display.innerHTML = game.count;
+        // }, 2000);
+        // game.sound.red.play();
+        // game.sound.blue.play();
+        // game.sound.green.play();
+        // game.sound.yellow.play();
+        // setTimeout(function() {
+        //   showComputerArray();
+        // }, 2500);
+      }
+    }
+    // Otherwise, we have a match
+    else {
+      // Check for win
+      if (count === 2 && playerArray.length === count) {
+        // setTimeout(function() {
+        //   winDance();
+        // }, 700);
+        this.setState({ display: 'Win', running: false });
+        // $display.innerHTML = 'Win';
+        // $start.classList.remove('unclickable');
+        // $start.classList.add('clickable');
+        // // Make color buttons unclickable
+        // $red.classList.add('unclickable');
+        // $blue.classList.add('unclickable');
+        // $green.classList.add('unclickable');
+        // $yellow.classList.add('unclickable');
+      } else if (playerArray.length < count) {
+        this.playerPlay();
+      } else {
+        this.computerPlay();
+      }
+    }
   };
 
   // Lights & sound
