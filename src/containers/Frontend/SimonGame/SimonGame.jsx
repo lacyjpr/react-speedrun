@@ -8,12 +8,11 @@ class SimonGame extends Component {
     this.state = {
       running: false,
       strict: false,
-      count: 1,
+      count: 0,
       colors: ['red', 'blue', 'green', 'yellow'],
       computerArray: [],
       playerArray: [],
       display: '--',
-      clickAble: false,
       redActive: false,
       blueActive: false,
       greenActive: false,
@@ -56,51 +55,36 @@ class SimonGame extends Component {
       this.showComputerArray()
     );
     console.log('computerPlay', this.state);
-    //this.showComputerArray();
   };
 
   // Display computer array
   showComputerArray = () => {
-    const { computerArray, count } = this.state;
+    const { computerArray } = this.state;
     // Show game count &  Empty player array
     this.setState({ display: this.state.count, playerArray: [] });
-    // Show computer array credit http://codepen.io/renestl/pen/ORdNKZ
     let i = 0;
     const sequence = setInterval(() => {
-      // Make color buttons unclickable
-      this.setState({ clickAble: false });
       let color = computerArray[i];
       this.lightSound(color);
       i++;
       console.log(i);
-      console.log('count', this.state.count);
+
       if (i >= this.state.count) {
         clearInterval(sequence);
-        this.playerPlay();
       }
     }, 700);
-  };
-
-  playerPlay = () => {
-    this.setState({ clickAble: true });
   };
 
   // Get player move & push to playerArray
   getPlay = e => {
     const { playerArray, running } = this.state;
     e.preventDefault;
-    console.log(e.target.value);
     if (running) {
       const move = e.target.value;
       this.sound(move);
       let arr = playerArray;
       arr.push(move);
       this.setState({ playerArray: arr });
-      console.log(this.state);
-      // game.move = this.id;
-      // sound(game.move);
-      // // Push player input to playerArray
-      // game.playerArray.push(game.move);
       this.checkPlay();
     }
   };
@@ -116,49 +100,33 @@ class SimonGame extends Component {
       // If strict, restart
       if (strict === true) {
         this.setState({ display: '!!!' });
-        // $display.innerHTML = '!!!';
-        // game.sound.red.play();
-        // game.sound.blue.play();
-        // game.sound.green.play();
-        // game.sound.yellow.play();
-        // setTimeout(function() {
-        //   this.startGame();
-        // }, 2000);
+        this.red.play();
+        this.blue.play();
+        this.green.play();
+        this.yellow.play();
+        setTimeout(() => {
+          this.startGame();
+        }, 2000);
       }
       // If not strict replay computer array
       else {
         this.setState({ display: '!!!' });
-        // $display.innerHTML = '!!!';
-        // setTimeout(function() {
-        //   $display.innerHTML = game.count;
-        // }, 2000);
-        // game.sound.red.play();
-        // game.sound.blue.play();
-        // game.sound.green.play();
-        // game.sound.yellow.play();
-        // setTimeout(function() {
-        //   showComputerArray();
-        // }, 2500);
+        this.red.play();
+        this.blue.play();
+        this.green.play();
+        this.yellow.play();
+        setTimeout(() => {
+          this.showComputerArray();
+        }, 2500);
       }
     }
     // Otherwise, we have a match
     else {
       // Check for win
       if (count === 2 && playerArray.length === count) {
-        // setTimeout(function() {
-        //   winDance();
-        // }, 700);
-        this.setState({ display: 'Win', running: false, clickAble: false });
-        // $display.innerHTML = 'Win';
-        // $start.classList.remove('unclickable');
-        // $start.classList.add('clickable');
-        // // Make color buttons unclickable
-        // $red.classList.add('unclickable');
-        // $blue.classList.add('unclickable');
-        // $green.classList.add('unclickable');
-        // $yellow.classList.add('unclickable');
+        this.setState({ display: 'Win', running: false });
       } else if (playerArray.length < count) {
-        this.playerPlay();
+        return;
       } else {
         this.computerPlay();
       }
@@ -170,7 +138,6 @@ class SimonGame extends Component {
     switch (color) {
       case 'red':
         this.setState({ redActive: true });
-        console.log(this.state.redActive, 'red');
         this.red.play();
         setTimeout(() => {
           this.setState({ redActive: false });
@@ -178,7 +145,6 @@ class SimonGame extends Component {
         break;
       case 'blue':
         this.setState({ blueActive: true });
-        console.log(this.state.blueActive, 'blue');
         this.blue.play();
         setTimeout(() => {
           this.setState({ blueActive: false });
@@ -186,7 +152,6 @@ class SimonGame extends Component {
         break;
       case 'green':
         this.setState({ greenActive: true });
-        console.log(this.state.greenActive, 'green');
         this.green.play();
         setTimeout(() => {
           this.setState({ greenActive: false });
@@ -194,7 +159,6 @@ class SimonGame extends Component {
         break;
       case 'yellow':
         this.setState({ yellowActive: true });
-        console.log(this.state.yellowActive, 'yellow');
         this.yellow.play();
         setTimeout(() => {
           this.setState({ yellowActive: false });
@@ -218,7 +182,6 @@ class SimonGame extends Component {
         this.yellow.play();
         break;
       default:
-        console.log('error');
         break;
     }
   };
@@ -232,7 +195,6 @@ class SimonGame extends Component {
     const {
       display,
       running,
-      clickAble,
       redActive,
       blueActive,
       greenActive,
@@ -243,17 +205,9 @@ class SimonGame extends Component {
         <div className="SimonGame__button-row">
           <button
             className={
-              !clickAble && redActive
-                ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable active'
-                : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable' +
-                  //   clickAble && redActive
-                  // ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch active'
-                  // : 'SimonGame__btn SimonGame__top-left SimonGame__notouch' +
-                  clickAble
-                  ? redActive
-                    ? 'SimonGame__btn SimonGame__top-left SimonGame__notouch active'
-                    : 'SimonGame__btn SimonGame__top-left SimonGame__notouch'
-                  : 'SimonGame__btn SimonGame__top-left SimonGame__notouch SimonGame__unclickable'
+              redActive
+                ? 'SimonGame__btn SimonGame__top-left active'
+                : 'SimonGame__btn SimonGame__top-left'
             }
             id="red"
             value="red"
@@ -261,17 +215,9 @@ class SimonGame extends Component {
           />
           <button
             className={
-              !clickAble && blueActive
-                ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable active'
-                : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable' +
-                  //   clickAble && blueActive
-                  // ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch active'
-                  // : 'SimonGame__btn SimonGame__top-right SimonGame__notouch' +
-                  clickAble
-                  ? blueActive
-                    ? 'SimonGame__btn SimonGame__top-right SimonGame__notouch active'
-                    : 'SimonGame__btn SimonGame__top-right SimonGame__notouch'
-                  : 'SimonGame__btn SimonGame__top-right SimonGame__notouch SimonGame__unclickable'
+              blueActive
+                ? 'SimonGame__btn SimonGame__top-right active'
+                : 'SimonGame__btn SimonGame__top-right'
             }
             id="blue"
             value="blue"
@@ -281,17 +227,9 @@ class SimonGame extends Component {
         <div className="SimonGame__button-row">
           <button
             className={
-              !clickAble && greenActive
-                ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable active'
-                : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable' +
-                  //   clickAble && greenActive
-                  // ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch active'
-                  // : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch' +
-                  clickAble
-                  ? greenActive
-                    ? 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch active'
-                    : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch'
-                  : 'SimonGame__btn SimonGame__bottom-left SimonGame__notouch SimonGame__unclickable'
+              greenActive
+                ? 'SimonGame__btn SimonGame__bottom-left active'
+                : 'SimonGame__btn SimonGame__bottom-left'
             }
             id="green"
             value="green"
@@ -299,17 +237,9 @@ class SimonGame extends Component {
           />
           <button
             className={
-              !clickAble && yellowActive
-                ? 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable active'
-                : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable' +
-                  //   clickAble && yellowActive
-                  // ? 'button SimonGame__btn SimonGame__bottom-right notouch active'
-                  // : 'button SimonGame__btn SimonGame__bottom-right notouch' +
-                  clickAble
-                  ? yellowActive
-                    ? 'button SimonGame__btn SimonGame__bottom-right notouch active'
-                    : 'button SimonGame__btn SimonGame__bottom-right notouch'
-                  : 'button SimonGame__btn SimonGame__bottom-right notouch SimonGame__unclickable'
+              yellowActive
+                ? 'button SimonGame__btn SimonGame__bottom-right active'
+                : 'button SimonGame__btn SimonGame__bottom-right'
             }
             id="yellow"
             value="yellow"

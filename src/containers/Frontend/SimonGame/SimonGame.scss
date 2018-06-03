@@ -41,10 +41,6 @@
     pointer-events: none;
   }
 
-  &__clickable {
-    pointer-events: auto;
-  }
-
   &__top-left {
     border-top-left-radius: 100%;
     background-color: #bf0000; /*red*/
