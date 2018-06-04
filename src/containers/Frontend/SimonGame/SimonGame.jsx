@@ -33,6 +33,30 @@ class SimonGame extends Component {
     );
   }
 
+  startGame = () => {
+    this.setState({ display: '--', clickAble: true, count: 0 });
+    this.getComputerArray().then(() => this.computerPlay());
+  };
+
+  reset = () => {
+    this.setState({
+      running: false,
+      strict: false,
+      count: 0,
+      computerArray: [],
+      playerArray: [],
+      display: '--',
+      redActive: false,
+      blueActive: false,
+      greenActive: false,
+      yellowActive: false,
+    });
+  };
+
+  toggleStrict = () => {
+    this.setState({ strict: !this.state.strict });
+  };
+
   getComputerArray = () => {
     const { colors } = this.state;
     return new Promise(resolve => {
@@ -45,7 +69,6 @@ class SimonGame extends Component {
     });
   };
 
-  // Play Computer Array
   computerPlay = () => {
     this.setState(
       {
@@ -54,13 +77,10 @@ class SimonGame extends Component {
       },
       this.showComputerArray()
     );
-    console.log('computerPlay', this.state);
   };
 
-  // Display computer array
   showComputerArray = () => {
     const { computerArray } = this.state;
-    // Show game count &  Empty player array
     this.setState({
       display: this.state.count,
       playerArray: [],
@@ -71,8 +91,6 @@ class SimonGame extends Component {
       let color = computerArray[i];
       this.lightSound(color);
       i++;
-      console.log(i);
-
       if (i >= this.state.count) {
         clearInterval(sequence);
         this.setState({ clickAble: true });
@@ -80,7 +98,6 @@ class SimonGame extends Component {
     }, 700);
   };
 
-  // Get player move & push to playerArray
   getPlay = e => {
     const { playerArray, clickAble } = this.state;
     e.preventDefault;
@@ -138,7 +155,6 @@ class SimonGame extends Component {
     }
   };
 
-  // Lights & sound
   lightSound = color => {
     switch (color) {
       case 'red':
@@ -189,31 +205,6 @@ class SimonGame extends Component {
       default:
         break;
     }
-  };
-
-  startGame = () => {
-    this.setState({ display: '--', clickAble: true, count: 0 });
-    this.getComputerArray().then(() => this.computerPlay());
-  };
-
-  reset = () => {
-    this.setState({
-      running: false,
-      strict: false,
-      count: 0,
-      computerArray: [],
-      playerArray: [],
-      display: '--',
-      redActive: false,
-      blueActive: false,
-      greenActive: false,
-      yellowActive: false,
-    });
-  };
-
-  toggleStrict = () => {
-    this.setState({ strict: !this.state.strict });
-    console.log(this.state);
   };
 
   render() {
