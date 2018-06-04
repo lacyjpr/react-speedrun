@@ -40,7 +40,7 @@ class SimonGame extends Component {
 
   reset = () => {
     this.setState({
-      running: false,
+      clickAble: false,
       strict: false,
       count: 0,
       computerArray: [],
@@ -210,7 +210,7 @@ class SimonGame extends Component {
   render() {
     const {
       display,
-      running,
+      clickAble,
       strict,
       redActive,
       blueActive,
@@ -277,7 +277,7 @@ class SimonGame extends Component {
             <div className="SimonGame__col1">
               <div
                 className={
-                  running
+                  clickAble
                     ? 'SimonGame__btn-round SimonGame__start SimonGame__unclickable'
                     : 'SimonGame__btn-round SimonGame__start'
                 }
