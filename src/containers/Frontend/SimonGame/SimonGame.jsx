@@ -191,6 +191,21 @@ class SimonGame extends Component {
     this.getComputerArray().then(() => this.computerPlay());
   };
 
+  reset = () => {
+    this.setState({
+      running: false,
+      strict: false,
+      count: 0,
+      computerArray: [],
+      playerArray: [],
+      display: '--',
+      redActive: false,
+      blueActive: false,
+      greenActive: false,
+      yellowActive: false,
+    });
+  };
+
   render() {
     const {
       display,
@@ -280,16 +295,14 @@ class SimonGame extends Component {
 
           <div className="SimonGame__wrap2">
             <div className="SimonGame__col2">
-              <div className="SimonGame__btn-round SimonGame__reset" />
               <div
-                className="SimonGame__label4"
+                className="SimonGame__btn-round SimonGame__reset"
                 role="button"
                 tabIndex={0}
                 onClick={this.reset}
                 onKeyPress={this.reset}
-              >
-                Reset
-              </div>
+              />
+              <div className="SimonGame__label4">Reset</div>
             </div>
           </div>
         </div>
