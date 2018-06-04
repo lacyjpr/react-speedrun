@@ -6,7 +6,7 @@ class SimonGame extends Component {
     super();
 
     this.state = {
-      running: false,
+      clickAble: false,
       strict: false,
       count: 0,
       colors: ['red', 'blue', 'green', 'yellow'],
@@ -61,7 +61,11 @@ class SimonGame extends Component {
   showComputerArray = () => {
     const { computerArray } = this.state;
     // Show game count &  Empty player array
-    this.setState({ display: this.state.count, playerArray: [] });
+    this.setState({
+      display: this.state.count,
+      playerArray: [],
+      clickAble: false,
+    });
     let i = 0;
     const sequence = setInterval(() => {
       let color = computerArray[i];
@@ -71,15 +75,16 @@ class SimonGame extends Component {
 
       if (i >= this.state.count) {
         clearInterval(sequence);
+        this.setState({ clickAble: true });
       }
     }, 700);
   };
 
   // Get player move & push to playerArray
   getPlay = e => {
-    const { playerArray, running } = this.state;
+    const { playerArray, clickAble } = this.state;
     e.preventDefault;
-    if (running) {
+    if (clickAble) {
       const move = e.target.value;
       this.sound(move);
       let arr = playerArray;
@@ -123,8 +128,8 @@ class SimonGame extends Component {
     // Otherwise, we have a match
     else {
       // Check for win
-      if (count === 2 && playerArray.length === count) {
-        this.setState({ display: 'Win', running: false });
+      if (count === 5 && playerArray.length === count) {
+        this.setState({ display: 'Win', clickAble: false });
       } else if (playerArray.length < count) {
         return;
       } else {
@@ -187,7 +192,7 @@ class SimonGame extends Component {
   };
 
   startGame = () => {
-    this.setState({ display: '--', running: true, count: 0 });
+    this.setState({ display: '--', clickAble: true, count: 0 });
     this.getComputerArray().then(() => this.computerPlay());
   };
 
