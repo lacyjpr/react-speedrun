@@ -95,7 +95,7 @@ class SimonGame extends Component {
         clearInterval(sequence);
         this.setState({ clickAble: true });
       }
-    }, 700);
+    }, 800);
   };
 
   getPlay = e => {
@@ -162,28 +162,28 @@ class SimonGame extends Component {
         this.red.play();
         setTimeout(() => {
           this.setState({ redActive: false });
-        }, 1000);
+        }, 700);
         break;
       case 'blue':
         this.setState({ blueActive: true });
         this.blue.play();
         setTimeout(() => {
           this.setState({ blueActive: false });
-        }, 1000);
+        }, 700);
         break;
       case 'green':
         this.setState({ greenActive: true });
         this.green.play();
         setTimeout(() => {
           this.setState({ greenActive: false });
-        }, 1000);
+        }, 700);
         break;
       case 'yellow':
         this.setState({ yellowActive: true });
         this.yellow.play();
         setTimeout(() => {
           this.setState({ yellowActive: false });
-        }, 1000);
+        }, 700);
         break;
     }
   };
