@@ -206,6 +206,11 @@ class SimonGame extends Component {
     });
   };
 
+  toggleStrict = () => {
+    this.setState({ strict: !this.state.strict });
+    console.log(this.state);
+  };
+
   render() {
     const {
       display,
@@ -288,7 +293,13 @@ class SimonGame extends Component {
             </div>
             <div className="SimonGame__col1">
               <div className="SimonGame__led" />
-              <div className="SimonGame__btn-round SimonGame__strict" />
+              <div
+                className="SimonGame__btn-round SimonGame__strict"
+                role="button"
+                tabIndex={0}
+                onClick={this.toggleStrict}
+                onKeyPress={this.toggleStrict}
+              />
               <div className="SimonGame__label3">Strict</div>
             </div>
           </div>
