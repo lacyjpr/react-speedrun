@@ -215,6 +215,7 @@ class SimonGame extends Component {
     const {
       display,
       running,
+      strict,
       redActive,
       blueActive,
       greenActive,
@@ -292,7 +293,9 @@ class SimonGame extends Component {
               <div className="SimonGame__label2">Start</div>
             </div>
             <div className="SimonGame__col1">
-              <div className="SimonGame__led" />
+              <div
+                className={strict ? 'SimonGame__led--on' : 'SimonGame__led'}
+              />
               <div
                 className="SimonGame__btn-round SimonGame__strict"
                 role="button"

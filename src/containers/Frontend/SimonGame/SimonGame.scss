@@ -185,13 +185,18 @@
   }
 
   &__led {
-    margin-left: 3vh;
-    height: 0.5vh;
-    width: 0.5vh;
+    margin-left: 2.8vh;
+    border-radius: 50%;
+    height: 0.75vh;
+    width: 0.75vh;
     background-color: #ff0000;
   }
 
-  &__led.on {
+  &__led--on {
+    margin-left: 2.8vh;
+    border-radius: 50%;
+    height: 0.75vh;
+    width: 0.75vh;
     background-color: #006600;
   }
 
