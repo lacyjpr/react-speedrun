@@ -1,15 +1,11 @@
 import React from 'react';
 
-class Input extends React.Component {
-  render() {
-    return (
-      <textarea
-        className="MarkdownPreviewer__input"
-        onChange={this.props.onChange}
-        value={this.props.value}
-      />
-    );
-  }
-}
+const Input = ({ onChange, value }) => (
+  <textarea
+    className="MarkdownPreviewer__input"
+    onChange={onChange}
+    value={value}
+  />
+);
 
 export default Input;
