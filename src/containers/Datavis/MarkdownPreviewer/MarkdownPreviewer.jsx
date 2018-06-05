@@ -33,10 +33,7 @@ class MarkdownPreviewer extends Component {
   render() {
     return (
       <div className="MarkdownPreviewer">
-        <Input
-          onChange={this.handleChange.bind(this)}
-          value={this.state.text}
-        />
+        <Input onChange={this.handleChange} value={this.state.text} />
         <Output markDown={this.getMarkdown()} />
       </div>
     );
