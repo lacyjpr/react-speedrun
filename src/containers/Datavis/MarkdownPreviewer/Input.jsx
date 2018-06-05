@@ -4,7 +4,7 @@ class Input extends React.Component {
   render() {
     return (
       <textarea
-        className="input row"
+        className="MarkdownPreviewer__input"
         onChange={this.props.onChange}
         value={this.props.value}
       />

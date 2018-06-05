@@ -1,44 +1,44 @@
 .MarkdownPreviewer {
-  .input,
-  .output {
-    width: 49.9%;
-    height: 100vh;
-    box-sizing: border-box;
-    padding: 2vh;
-    border: 1px solid black;
+  html,
+  body {
+    height: 100%;
   }
 
   textarea {
-    resize: none;
+    overflow-y: auto;
   }
 
-  .input {
-    float: left;
-    font-family: courier;
-    font-size: 1rem;
+  &__input,
+  &__output {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50vh;
+    overflow-y: auto;
+    padding: 2vh;
+    border: 1px solid black;
   }
-
-  .output {
-    float: right;
-    background-color: #d3d3d3;
-  }
-
-  @media screen and (max-width: 768px) {
-    html,
-    body {
-      height: 100%;
+  @media (min-width: 769px) {
+    &__input,
+    &__output {
+      width: 49.9%;
+      height: 135vh;
+      overflow-y: hidden;
+      box-sizing: border-box;
     }
 
     textarea {
-      overflow-y: scroll;
+      resize: none;
     }
 
-    .input,
-    .output {
-      box-sizing: border-box;
-      width: 100%;
-      height: 50vh;
-      overflow-y: scroll;
+    &__input {
+      float: left;
+      font-family: courier;
+      font-size: 1rem;
+    }
+
+    &__output {
+      float: right;
+      background-color: #d3d3d3;
     }
   }
 }
