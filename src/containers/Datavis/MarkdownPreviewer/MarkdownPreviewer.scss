@@ -1,3 +1,44 @@
 .MarkdownPreviewer {
-  text-align: center;
+  .input,
+  .output {
+    width: 49.9%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 2vh;
+    border: 1px solid black;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .input {
+    float: left;
+    font-family: courier;
+    font-size: 1rem;
+  }
+
+  .output {
+    float: right;
+    background-color: #d3d3d3;
+  }
+
+  @media screen and (max-width: 768px) {
+    html,
+    body {
+      height: 100%;
+    }
+
+    textarea {
+      overflow-y: scroll;
+    }
+
+    .input,
+    .output {
+      box-sizing: border-box;
+      width: 100%;
+      height: 50vh;
+      overflow-y: scroll;
+    }
+  }
 }
