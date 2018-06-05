@@ -32,7 +32,7 @@ class MarkdownPreviewer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="MarkdownPreviewer">
         <Input
           onChange={this.handleChange.bind(this)}
           value={this.state.text}

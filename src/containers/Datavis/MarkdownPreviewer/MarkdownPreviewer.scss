@@ -1,11 +1,15 @@
 .MarkdownPreviewer {
-  html,
-  body {
-    height: 100%;
-  }
-
   textarea {
     overflow-y: auto;
+    font-size: 1.4rem;
+  }
+
+  &__input {
+    font-family: courier;
+  }
+
+  &__output {
+    background-color: #d3d3d3;
   }
 
   &__input,
@@ -17,6 +21,7 @@
     padding: 2vh;
     border: 1px solid black;
   }
+
   @media (min-width: 769px) {
     &__input,
     &__output {
@@ -32,13 +37,11 @@
 
     &__input {
       float: left;
-      font-family: courier;
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
 
     &__output {
       float: right;
-      background-color: #d3d3d3;
     }
   }
 }
