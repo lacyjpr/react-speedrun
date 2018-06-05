@@ -6,25 +6,30 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server -d",
     "build": "cross-env NODE_ENV=production webpack -p",
-    "cloud9":
-      "webpack-dev-server --host $IP --port $PORT --public $C9_HOSTNAME --open --mode development",
+    "cloud9": "webpack-dev-server --host $IP --port $PORT --public $C9_HOSTNAME --open --mode development",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "jest": {
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["node_modules"],
-    "setupFiles": ["<rootDir>/src/tests/setup.js"],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/tests/setup.js"
+    ],
     "moduleNameMapper": {
       "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy"
     },
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.jsx$": "babel-jest",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/src/tests/__mock__/fileTransformer.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mock__/fileTransformer.js"
     }
   },
   "devDependencies": {
@@ -63,6 +68,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages-webpack-plugin": "^1.0.2",
+    "marked": "^0.4.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
